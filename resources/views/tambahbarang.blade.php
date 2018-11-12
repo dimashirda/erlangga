@@ -10,49 +10,51 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form class="form-horizontal" action="{{url('/barang/simpan')}}" method="post">
+                    <form class="form-horizontal" action="{{url('/barang/simpan')}}" method="POST">
                         {{csrf_field()}}
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="IdBarang" class="col-sm-2 control-label">ID Barang</label>
+                                <label for="IdBarang" class="col-sm-2 control-label">Kode Barang</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="idbarang" name="id_barang">
+                                    <input type="text" class="form-control" id="kodebarang" name="kode_barang"
+                                    autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="NamaBarang" class="col-sm-2 control-label">Nama Barang</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="namabarang" name="nama_barang">
+                                    <input type="text" class="form-control" id="namabarang" name="nama_barang"
+                                    autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="HargaBeli" class="col-sm-2 control-label">Harga Beli</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="hargabeli" name="harga_beli">
+                                    <input type="number" autocomplete="off" class="form-control" id="hargabeli" name="harga_beli">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="HargaJual" class="col-sm-2 control-label">Harga Jual</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="hargajual" name="harga_jual">
+                                    <input type="number" class="form-control" autocomplete="off" id="hargajual" name="harga_jual">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="StokBarang" class="col-sm-2 control-label">Stok Barang</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="stokbarang" name="stok_barang">
+                                    <input type="number" class="form-control" id="stokbarang" autocomplete="off" name="stok_barang">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="SatuanBarang" class="col-sm-2 control-label">Satuan</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="satuanbarang" name="satuan_barang">
+                                    <input type="text" class="form-control" id="satuanbarang" name="satuan_barang" autocomplete="off">
                                 </div>
                             </div>
                         </div>

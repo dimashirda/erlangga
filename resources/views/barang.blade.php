@@ -55,7 +55,7 @@
                         <table class="table table-new table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Kode Barang</th>
                                 <th>Nama Barang</th>
                                 <th>Harga Beli</th>
                                 <th>Harga Jual</th>
@@ -69,21 +69,25 @@
                             <tbody>
                             @foreach($acc as $a)
                             <tr>
-                                <td>{{ $a->id }}</td>
-                                <td>{{ $a->nama_barang }}</td>
+                                <td>{{ $a->kode }}</td>
+                                <td>{{ $a->nama }}</td>
                                 <td>{{ $a->harga_beli }}</td>
                                 <td>{{ $a->harga_jual }}</td>
                                 <td>{{ $a->satuan }}</td>
-                                <td>{{ $a->stok_barang }}</td>
+                                <td>{{ $a->stok }}</td>
                                 @if(Auth::User()->name == 'dimas')
                                 <td align="center" width="30px">
-                                    <button type="button" class="btn btn-default edit-button" data-toggle="modal" data-target="#modal-default" data-id="{{$a->id}}" data-name="{{$a->nama_barang}}" data-hargabeli="{{$a->harga_beli}}" data-hargajual="{{$a->harga_jual}}"
-                                    data-stok="{{$a->stok_barang}}" data-satuan="{{$a->satuan}}">
+                                    <button type="button" class="btn btn-default edit-button" data-toggle="modal" 
+                                    data-target="#modal-default" data-id="{{$a->id}}" data-kode="{{$a->kode}}" 
+                                    data-name="{{$a->nama}}" data-hargabeli="{{$a->harga_beli}}" 
+                                    data-hargajual="{{$a->harga_jual}}"
+                                    data-stok="{{$a->stok}}" data-satuan="{{$a->satuan}}">
                                         Edit
                                     </button>
                                 </td>
                                 <td align="center" width="30px">
-                                    <button type="button" class="btn btn-danger delete-button" data-name="{{$a->nama_barang}}" data-id="{{$a->id}}" data-toggle="modal" data-target="#modal-danger">
+                                    <button type="button" class="btn btn-danger delete-button" data-name="{{$a->nama}}" 
+                                    data-id="{{$a->id}}" data-toggle="modal" data-target="#modal-danger">
                                         Hapus
                                     </button>
                                 </td>
@@ -105,47 +109,53 @@
                             <div class="modal-body">
                                 <form class="form-horizontal" method="post" id="form-edit">
                                    {{ csrf_field() }}
+                                   <input type="hidden" name="id" id="id">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label for="IdBarang" class="col-sm-2 control-label">ID Barang</label>
+                                            <label for="IdBarang" class="col-sm-2 control-label">Kode Barang</label>
 
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="idbarang" name="id_barang" disabled>
+                                                <input type="text" class="form-control" id="kodebarang" name="kode_barang"
+                                                autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="NamaBarang" class="col-sm-2 control-label">Nama Barang</label>
 
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="namabarang" name="nama_barang">
+                                                <input type="text" class="form-control" 
+                                                autocomplete="off" id="namabarang" name="nama_barang">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="HargaBeli" class="col-sm-2 control-label">Harga Beli</label>
 
                                             <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="hargabeli" name="harga_beli">
+                                                <input type="number" autocomplete="off" class="form-control" id="hargabeli" name="harga_beli">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="HargaJual" class="col-sm-2 control-label">Harga Jual</label>
 
                                             <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="hargajual" name="harga_jual">
+                                                <input type="number" class="form-control" 
+                                                autocomplete="off" id="hargajual" name="harga_jual">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="StokBarang" class="col-sm-2 control-label">Stok Barang</label>
 
                                             <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="stokbarang" name="stok_barang">
+                                                <input type="number"
+                                                 autocomplete="off" class="form-control" id="stokbarang" name="stok_barang">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="SatuanBarang" class="col-sm-2 control-label">Satuan</label>
 
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="satuan" name="satuan_barang">
+                                                <input type="text"  
+                                                autocomplete="off" class="form-control" id="satuan" name="satuan_barang">
                                             </div>
                                         </div>
                                     </div>
@@ -194,9 +204,11 @@
             var harga_jual = $(this).data('hargajual');
             var stok = $(this).data('stok');
             var satuan = $(this).data('satuan');
+            var kode = $(this).data('kode');
             //console.log(id);
             //console.log(val(nama_barang));
-            $("#idbarang").val(id);
+            $("#id").val(id);
+            $("#kodebarang").val(kode)
             $("#namabarang").val(nama_barang);
             $("#hargabeli").val(harga_beli);
             $("#hargajual").val(harga_jual);

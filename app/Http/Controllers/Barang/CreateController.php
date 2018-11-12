@@ -1,22 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Barang;
 
-use DB;
-use App\Barang;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Barang;
 
-class BarangController extends Controller
+class CreateController extends Controller
 {
-    public function index()
-    {	
-        $acc = Barang::paginate(25);
-    	return view('barang',['acc'=>$acc])->with('nav','barang');
-    }
-    public function tambah()
-    {
-    	return view('tambahbarang')->with('nav','barang');
-    }
     public function simpan(request $req)
     {   
         //dd($req);
@@ -49,6 +40,7 @@ class BarangController extends Controller
             }
         }
     }
+
     public function edit(request $data, $id)
     {
         $edit = Barang::where('id',$id)->first();
@@ -65,18 +57,6 @@ class BarangController extends Controller
         else{
             $data->session()->flash('alert-danger', 'Data barang gagal diperbarui.');
             return redirect('/barang');
-        }
-    }
-    public function delete(Request $data, $id_barang)
-    {
-        $del = Barang::where('id',$id_barang);
-        if($del->delete()){        
-            $data->session()->flash('alert-success', 'Data barang berhasil dihapus.');
-            return redirect ('/barang');
-        }
-        else{
-            $data->session()->flash('alert-danger', 'Data barang gagal dihapus.');
-            return redirect ('/barang');
         }
     }
 }

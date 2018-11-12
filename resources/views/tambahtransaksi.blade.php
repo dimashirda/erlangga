@@ -229,7 +229,7 @@ $(document).ready(function(){
   $.ajax({
     type:"GET",
     dataType:"json",
-    url:"/search/barang",
+    url:"/erlangga/public/search/barang",
     success: function(data){
       //console.log(data);
       data.nama.forEach(function(response){
@@ -247,7 +247,7 @@ $(document).ready(function (){
     $.ajax({
         type:"GET",
         dataType:"json",
-        url:"/search/pelanggan",
+        url:"/erlangga/public/search/pelanggan",
         success: function(data){
             var nama = [];
             var result = [];

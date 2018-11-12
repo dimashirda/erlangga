@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pelanggan extends Model
 {
-    protected $table = 'pelanggans';
+    protected $table = 'pelanggan';
 
-    public function pelanggan_beli()
+    public function transaksi()
     {
-    	return $this->hasMany('App\Transaksi','id_pelanggan','id');
+    	return $this->hasMany('App\Penjualan','id','pelanggan_id');
     }
 }

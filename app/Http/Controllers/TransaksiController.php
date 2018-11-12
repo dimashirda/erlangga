@@ -28,18 +28,21 @@ class TransaksiController extends Controller
     }
     public function simpan(Request $req)
     {   
-        dd(date('Y-m-d H:i:s'));
+        dd($req);
+        //dd(date('Y-m-d H:i:s'));
         $transaksi  = new Transaksi;
         $transaksi->id_user = Auth::user()->id;
         $transaksi->id_pelanggan = $req->input('id_pelanggan');
         $transaksi->waktu_transaksi = date('Y-m-d H:i:s');
+        $transaksi->id_surat = null;
+        $transaksi->jumlah = 
         $j_barang = count($req->input('id_barang'));
         for($i = 0; $i<$j_barang; $i++)
         {
             $penjualan_barang = new Penjualan_barang;
             $bar_now = Barang::where('id',$req->input('id_barang.'.$i.''))->first();
-            dd($bar_now);
-
+            $penjualan_barang->id_barang = $bar_now->id;
+            $penjualan_barang->id_transaksi =    
         }    
     }
 }

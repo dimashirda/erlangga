@@ -17,11 +17,11 @@ Auth::routes();
 Route::middleware(['auth'])->group(function(){
 	Route::get('/home','HomeController@index');
 	
-	Route::get('/barang','BarangController@index');
-	Route::get('/barang/tambah','BarangController@tambah');
-	Route::post('/barang/simpan','BarangController@simpan');
-	Route::post('/barang/edit/{id_barang}','BarangController@edit');
-	Route::get('/barang/delete/{id_barang}','BarangController@delete');
+	Route::get('/barang','Barang\ViewController@index');
+	Route::get('/barang/tambah','Barang\ViewController@tambah');
+	Route::post('/barang/simpan','Barang\CreateController@simpan');
+	Route::post('/barang/edit/{id_barang}','Barang\CreateController@edit');
+	Route::get('/barang/delete/{id_barang}','Barang\DeleteController@delete');
 
 	Route::get('/pelanggan','PelangganController@index');
 	Route::get('/pelanggan/tambah','PelangganController@tambah');
@@ -45,8 +45,3 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/search/pelanggan','SearchController@pelanggan');
 	Route::get('/search/supplier','SearchController@supplier');
 });
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
