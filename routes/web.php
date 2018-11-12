@@ -29,11 +29,11 @@ Route::middleware(['auth'])->group(function(){
 	Route::post('/pelanggan/edit/{id_pelanggan}','PelangganController@edit');
 	Route::get('/pelanggan/delete/{id_pelanggan}','PelangganController@delete');
 
-	Route::get('/supplier','SupplierController@index');
-	Route::get('/supplier/tambah','SupplierController@tambah');
-	Route::post('/supplier/simpan','SupplierController@simpan');
-	Route::post('/supplier/edit/{id_supplier}','SupplierController@edit');
-	Route::get('/supplier/delete/{id_supplier}','SupplierController@delete');
+	Route::get('/supplier','Supplier\ViewController@index');
+	Route::get('/supplier/tambah','Supplier\ViewController@tambah');
+	Route::post('/supplier/simpan','Supplier\CreateController@simpan');
+	Route::post('/supplier/edit/{id_supplier}','Supplier\CreateController@edit');
+	Route::get('/supplier/delete/{id_supplier}','Supplier\DeleteController@delete');
 
 	Route::get('/transaksi','TransaksiController@index');
 	Route::get('/transaksi/tambah','TransaksiController@tambah');
