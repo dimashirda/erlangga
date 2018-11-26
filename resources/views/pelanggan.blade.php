@@ -71,23 +71,24 @@
                             @foreach($acc as $a)
                             <tr>
                                 <td>{{ $a->id }}</td>
-                                <td>{{ $a->nama_pelanggan }}</td>
-                                <td>{{ $a->alamat_pelanggan }}</td>
-                                <td>{{ $a->no_telepon }}</td>
+                                <td>{{ $a->nama }}</td>
+                                <td>{{ $a->alamat }}</td>
+                                <td>{{ $a->telepon }}</td>
                                 <td>{{ $a->kota }}</td>
                                 <td>{{ $a->limit }}</td>
                                 <td>{{ $a->kredit }}</td>
                                 @if(Auth::User()->name == 'dimas')
                                 <td align="center" width="30px">
                                     <button type="button" class="btn btn-default edit-button" data-toggle="modal" data-target="#modal-default"
-                                    data-id="{{$a->id}}" data-name="{{$a->nama_pelanggan}}" data-alamat="{{$a->alamat_pelanggan}}" 
-                                    data-telpon="{{$a->no_telepon}}" data-kota="{{$a->kota}}" 
+                                    data-id="{{$a->id}}" data-name="{{$a->nama}}" data-alamat="{{$a->alamat}}" 
+                                    data-telpon="{{$a->telepon}}" data-kota="{{$a->kota}}" 
                                     data-limit="{{$a->limit}}" data-kredit="{{$a->kredit}}">
                                         Edit
                                     </button>
                                 </td>
                                 <td align="center" width="30px">
-                                    <button type="button" class="btn btn-danger delete-button" data-name="{{$a->nama_pelanggan}}" data-id="{{$a->id}}" data-toggle="modal" data-target="#modal-danger">
+                                    <button type="button" class="btn btn-danger delete-button" data-name="{{$a->nama}}" 
+                                    data-id="{{$a->id}}" data-toggle="modal" data-target="#modal-danger">
                                         Hapus
                                     </button>
                                 </td>

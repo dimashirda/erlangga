@@ -39,10 +39,10 @@ class PelangganController extends Controller
             //dd($req); 
             $a = new Pelanggan();
             //$a->id = $req->input('id_pelanggan');
-            $a->nama_pelanggan = $req->input('nama_pelanggan');
-            $a->alamat_pelanggan = $req->input('alamat');
+            $a->nama = $req->input('nama_pelanggan');
+            $a->alamat = $req->input('alamat');
             $a->kota = $req->input('kota');
-            $a->no_telepon = $req->input('nomor');
+            $a->telepon = $req->input('nomor');
             $a->kredit = $req->input('kredit');
             $a->limit = $req->input('limit');
 
@@ -61,10 +61,10 @@ class PelangganController extends Controller
     public function edit(request $data, $id_pelanggan)
     {
         $edit = Pelanggan::where('id',$id_pelanggan)->first();
-        $edit->nama_pelanggan = $data['nama_pelanggan'];
-        $edit->alamat_pelanggan = $data['alamat'];
+        $edit->nama = $data['nama_pelanggan'];
+        $edit->alamat = $data['alamat'];
         $edit->kota = $data['kota'];
-        $edit->no_telepon = $data['nomor'];
+        $edit->telepon = $data['nomor'];
         $edit->kredit = $data['kredit'];
         $edit->limit = $data['limit'];
         if($edit->save()){

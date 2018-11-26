@@ -141,8 +141,13 @@ return [
             'icon'        => 'user',
         ],*/
         [
-            'text'        => 'Transaksi',
+            'text'        => 'Penjualan',
             'url'         => '/transaksi',
+            'icon'        => 'money',
+        ],
+        [
+            'text'        => 'Pembelian',
+            'url'         => '/pembelian',
             'icon'        => 'money',
         ],
         /*'ACCOUNT SETTINGS',

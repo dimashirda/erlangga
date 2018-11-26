@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Transaksi;
+use App\Penjualan;
 use App\Pelanggan;
 use App\Barang;
 use App\Supplier;
-use App\Penjualan_barang;
 //use Surat_jalan;
 use DB;
 use Auth;
@@ -17,7 +16,7 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-    	$acc = Transaksi::paginate(25);
+    	$acc = Penjualan::paginate(25);
     	return view('Transaksi',['acc'=>$acc])->with('nav','transaksi');
     }
     public function tambah()
@@ -30,10 +29,10 @@ class TransaksiController extends Controller
     {   
         dd($req);
         //dd(date('Y-m-d H:i:s'));
-        $transaksi  = new Transaksi;
-        $transaksi->id_user = Auth::user()->id;
-        $transaksi->id_pelanggan = $req->input('id_pelanggan');
-        $transaksi->waktu_transaksi = date('Y-m-d H:i:s');
+        $penjualan  = new Penjualan;
+        $penjualan->users_id = Auth::user()->id;
+        $penjualan->pelanggan_id = $req->input('id_pelanggan');
+        $penjualan->tanggal_transaksi = date('Y-m-d H:i:s');
         $transaksi->id_surat = null;
         $transaksi->jumlah = 
         $j_barang = count($req->input('id_barang'));

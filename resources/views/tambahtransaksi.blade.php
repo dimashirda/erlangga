@@ -233,7 +233,7 @@ $(document).ready(function(){
     success: function(data){
       //console.log(data);
       data.nama.forEach(function(response){
-        nama.push(response.nama_barang);
+        nama.push(response.nama);
       });
       data.result.forEach(function(response){
         result.push(response);
@@ -252,7 +252,7 @@ $(document).ready(function (){
             var nama = [];
             var result = [];
             data.nama.forEach(function(response){ //callback function
-                nama.push(response.nama_pelanggan);
+                nama.push(response.nama);
             });
             data.result.forEach(function(response){
                 result.push(response);
@@ -376,7 +376,7 @@ function autocomplete(inp, arr, result, flag, counter, quantity) {
           /*insert a input field that will hold the current array item's value:*/
           if(flag == 'pelanggan')
           {
-            b.innerHTML += "<input type='hidden' data-id='"+ result[i].id + "' data-nomor= '"+ result[i].no_telepon + "' data-limit= '" + result[i].limit + "' data-kredit= '" + result[i].kredit + "' value='" + arr[i] + "'>";
+            b.innerHTML += "<input type='hidden' data-id='"+ result[i].id + "' data-nomor= '"+ result[i].telepon + "' data-limit= '" + result[i].limit + "' data-kredit= '" + result[i].kredit + "' value='" + arr[i] + "'>";
           /*execute a function when someone clicks on the item value (DIV element):*/
               b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/

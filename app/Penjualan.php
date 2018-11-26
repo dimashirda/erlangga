@@ -17,9 +17,4 @@ class Penjualan extends Model
     {
     	return $this->hasOne('App\Regis_user','id','user_id');
     }
-
-    public function barang()
-    {
-    	return $this->hasOne('App\Barang','id','barang_id');
-    }
 }

@@ -14,15 +14,15 @@ class SearchController extends Controller
 {
     public function pelanggan(){
         //$query = Input::get('q');
-        $nama = Pelanggan::select('nama_pelanggan')->get();
-        $result = Pelanggan::select('id','no_telepon','limit','kredit')->get();
+        $nama = Pelanggan::select('nama')->get();
+        $result = Pelanggan::select('id','telepon','limit','kredit')->get();
         return json_encode(['nama'=>$nama,'result'=>$result]);
     }
 
     public function barang()
     {
-    	$nama = Barang::select('nama_barang')->get();
-    	$result = Barang::select('id','satuan','harga_jual','stok_barang')->get();
+    	$nama = Barang::select('nama')->get();
+    	$result = Barang::select('id','satuan','harga_jual','stok')->get();
     	return json_encode(['result'=>$result, 'nama'=>$nama]);
     }
 }
