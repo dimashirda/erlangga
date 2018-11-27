@@ -15,6 +15,6 @@ class Penjualan extends Model
 
     public function kasir()
     {
-    	return $this->hasOne('App\Regis_user','id','user_id');
+    	return $this->hasOne('App\Regis_user','id','users_id');
     }
 }

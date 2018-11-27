@@ -165,10 +165,10 @@ body {
                             <div class="form-group">
                                 <label for="CaraPembayaran" class="col-sm-2 control-label">Metode Pembayaran</label>
                                 <div class="radio col-sm-3">
-                                  <label><input type="radio" name="opt_pembayaran"  id="bayar_tunai">Tunai</label>
+                                  <label><input type="radio" name="tunai" id="bayar_tunai">Tunai</label>
                                 </div>
                                 <div class="radio col-sm-3">
-                                  <label><input type="radio" name="opt_pembayaran"  id="bayar_kredit">Kredit</label>
+                                  <label><input type="radio" name="kredit" id="bayar_kredit">Kredit</label>
                                 </div>
                             </div>
                             <div class="form-group" id="tunai" style="display:none;">
@@ -186,6 +186,12 @@ body {
                                     <input type="hidden" id="uang_kembalian_sent" name="uang_kembalian">
                                 </div>
                             </div>
+                            <div class="form-group" style="display:none;" id="jatuh_tempo">
+                              <label for="JatuhTempo" class="col-sm-2 control-label">Jatuh Tempo</label>
+                              <div class="col-sm-10">
+                                  <input type="text" name="jatuhtempo" class="form-control" id="datepicker">
+                              </div>
+                            </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
@@ -202,6 +208,10 @@ body {
             </div>
         </div>
 <script>
+ var j = jQuery.noConflict();
+    j( function() {
+        j( "#datepicker" ).datepicker();
+    } );
 var nama = [];
 var result = [];
 var subtotal = [], total_harga = 0, harga_akhir = 0, uang_kembalian = 0;;
@@ -299,6 +309,8 @@ function countAll()
 document.getElementById("bayar_tunai").addEventListener("click", function(e){
   $('#uang_tunai').val('');
   $('#uang_kembalian').val('');
+  $('#bayar_kredit').prop("checked", false);
+  $('#jatuh_tempo').hide();
   $('#tunai').show();
   $('#kembalian').show();
   document.getElementById("uang_tunai").addEventListener("input", function(e){
@@ -312,6 +324,8 @@ document.getElementById("bayar_tunai").addEventListener("click", function(e){
 document.getElementById("bayar_kredit").addEventListener("click", function(e){
   $('#uang_tunai').val('');
   $('#uang_kembalian').val('');
+  $('#bayar_tunai').prop("checked", false);
+  $('#jatuh_tempo').show();
   $('#tunai').hide();
   $('#kembalian').hide();
 });

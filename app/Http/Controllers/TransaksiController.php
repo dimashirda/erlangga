@@ -6,18 +6,20 @@ use App\Penjualan;
 use App\Pelanggan;
 use App\Barang;
 use App\Supplier;
+use App\Penjualan_detail;
 //use Surat_jalan;
 use DB;
 use Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class TransaksiController extends Controller
 {
     public function index()
     {
-    	$acc = Penjualan::paginate(25);
-    	return view('Transaksi',['acc'=>$acc])->with('nav','transaksi');
+    	$acc = Penjualan::orderBy('tanggal_transaksi','desc')->paginate(10);
+    	return view('transaksi',['acc'=>$acc])->with('nav','transaksi');
     }
     public function tambah()
     {	
@@ -27,21 +29,62 @@ class TransaksiController extends Controller
     }
     public function simpan(Request $req)
     {   
-        dd($req);
-        //dd(date('Y-m-d H:i:s'));
-        $penjualan  = new Penjualan;
-        $penjualan->users_id = Auth::user()->id;
+        //dd($req);
+        $penjualan = new Penjualan;
         $penjualan->pelanggan_id = $req->input('id_pelanggan');
-        $penjualan->tanggal_transaksi = date('Y-m-d H:i:s');
-        $transaksi->id_surat = null;
-        $transaksi->jumlah = 
-        $j_barang = count($req->input('id_barang'));
-        for($i = 0; $i<$j_barang; $i++)
+        $penjualan->users_id = Auth::user()->id;
+        $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
+        if(!empty($req->input('kredit')))
         {
-            $penjualan_barang = new Penjualan_barang;
-            $bar_now = Barang::where('id',$req->input('id_barang.'.$i.''))->first();
-            $penjualan_barang->id_barang = $bar_now->id;
-            $penjualan_barang->id_transaksi =    
-        }    
+            $penjualan->tanggal_jatuh_tempo = Carbon::parse($req->input('jatuh_tempo'));
+            $penjualan->jenis_penjualan = 1;
+            $this->kredit($req->input('id_pelanggan'),$req->input('harga_akhir'));
+        }
+        else
+        {
+            $penjualan->tanggal_jatuh_tempo = null;
+            $penjualan->jenis_penjualan = 2;
+        }
+        $penjualan->total = $req->input('total_harga');
+        $penjualan->diskon = $req->input('diskon_transaksi');
+        $penjualan->potongan = $req->input('potongan_harga');
+        $penjualan->total_akhir = $req->input('harga_akhir');
+        $penjualan->kembalian = $req->input('uang_kembalian');
+        $penjualan->save();
+
+        //dd($penjualan);
+        $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id);
+        return redirect('/transaksi/detail/'.$penjualan->id.'');
+
+    }
+    public function inputdetail($barang,$jumlah,$subtotal,$penjualan)
+    {
+        $count = count($barang);
+
+        for($i=0;$i<$count;$i++)
+        {
+            $detail = new Penjualan_detail;
+            $detail->penjualan_id = $penjualan;
+            $detail->barang_id = $barang[$i];
+            $detail->jumlah = $jumlah[$i];
+            $detail->total_satuan = $subtotal[$i];
+            $detail->save();
+        }
+        return;
+    }
+    public function kredit($id,$total)
+    {
+        $pelanggan = Pelanggan::where('id',$id)->first();
+        $pelanggan->kredit = $total;
+        $pelanggan->save();
+        return;
+    }
+    public function detail($id)
+    {
+        //dd($id);
+        $penjualan = Penjualan::where('id',$id)->first();
+        $detail = Penjualan_detail::where('penjualan_id',$id)->get();
+        //dd($penjualan,$detail);
+        return view('detailpenjualan',['penjualan'=>$penjualan,'detail'=>$detail]);
     }
 }

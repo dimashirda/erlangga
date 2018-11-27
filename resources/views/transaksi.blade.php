@@ -48,6 +48,14 @@
                         <div class="col-xs-6">
                             <a href="{{url('/transaksi/tambah')}}" class='btn btn-primary'><i class="fa fa-plus-circle"></i> Tambah baru</a>
                         </div>
+                        <form action="{{url('/transaksi/search')}}" method="get">
+                        <div class="col-xs-3">
+                            <input type="text" name="tanggal" class="form-control" id="datepicker">
+                        </div>
+                        <div class="col-xs-1">
+                            <button type="submit" class="btn btn-primary">Cari</button>
+                        </div>
+                        </form>
                     </div>
                     <br>
                     @if($acc->count())
@@ -59,7 +67,7 @@
                                 <th>Pelanggan</th>
                                 <th>Tanggal Transaksi</th>
                                 <th>Tanggal Jatuh Tempo</th>
-                                <th>Kredit</th>
+                                <th>Jenis Belanja</th>
                                 <th>Total Belanja</th>
                                 @if(Auth::User()->name == 'dimas')
                                 <th style="text-align: center" colspan="2">Action</th>
@@ -69,24 +77,25 @@
                             <tbody>
                             @foreach($acc as $a)
                             <tr>
-                                <td>{{ $a->kasir }}</td>
-                                <td>{{ $a->pelanggan }}</td>
+                                <td>{{ $a->kasir->name }}</td>
+                                <td>{{ $a->pelanggan->nama }}</td>
                                 <td>{{ $a->tanggal_transaksi }}</td>
                                 <td>{{ $a->tanggal_jatuh_tempo }}</td>
-                                <td>-</td>
+                                <td>@if($a->jenis_penjualan == 1) Kredit @else Tunai @endif</td>
                                 <td>{{ $a->total }}</td>
                                 @if(Auth::User()->name == 'dimas')
                                 <td align="center" width="30px">
-                                    <button type="button" class="btn btn-default edit-button" 
-                                    href="{{url('transaksi/detail/')}}{{$a->id}}">
+                                    <a class="btn btn-default edit-button" 
+                                    href="{{url('transaksi/detail/')}}/{{$a->id}}">
                                         Detail
-                                    </button>
+                                    </a>
                                 </td>
                                     @endif
                             </tr>
                             @endforeach
                             </tbody>
                         </table>
+                        {{$acc->links()}}
                     </div>
                 </div>
                 @else
@@ -97,5 +106,9 @@
     </div>
 
     <script>
+    var j = jQuery.noConflict();
+    j( function() {
+        j( "#datepicker" ).datepicker();
+    } );
     </script>
 @stop
