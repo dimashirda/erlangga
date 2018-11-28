@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::post('/transaksi/simpan','TransaksiController@simpan');
 	Route::get('/transaksi/detail/{id}', 'TransaksiController@detail');
 	Route::post('/transaksi/edit/{id}','TransaksiController@edit');
-	Route::get('/transaksi/delete/{id}','TransaksiController@delete');
+	Route::get('/transaksi/delete','TransaksiController@delete');
 	Route::get('/transaksi/cari','TransaksiController@search');
 
 	Route::get('/search/barang','SearchController@barang');

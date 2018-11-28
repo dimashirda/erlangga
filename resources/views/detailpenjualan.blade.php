@@ -29,9 +29,12 @@
                     <br>
                     <div class="row">
                         <div class="col-xs-6">
-                            <a href="{{url('/transaksi/tambah')}}" class='btn btn-primary'>Print</a>
-                            <a href="{{url('/transaksi/tambah')}}" class='btn btn-info'>Edit</a>
-                            <a href="{{url('/transaksi/tambah')}}" class='btn btn-danger'>Delete</a>
+                            <a href="{{url('/transaksi/print')}}/{{$penjualan->id}}" class='btn btn-primary'>Print</a>
+                            <a href="{{url('/transaksi/edit')}}/{{$penjualan->id}}" class='btn btn-info'>Edit</a>
+                            <button type="button" class="btn btn-danger delete-button" 
+                                    data-id="{{$penjualan->id}}" data-toggle="modal" data-target="#modal-danger">
+                            Delete
+                            </button>
                         </div>
                     </div>
                     <br>
@@ -86,7 +89,31 @@
             </div>
         </div>
     </div>
-
+     <div id="modal-danger" class="modal fade" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Hapus Data</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="show-name"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <a id="del-btn">
+                        <button type="button" class="btn btn-danger pull-right" style="margin-left: 4px ;">Hapus</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
+    $(document).on("click",".delete-button", function () {
+            var id = $(this).data('id')
+            $("#del-btn").attr('href','{{url('/transaksi/delete')}}' + '?id=' + id)
+            $("#show-name").html('Anda yakin ingin menghapus transaksi no ' + id + '?')
+        })
     </script>
 @stop

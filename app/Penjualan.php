@@ -3,10 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Penjualan extends Model
 {
     protected $table = 'penjualan';
+    use SoftDeletes;
 
     public function pelanggan()
     {

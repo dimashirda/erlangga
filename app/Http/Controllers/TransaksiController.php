@@ -87,4 +87,23 @@ class TransaksiController extends Controller
         //dd($penjualan,$detail);
         return view('detailpenjualan',['penjualan'=>$penjualan,'detail'=>$detail]);
     }
+    public function delete(Request $request)
+    {   
+        //dd($id);
+        $penjualan = Penjualan::where('id',$request->id)->first();
+        $detail = Penjualan_detail::where('penjualan_id',$request->id)->get();
+        foreach ($detail as $item) 
+        {
+            $item->delete();
+        }
+        if($penjualan->delete())
+        {
+            $request->session()->flash('alert-success', 'Data transaksi berhasil dihapus.');
+            return redirect ('/transaksi');
+        }
+        else{
+            $request->session()->flash('alert-danger', 'Data transaksi gagal dihapus.');
+            return redirect ('/transaksi');
+        }  
+    }
 }
