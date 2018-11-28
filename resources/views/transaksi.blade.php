@@ -63,6 +63,7 @@
                         <table class="table table-new table-striped table-hover">
                             <thead>
                             <tr>
+                                <th>Nomor</th>
                                 <th>Kasir</th>
                                 <th>Pelanggan</th>
                                 <th>Tanggal Transaksi</th>
@@ -75,8 +76,10 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php $i = 1; @endphp
                             @foreach($acc as $a)
                             <tr>
+                                <td>{{$i}}</td>
                                 <td>{{ $a->kasir->name }}</td>
                                 <td>{{ $a->pelanggan->nama }}</td>
                                 <td>{{ $a->tanggal_transaksi }}</td>
@@ -92,6 +95,7 @@
                                 </td>
                                     @endif
                             </tr>
+                            @php $i++; @endphp
                             @endforeach
                             </tbody>
                         </table>

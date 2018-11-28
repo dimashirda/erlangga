@@ -106,4 +106,58 @@ class TransaksiController extends Controller
             return redirect ('/transaksi');
         }  
     }
+    public function edit($id)
+    {
+        $penjualan = Penjualan::find($id);
+        $detail = Penjualan_detail::where('penjualan_id',$penjualan->id)->get();
+        $pel = Pelanggan::all();
+        $bar = Barang::all();
+        return view('edittransaksi',['pel'=>$pel, 'bar'=>$bar, 'penjualan'=>$penjualan, 'detail'=>$detail])->with('nav','transaksi');
+    }
+    public function editsimpan(Request $request)
+    {
+        //dd($request);
+        $penjualan = Penjualan::find($request->penjualan_id);
+        $penjualan->pelanggan_id = $request->input('id_pelanggan');
+        $penjualan->users_id = Auth::user()->id;
+        $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
+        if(!empty($request->input('kredit')))
+        {
+            $penjualan->tanggal_jatuh_tempo = Carbon::parse($request->input('jatuh_tempo'));
+            $penjualan->jenis_penjualan = 1;
+            $this->kredit($request->input('id_pelanggan'),$request->input('harga_akhir'));
+        }
+        else
+        {
+            $penjualan->tanggal_jatuh_tempo = null;
+            $penjualan->jenis_penjualan = 2;
+        }
+        $penjualan->total = $request->input('total_harga');
+        $penjualan->diskon = $request->input('diskon_transaksi');
+        $penjualan->potongan = $request->input('potongan_harga');
+        $penjualan->total_akhir = $request->input('harga_akhir');
+        $penjualan->kembalian = $request->input('uang_kembalian');
+        $this->deletedetail($request->penjualan_id);
+        $this->inputdetail($request->input('id_barang'),$request->input('jumlah_barang'),$request->input('subtotal'),$penjualan->id);
+        if($penjualan->save())
+        {
+            $request->session()->flash('alert-success', 'Data transaksi berhasil diubah.');
+            return redirect ('/transaksi/detail/'.$penjualan->id.'');
+        }
+        else{
+            $request->session()->flash('alert-danger', 'Data transaksi gagal diubah.');
+            return redirect ('/transaksi');
+        }
+        //dd($penjualan);
+        
+    }
+    public function deletedetail($id)
+    {
+        $detail = Penjualan_detail::where('penjualan_id',$id)->get();
+        foreach ($detail as $item) 
+        {
+            $item->delete();
+        }
+        return;
+    }
 }
