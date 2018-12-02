@@ -29,7 +29,7 @@
                 <div class="small-box bg-aqua">
                     <div class="inner">
                         <h3>{{$pembelian->count()}}</h3>
-                        <p>Keuntungan Hari Ini asdasdsadasd</p>
+                        <p>Keuntungan Hari Ini asdasdsadasdasdas</p>
                     </div>
                 </div>
             </div>
