@@ -48,4 +48,6 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/search/barang','SearchController@barang');
 	Route::get('/search/pelanggan','SearchController@pelanggan');
 	Route::get('/search/supplier','SearchController@supplier');
+
+	Route::get('/laporan','Lapran\ViewController@index');
 });

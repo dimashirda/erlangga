@@ -150,6 +150,11 @@ return [
             'url'         => '/pembelian',
             'icon'        => 'money',
         ],
+        [
+            'text'        => 'Laporan',
+            'url'         => '/laporan',
+            'icon'        => 'newspaper-o',
+        ],
         /*'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
