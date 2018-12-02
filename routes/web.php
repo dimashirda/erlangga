@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/transaksi/edit/{id}','TransaksiController@edit');
 	Route::get('/transaksi/delete','TransaksiController@delete');
 	Route::get('/transaksi/cari','TransaksiController@search');
+	Route::get('/transaksi/print/{id}','TransaksiController@print');
 
 	Route::get('/search/barang','SearchController@barang');
 	Route::get('/search/pelanggan','SearchController@pelanggan');

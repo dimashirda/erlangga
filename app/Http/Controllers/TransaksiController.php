@@ -160,4 +160,11 @@ class TransaksiController extends Controller
         }
         return;
     }
+    public function print($id)
+    {
+        $penjualan = Penjualan::where('id',$id)->first();
+        $detail = Penjualan_detail::where('penjualan_id',$id)->get();
+        //dd($penjualan,$detail);
+        return view('printpenjualan',['penjualan'=>$penjualan,'detail'=>$detail]);   
+    }
 }
