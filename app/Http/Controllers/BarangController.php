@@ -33,9 +33,7 @@ class BarangController extends Controller
             $a = new Barang();
             $a->kode = $req->input('kode_barang');
             $a->nama = $req->input('nama_barang');
-            $a->harga_beli = $req->input('harga_beli');
             $a->harga_jual = $req->input('harga_jual');
-            $a->stok = $req->input('stok_barang');
             $a->satuan = $req->input('satuan_barang');
 
             if($a->save())
@@ -55,9 +53,7 @@ class BarangController extends Controller
         $edit = Barang::where('id',$id)->first();
         $edit->kode = $data['kode_barang'];
         $edit->nama = $data['nama_barang'];
-        $edit->harga_beli = $data['harga_beli'];
-        $edit->harga_jual = $data['harga_beli'];
-        $edit->stok = $data['stok_barang'];
+        $edit->harga_jual = $data['harga_jual'];
         $edit->satuan = $data['satuan_barang'];
         if($edit->save()){
             $data->session()->flash('alert-success', 'Data barang berhasil diperbarui.');

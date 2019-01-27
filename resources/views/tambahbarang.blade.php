@@ -30,24 +30,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="HargaBeli" class="col-sm-2 control-label">Harga Beli</label>
-
-                                <div class="col-sm-10">
-                                    <input type="number" autocomplete="off" class="form-control" id="hargabeli" name="harga_beli">
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label for="HargaJual" class="col-sm-2 control-label">Harga Jual</label>
 
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" autocomplete="off" id="hargajual" name="harga_jual">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="StokBarang" class="col-sm-2 control-label">Stok Barang</label>
-
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="stokbarang" autocomplete="off" name="stok_barang">
                                 </div>
                             </div>
                             <div class="form-group">

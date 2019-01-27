@@ -70,7 +70,7 @@
                                 <th>Tanggal Jatuh Tempo</th>
                                 <th>Jenis Belanja</th>
                                 <th>Total Belanja</th>
-                                @if(Auth::User()->name == 'dimas')
+                                @if(Auth::User()->role == '1')
                                 <th style="text-align: center" colspan="2">Action</th>
                                 @endif
                             </tr>
@@ -86,7 +86,7 @@
                                 <td>{{ $a->tanggal_jatuh_tempo }}</td>
                                 <td>@if($a->jenis_penjualan == 1) Kredit @else Tunai @endif</td>
                                 <td>{{ $a->total }}</td>
-                                @if(Auth::User()->name == 'dimas')
+                                @if(Auth::User()->role == '1')
                                 <td align="center" width="30px">
                                     <a class="btn btn-default edit-button" 
                                     href="{{url('transaksi/detail/')}}/{{$a->id}}">

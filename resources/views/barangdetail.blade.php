@@ -72,7 +72,7 @@
                                 @if(Auth::User()->name == 'dimas')
                                 <td align="center" width="30px">
                                     <button type="button" class="btn btn-default edit-button" data-toggle="modal" 
-                                    data-target="#modal-default" data-id="{{$a->id}}" data-hargabeli="{{$a->harga_beli}}" 
+                                    data-target="#modal-default" data-id="{{$a->id}}" data-hargajual="{{$a->harga_jual}}" 
                                     data-stok="{{$a->jumlah}}" data-nama="{{$a->barang->nama}}">
                                         Edit
                                     </button>
@@ -112,18 +112,10 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="HargaBeli" class="col-sm-2 control-label">Harga Beli</label>
+                                            <label for="HargaBeli" class="col-sm-2 control-label">Harga Jual</label>
 
                                             <div class="col-sm-10">
-                                                <input type="number" autocomplete="off" class="form-control" id="hargabeli" name="harga_beli">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="StokBarang" class="col-sm-2 control-label">Stok Barang</label>
-
-                                            <div class="col-sm-10">
-                                                <input type="number"
-                                                 autocomplete="off" class="form-control" id="stokbarang" name="stok_barang">
+                                                <input type="number" autocomplete="off" class="form-control" id="hargajual" name="harga_jual">
                                             </div>
                                         </div>
                                     </div>
@@ -168,14 +160,14 @@
         $(document).on("click", ".edit-button", function(){
             var nama_barang = $(this).data('nama');
             var id = $(this).data('id');
-            var harga_beli = $(this).data('hargabeli');
+            var harga_jual = $(this).data('hargajual');
             var stok = $(this).data('stok');
             //console.log(id);
             //console.log(val(nama_barang));
             $("#id").val(id);
            
             $("#namabarang").val(nama_barang);
-            $("#hargabeli").val(harga_beli);   
+            $("#hargajual").val(harga_jual);   
             $("#stokbarang").val(stok);
             
             $("#form-edit").attr('action','{{url('/barangdetail/edit')}}' + '/' + id);
