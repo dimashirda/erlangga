@@ -10,6 +10,12 @@ class Pembelian extends Model
 
     public function users()
     {
-    	return $this->hasOne('App\Regis_user','id','user_id');
+    	return $this->hasOne('App\Regis_user','id','users_id');
     }
+
+    public function suplier()
+    {
+    	return $this->hasOne('App\Supplier','id','supplier_id');
+    }
+    
 }

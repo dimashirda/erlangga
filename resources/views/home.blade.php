@@ -28,8 +28,9 @@
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3>{{$pembelian->count()}}</h3>
-                        <p>Keuntungan Hari Ini asdasdsadasdasdas</p>
+                        @php $number = number_format("$untung",2,",","."); @endphp
+                        <h3>Rp {{$number}}</h3>
+                        <p>Keuntungan</p>
                     </div>
                 </div>
             </div>

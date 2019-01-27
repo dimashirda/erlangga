@@ -22,19 +22,21 @@
         <div class="col-xs-12">
             <div class="box box-danger">
                 <div class="box-header">
-                    <h3 class="box-title">Detail Transaksi #{{$penjualan->id}}</h3>
+                    <h3 class="box-title">Detail Transaksi #{{$pembelian->id}}</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <br>
                     <div class="row">
                         <div class="col-xs-6">
-                            <a href="{{url('/transaksi/print')}}/{{$penjualan->id}}" class='btn btn-primary' target="__blank">Print</a>
-                            <a href="{{url('/transaksi/edit')}}/{{$penjualan->id}}" class='btn btn-info'>Edit</a>
+                            <a href="{{url('/pembelian/print')}}/{{$pembelian->id}}" class='btn btn-primary' target="__blank">Print</a>
+                            @if(Auth::user()->role == 1)
+                            <a href="{{url('/pembelian/edit')}}/{{$pembelian->id}}" class='btn btn-info'>Edit</a>
                             <button type="button" class="btn btn-danger delete-button" 
-                                    data-id="{{$penjualan->id}}" data-toggle="modal" data-target="#modal-danger">
+                                    data-id="{{$pembelian->id}}" data-toggle="modal" data-target="#modal-danger">
                             Delete
                             </button>
+                            @endif
                         </div>
                     </div>
                     <br>
@@ -42,16 +44,16 @@
                     <div style="overflow-x:auto;">
                         <div class="row col-md-12">
                             <div class="col-md-3">
-                            <h4>Pembeli : {{$penjualan->pelanggan->nama}}</h4>
+                            <h4>Supplier : {{$pembelian->suplier->nama}}</h4>
                             </div>
                             <div class="col-md-3">
-                            <h4>Kasir : {{$penjualan->kasir->name}}</h4>
+                            <h4>Kasir : {{$pembelian->users->name}}</h4>
                             </div>
                             <div class="col-md-3">
-                            <h4>Jenis Pembayaran : @if($penjualan->jenis_penjualan == 1) Kredit @else Tunai @endif</h4>    
+                            <h4>Jenis Pembayaran : @if($pembelian->jenis_pembelian == 1) Kredit @else Tunai @endif</h4>    
                             </div>
                             <div class="col-md-3">
-                            <h4>Jatuh Tempo : @if($penjualan->jenis_penjualan == 1) {{$penjualan->tanggal_jatuh_tempo}} 
+                            <h4>Jatuh Tempo : @if($pembelian->jenis_pembelian == 1) {{$pembelian->tanggal_jatuh_tempo}} 
                             @else - @endif</h4>    
                             </div>    
                         </div>
@@ -81,7 +83,7 @@
                                 <th></th>
                                 <th>Total Pembelian</th>
                             </tr>
-                            @php $number = number_format("$penjualan->total_akhir",2,",","."); @endphp
+                            @php $number = number_format("$pembelian->total",2,",","."); @endphp
                             <tr>
                                 <td></td>
                                 <td></td>
@@ -121,7 +123,7 @@
     <script>
     $(document).on("click",".delete-button", function () {
             var id = $(this).data('id')
-            $("#del-btn").attr('href','{{url('/transaksi/delete')}}' + '?id=' + id)
+            $("#del-btn").attr('href','{{url('/pembelian/delete')}}' + '?id=' + id)
             $("#show-name").html('Anda yakin ingin menghapus transaksi no ' + id + '?')
         })
     </script>

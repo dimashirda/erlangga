@@ -56,151 +56,139 @@ body {
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <form class="form-horizontal" action="{{url('/transaksi/edit/simpan')}}" method="post" id="form_pesanan" autocomplete="off">
+                    <form class="form-horizontal" action="{{url('/pembelian/simpan')}}" method="post" id="form_pesanan" autocomplete="off">
                         {{csrf_field()}}
-                        <input type="hidden" name="penjualan_id" value="{{$penjualan->id}}">
                         <div class="box-body">
                             <div class="form-group">
                                 <tr>
-                                <label for="Pembeli" class="col-sm-2 control-label">Nama Pelanggan</label>
+                                <label for="Pembeli" class="col-sm-2 control-label">Nama Suppplier</label>
                                   <td>
                                     <div class="autocomplete col-sm-5">
                                       <input class="form-control" 
-                                      id="myInput" type="text" name="namapelanggan" value="{{$penjualan->pelanggan->nama}}" placeholder="Nama Pelanggan">
-                                      <input type="hidden" name="id_pelanggan" id="idpelanggan" value="{{$penjualan->pelanggan_id}}">
+                                      id="myInput" type="text" name="namapelanggan" placeholder="Nama Supplier">
+                                      <input type="hidden" name="id_supplier" id="idsupplier">
                                     </div>
                                   </td>
                                   <td>
                                   <label for="Pembeli" class="col-sm-2 control-label">No Telpon</label>
                                     <div class="autocomplete col-sm-3">
                                       <input class="form-control" 
-                                      id="nohp" type="text" name="nomor" placeholder="No. Telpon" value="{{$penjualan->pelanggan->telepon}}" disabled>
+                                      id="nohp" type="text" name="nomor" placeholder="No. Telpon" disabled>
                                     </div>
                                   </td>  
                                 </tr>
                             </div>
                             <div class="form-group">
-                                <label for="Sisa Limit" class="col-sm-2 control-label">Limit Pembeli</label>
-                                @php $sisa = $penjualan->pelanggan->limit - $penjualan->pelanggan->kredit @endphp
+                                <label for="Sisa Limit" class="col-sm-2 control-label">Alamat Supplier</label>
+
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="sisalimit" value="{{$sisa}}" disabled>
+                                    <input type="text" class="form-control" id="alamat" disabled>
                                 </div>
                             </div>
                             <div class="form-group" id="listbarang">
-                                @php $i = 0 @endphp
-                                @foreach($detail as $d)
-                                <div id="row_{{$i}}">
-                                  @if($i == 0)<label for="NamaBarang" class="col-sm-2 control-label">Barang</label>
-                                  @else
-                                  <label for="NamaBarang" class="col-sm-2 control-label"></label>
-                                  @endif
+                                <tr>
+                                  <label for="NamaBarang" class="col-sm-2 control-label">Barang</label>
                                   <td>
                                     <div class="autocomplete col-sm-3">
-                                      <input type="text" class="form-control barang" id="barang_{{$i}}" name="nama_barang[]" placeholder="Nama Barang" value="{{$d->barang->nama}}">
-                                      <input type="hidden" id="id_barang_{{$i}}" name="id_barang[{{$i}}]" value="{{$d->barang->id}}">
+                                      <input type="text" class="form-control barang" id="barang_0" name="nama_barang[]" placeholder="Nama Barang">
+                                      <input type="hidden" id="id_barang_0" name="id_barang[0]">
                                     </div>
                                   </td>
                                   <td>
                                     <div class="col-sm-2" style="margin-left:-15px; margin-right:5px;">
-                                      <input style="width:95px;" type="text" class="form-control" id="hargabarang_{{$i}}" placeholder="harga" name="harga_barang[{{$i}}]" value="{{$d->harga_satuan}}">
+                                      <input style="width:95px;" type="text" class="form-control harga" id="hargabarang_0" placeholder="harga" name="harga_barang[]">
                                     </div>
                                   </td>
                                   <td>
                                     <label for="JumlahBarang" style="margin-left:-65px;" class="col-sm-1 control-label">Kuantitas</label>
                                     <div class="col-sm-1" style="margin-left:-10px;">
-                                      <input style="width:55px;" type="text" class="form-control" id="jumlahbarang_{{$i}}" name="jumlah_barang[{{$i}}]" value="{{$d->jumlah}}">
+                                      <input style="width:55px;" type="text" class="form-control jumlah" id="jumlahbarang_0" name="jumlah_barang[0]">
                                     </div>
                                   </td>
                                   <td>
                                     <label for="SatuanBarang" style="margin-left:-40px;" class="col-sm-1 control-label">Satuan</label>
                                     <div class="col-sm-1" style="margin-left:-20px;">
-                                      <input style="width:55px;" type="text" class="form-control" id="satuanbarang_{{$i}}" disabled value="{{$d->barang->satuan}}">
+                                      <input style="width:55px;" type="text" class="form-control" id="satuanbarang_0" disabled>
                                     </div>
                                   </td>                                  
                                   <td>
                                     <div class="col-sm-2" style="margin-left:-15px;">
-                                      <input style="width:110px;" type="text" class="form-control" id="subtotal_{{$i}}" placeholder="Subtotal"
-                                      disabled value="{{$d->total_satuan}}">
-                                      <input type="hidden" id="subtotal_{{$i}}_sent" name="subtotal[{{$i}}]" value="{{$d->total_satuan}}">
+                                      <input style="width:110px;" type="text" class="form-control" id="subtotal_0" placeholder="Subtotal"
+                                      disabled>
+                                      <input type="hidden" id="subtotal_0_sent" name="subtotal[0]">
                                     </div>
                                   </td>
                                   <td>
-                                    @if($i == 0)
                                     <a style="margin-left:-32px; height:35px;" id="add" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
-                                    @else
-                                    <a style="margin-left:5px; height:35px; margin-top:-22px;" id="{{$i}}" class="btn btn-danger btn_remove_awal"><span class="glyphicon glyphicon-remove"></span></a>
-                                    @endif
                                   </td>    
-                                </div>
-                                @php $i++; @endphp
-                                @endforeach
+                                </tr>
                             </div>
                             <div class="form-group">
                                 <label for="TotalHarga" class="col-sm-2 control-label">Total Harga</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="total_harga" value="{{$penjualan->total}}" disabled>
+                                    <input type="number" class="form-control" id="total_harga" disabled>
                                     <input type="hidden" id="total_harga_sent" name="total_harga">
                                 </div>
                             </div>
                             <div class="form-group">
                               <label for="TotalHarga" class="col-sm-2 control-label">Promo</label>                              
                               <select class="col-sm-5"  style="height:34px; margin-left:15px;" id="pilihan_diskon">
-                                <option href="#" class="dropdown-item" @if(empty($penjualan->diskon) && empty($penjualan->potongan)) selected @endif>Tidak ada</option>
-                                <option href="#" class="dropdown-item" @if(!empty($penjualan->diskon)) selected @endif>Diskon</option>
-                                <option href="#" class="dropdown-item" @if(!empty($penjualan->potongan)) selected @endif>Potongan Harga</option>                                
+                                <option href="#" class="dropdown-item" selected="selected">Tidak ada</option>
+                                <option href="#" class="dropdown-item">Diskon</option>
+                                <option href="#" class="dropdown-item">Potongan Harga</option>                                
                               </select>
                             </div>
                             <div class="form-group" id="potongan" style="display:none;">
                                 <label for="PotonganHarga" class="col-sm-2 control-label">Potongan Harga</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="jumlah_potongan" name="potongan_harga"  @if(!empty($penjualan->potongan)) value="{{$penjualan->potongan}}" @endif>
+                                    <input type="number" class="form-control" id="jumlah_potongan" name="potongan_harga">
                                 </div>
                             </div>
                             <div class="form-group" id="diskon" style="display:none;">
                                 <label for="DiskonTransaksi" class="col-sm-2 control-label">Diskon</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="jumlah_diskon" name="diskon_transaksi" @if(!empty($penjualan->diskon)) value="{{$penjualan->diskon}}" @endif>
+                                    <input type="number" class="form-control" id="jumlah_diskon" name="diskon_transaksi">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="TotalAkhir" class="col-sm-2 control-label">Harga Akhir</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="harga_akhir" disabled value="{{$penjualan->total_akhir}}">
+                                    <input type="number" class="form-control" id="harga_akhir" disabled>
                                     <input type="hidden" id="harga_akhir_sent" name="harga_akhir">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="CaraPembayaran" class="col-sm-2 control-label">Metode Pembayaran</label>
                                 <div class="radio col-sm-3">
-                                  <label><input type="radio" name="tunai" id="bayar_tunai" @if(empty($penjualan->tanggal_jatuh_tempo)) checked @endif>Tunai</label>
+                                  <label><input type="radio" name="tunai" id="bayar_tunai">Tunai</label>
                                 </div>
                                 <div class="radio col-sm-3">
-                                  <label><input type="radio" name="kredit" id="bayar_kredit" @if(!empty($penjualan->tanggal_jatuh_tempo)) checked @endif>Kredit</label>
+                                  <label><input type="radio" name="kredit" id="bayar_kredit">Kredit</label>
                                 </div>
                             </div>
                             <div class="form-group" id="tunai" style="display:none;">
                                 <label for="TerimaTunai" class="col-sm-2 control-label">Tunai</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="uang_tunai" name="uang_tunai" value="{{$penjualan->uang_dibayar}}">
+                                    <input type="number" class="form-control" id="uang_tunai" name="uang_tunai">
                                 </div>
                             </div>
                             <div class="form-group" id="kembalian" style="display:none;">
                                 <label for="UangKembalian" class="col-sm-2 control-label">Kembalian</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="uang_kembalian" disabled value="{{$penjualan->kembalian}}">
+                                    <input type="number" class="form-control" id="uang_kembalian" disabled>
                                     <input type="hidden" id="uang_kembalian_sent" name="uang_kembalian">
                                 </div>
                             </div>
                             <div class="form-group" style="display:none;" id="jatuh_tempo">
                               <label for="JatuhTempo" class="col-sm-2 control-label">Jatuh Tempo</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="jatuhtempo" class="form-control" id="datepicker" value="{{$penjualan->tanggal_jatuh_tempo}}">
+                                  <input type="text" name="jatuhtempo" class="form-control" id="datepicker">
                               </div>
                             </div>
                         </div>
@@ -225,37 +213,27 @@ body {
     } );
 var nama = [];
 var result = [];
-var detail = {!! $detail !!}
-var subtotal = [], total_harga = 0, harga_akhir = 0, uang_kembalian = 0;
-var k;
+var subtotal = [], total_harga = 0, harga_akhir = 0, uang_kembalian = 0;;
 $(document).ready(function(){
-  var i = {{count($detail)-1}};
+  var i = 0;
   $('#add').click(function(){
     i++;
-    $('#listbarang').append('<tr id="row_'+i+'"><td><div class="autocomplete col-sm-3" style="margin-left:177.5px;"><input style="width:236px;" type="text" class="form-control barang" id="barang_'+i+'" name="nama_barang['+i+']" placeholder="Nama Barang"><input type="hidden" id="id_barang_'+i+'" name="id_barang['+i+']"></div></td><td><div class="col-sm-2" style="margin-left:-15px; margin-right:5px;"><input style="width:95px;" type="text" class="form-control" id="hargabarang_'+i+'" name="harga_barang['+i+']" placeholder="harga"></div></td><td><label for="JumlahBarang" style="margin-left:-12px;" class="col-sm-1 control-label">Kuantitas</label><div class="col-sm-1" style="margin-left:48.5px;"><input style="width:55px;" type="text" class="form-control" id="jumlahbarang_'+i+'" name="jumlah_barang['+i+']"></div></td><td><label for="SatuanBarang" style="margin-left:-81.5px;" class="col-sm-1 control-label">Satuan</label><div class="col-sm-1" style="margin-left:-28px;"><input style="width:55px;" type="text" class="form-control" id="satuanbarang_'+i+'" name="satuan_barang['+i+']" disabled></div></td><td><div class="col-sm-2" style="margin-left:-11px;"><input style="width:110px;" type="text" class="form-control" id="subtotal_'+i+'" placeholder="Subtotal" disabled><input type="hidden" id="subtotal_'+i+'_sent" name="subtotal['+i+']"></div></td><td><a style="margin-left:5px; height:35px; margin-top:-22px;" id="'+i+'" class="btn btn-danger btn_remove"><span class="glyphicon glyphicon-remove"></span></a></td></tr>');
-    autocomplete(document.getElementById('barang_'+i+''), nama, result, 'barang',i, document.getElementById('jumlahbarang_'+i+''), document.getElementById('hargabarang_'+i+''));
+    $('#listbarang').append('<tr id="row_'+i+'"><td><div class="autocomplete col-sm-3" style="margin-left:177.5px;"><input style="width:236px;" type="text" class="form-control barang" id="barang_'+i+'" name="nama_barang['+i+']" placeholder="Nama Barang"><input type="hidden" id="id_barang_'+i+'" name="id_barang['+i+']"></div></td><td><div class="col-sm-2" style="margin-left:-15px; margin-right:5px;"><input style="width:95px;" type="text" class="form-control harga" id="hargabarang_'+i+'" name="harga_barang['+i+']" placeholder="harga"></div></td><td><label for="JumlahBarang" style="margin-left:-12px;" class="col-sm-1 control-label">Kuantitas</label><div class="col-sm-1" style="margin-left:48.5px;"><input style="width:55px;" type="text" class="form-control" id="jumlahbarang_'+i+'" name="jumlah_barang['+i+']"></div></td><td><label for="SatuanBarang" style="margin-left:-81.5px;" class="col-sm-1 control-label">Satuan</label><div class="col-sm-1" style="margin-left:-28px;"><input style="width:55px;" type="text" class="form-control" id="satuanbarang_'+i+'" name="satuan_barang['+i+']" disabled></div></td><td><div class="col-sm-2" style="margin-left:-11px;"><input style="width:110px;" type="text" class="form-control" id="subtotal_'+i+'" placeholder="Subtotal" disabled><input type="hidden" id="subtotal_'+i+'_sent" name="subtotal['+i+']"></div></td><td><a style="margin-left:5px; height:35px; margin-top:-22px;" id="'+i+'" class="btn btn-danger btn_remove"><span class="glyphicon glyphicon-remove"></span></a></td></tr>');
+    autocomplete(document.getElementById('barang_'+i+''), nama, result, 'barang',i, document.getElementById('jumlahbarang_'+i+''),document.getElementById('hargabarang_'+i+''));
   });
 });
 $(document).on('click', '.btn_remove', function(){
   //console.log("a");
   var button_id = $(this).attr("id");
+  console.log(button_id);
   var harga_current = $('#total_harga').val();
   var row_subtotal = $('#subtotal_'+button_id+'').val();
   subtotal.splice(button_id,1); 
   $('#total_harga').val(harga_current - row_subtotal);
   $('#total_harga_sent').val(harga_current - row_subtotal);
   $('#row_'+button_id+'').remove();
+
 });
-$(document).on('click','.btn_remove_awal', function(){
-  console.log($($(this)[0]).parent());
-  var button_id = $($(this)[0]).attr("id");
-  var harga_current = $('#total_harga').val();
-  var row_subtotal = $('#subtotal_'+button_id+'').val();
-  subtotal.splice(button_id,1); 
-  $('#total_harga').val(harga_current - row_subtotal);
-  $('#total_harga_sent').val(harga_current - row_subtotal);
-  $($(this)[0]).parent().remove();
-})
 $(document).ready(function(){
 
   $.ajax({
@@ -270,12 +248,7 @@ $(document).ready(function(){
       data.result.forEach(function(response){
         result.push(response);
       });
-      for(k=0;k<{{count($detail)}};k++)
-      { 
-        autocomplete(document.getElementById('barang_'+k+''), nama, result, 'barang',k, document.getElementById('jumlahbarang_'+k+''), document.getElementById('hargabarang_'+k+''));
-        console.log(detail[k].total_satuan); 
-        subtotal[k] = detail[k].total_satuan;
-      }
+      autocomplete(document.getElementById("barang_0"), nama, result, 'barang', 0, document.getElementById("jumlahbarang_0"), document.getElementById("hargabarang_0"));
     }
   });
 });
@@ -284,7 +257,7 @@ $(document).ready(function (){
     $.ajax({
         type:"GET",
         dataType:"json",
-        url:"/erlangga/public/search/pelanggan",
+        url:"/erlangga/public/search/supplier",
         success: function(data){
             var nama = [];
             var result = [];
@@ -295,7 +268,7 @@ $(document).ready(function (){
                 result.push(response);
                 
             });
-            autocomplete(document.getElementById("myInput"), nama, result, 'pelanggan',null, null, null);
+            autocomplete(document.getElementById("myInput"), nama, result, 'supplier' ,null, null,null);
         }
     });
 });
@@ -346,28 +319,6 @@ document.getElementById("bayar_tunai").addEventListener("click", function(e){
     $('#uang_kembalian_sent').val(uang_kembalian);
   });
 
-});
-
-$(document).ready(function(){
-  if($('#bayar_kredit').is(':checked'))
-  {
-    $('#bayar_tunai').prop("checked", false);
-    $('#jatuh_tempo').show();
-    $('#tunai').hide();
-    $('#kembalian').hide();
-  }
-  else if($('#bayar_tunai').is(':checked'))
-  {
-    $('#bayar_kredit').prop("checked", false);
-    $('#jatuh_tempo').hide();
-    $('#tunai').show();
-    $('#kembalian').show();
-    document.getElementById("uang_tunai").addEventListener("input", function(e){
-      uang_kembalian = this.value - harga_akhir;
-      $('#uang_kembalian').val(uang_kembalian);
-      $('#uang_kembalian_sent').val(uang_kembalian);
-    });
-  }
 });
 
 document.getElementById("bayar_kredit").addEventListener("click", function(e){
@@ -437,16 +388,16 @@ function autocomplete(inp, arr, result, flag, counter, quantity, price) {
           b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
           b.innerHTML += arr[i].substr(val.length);
           /*insert a input field that will hold the current array item's value:*/
-          if(flag == 'pelanggan')
+          if(flag == 'supplier')
           {
-            b.innerHTML += "<input type='hidden' data-id='"+ result[i].id + "' data-nomor= '"+ result[i].telepon + "' data-limit= '" + result[i].limit + "' data-kredit= '" + result[i].kredit + "' value='" + arr[i] + "'>";
+            b.innerHTML += "<input type='hidden' data-id='"+ result[i].id + "' data-nomor= '"+ result[i].telepon + "' data-alamat= '" + result[i].alamat + "' value='" + arr[i] + "'>";
           /*execute a function when someone clicks on the item value (DIV element):*/
               b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
               inp.value = this.getElementsByTagName("input")[0].value;
               $('#nohp').val($(this.getElementsByTagName("input")[0]).data('nomor'));
-              $('#sisalimit').val($(this.getElementsByTagName("input")[0]).data('limit') - $(this.getElementsByTagName("input")[0]).data('kredit'));
-              $('#idpelanggan').val($(this.getElementsByTagName("input")[0]).data('id'));
+              $('#alamat').val($(this.getElementsByTagName("input")[0]).data('alamat'))
+              $('#idsupplier').val($(this.getElementsByTagName("input")[0]).data('id'));
 
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
@@ -464,7 +415,7 @@ function autocomplete(inp, arr, result, flag, counter, quantity, price) {
               $('#id_barang_'+counter+'').val($(this.getElementsByTagName("input")[0]).data('id'));
               $('#hargabarang_'+counter+'').val($(this.getElementsByTagName("input")[0]).data('harga'));
               $('#satuanbarang_'+counter+'').val($(this.getElementsByTagName("input")[0]).data('satuan'));
-              harga_jual_now = $(this.getElementsByTagName("input")[0]).data('harga');
+              harga_jual_now = $('#hargabarang_'+counter+'').val();
               $('#subtotal_'+counter+'').val(harga_jual_now * banyak);
               $('#subtotal_'+counter+'_sent').val(harga_jual_now * banyak);
               subtotal[counter] = parseInt(document.getElementById('subtotal_'+counter+'').value);
@@ -558,5 +509,9 @@ document.addEventListener("click", function (e) {
     closeAllLists(e.target);
 });
 }
+
+$('.harga').on('keyup',function(){
+  console.log()
+});
 </script>
 @stop

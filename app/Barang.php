@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\BarangDetail;
 
 class Barang extends Model
 {
@@ -18,5 +19,9 @@ class Barang extends Model
     public function barang_beli()
     {
     	return $this->hasMany('App\Penjualan','penjualan_id','id');
+    }
+    public function barang_detail()
+    {   
+        return $this->hasMany('App\BarangDetail','barang_id','id')->where('jumlah','>','0');
     }
 }

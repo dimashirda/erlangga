@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Barang;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Barang;
+use App\BarangDetail;
 
 class ViewController extends Controller
 {
@@ -17,5 +18,11 @@ class ViewController extends Controller
     public function tambah()
     {
     	return view('tambahbarang')->with('nav','barang');
+    }
+
+    public function detail($id)
+    {
+    	$data['detail'] = BarangDetail::where('barang_id',$id)->get();
+    	return view('barangdetail',$data)->with('nav','barang');
     }
 }

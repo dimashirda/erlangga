@@ -22,7 +22,14 @@ class SearchController extends Controller
     public function barang()
     {
     	$nama = Barang::select('nama')->get();
-    	$result = Barang::select('id','satuan','harga_jual','stok')->get();
+    	$result = Barang::select('id','satuan','harga_jual')->get();
     	return json_encode(['result'=>$result, 'nama'=>$nama]);
+    }
+
+    public function supplier()
+    {
+        $nama = Supplier::select('nama')->get();
+        $result = Pelanggan::select('id','telepon','alamat')->get();
+        return json_encode(['result'=>$result,'nama'=>$nama]);
     }
 }

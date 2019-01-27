@@ -18,10 +18,13 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/home','HomeController@index');
 	
 	Route::get('/barang','Barang\ViewController@index');
+	Route::get('/barang/detail/{id}','Barang\ViewController@detail');
 	Route::get('/barang/tambah','Barang\ViewController@tambah');
 	Route::post('/barang/simpan','Barang\CreateController@simpan');
 	Route::post('/barang/edit/{id_barang}','Barang\CreateController@edit');
 	Route::get('/barang/delete/{id_barang}','Barang\DeleteController@delete');
+	Route::post('/barangdetail/edit/{id_barang}','Barang\CreateController@editDetail');
+	Route::post('/barangdetail/delete/{id_barang}','Barang\CreateController@deleteDetail');
 
 	Route::get('/pelanggan','PelangganController@index');
 	Route::get('/pelanggan/tambah','PelangganController@tambah');
@@ -48,6 +51,11 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/search/barang','SearchController@barang');
 	Route::get('/search/pelanggan','SearchController@pelanggan');
 	Route::get('/search/supplier','SearchController@supplier');
+
+	Route::get('/pembelian','Pembelian\ViewController@index');
+	Route::get('/pembelian/tambah','Pembelian\ViewController@tambah');
+	Route::get('/pembelian/detail/{id}','Pembelian\ViewController@detail');
+	Route::post('/pembelian/simpan','Pembelian\PostController@beli');
 
 	Route::get('/laporan','Lapran\ViewController@index');
 });

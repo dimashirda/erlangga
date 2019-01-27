@@ -96,14 +96,13 @@ body {
                                   </td>
                                   <td>
                                     <div class="col-sm-2" style="margin-left:-15px; margin-right:5px;">
-                                      <input style="width:95px;" type="text" class="form-control" id="hargabarang_0" placeholder="harga"
-                                      disabled>
+                                      <input style="width:95px;" type="text" class="form-control harga" id="hargabarang_0" placeholder="harga" name="harga_barang[]">
                                     </div>
                                   </td>
                                   <td>
                                     <label for="JumlahBarang" style="margin-left:-65px;" class="col-sm-1 control-label">Kuantitas</label>
                                     <div class="col-sm-1" style="margin-left:-10px;">
-                                      <input style="width:55px;" type="text" class="form-control" id="jumlahbarang_0" name="jumlah_barang[0]">
+                                      <input style="width:55px;" type="text" class="form-control jumlah" id="jumlahbarang_0" name="jumlah_barang[0]">
                                     </div>
                                   </td>
                                   <td>
@@ -219,20 +218,21 @@ $(document).ready(function(){
   var i = 0;
   $('#add').click(function(){
     i++;
-    $('#listbarang').append('<tr id="row_'+i+'"><td><div class="autocomplete col-sm-3" style="margin-left:177.5px;"><input style="width:236px;" type="text" class="form-control barang" id="barang_'+i+'" name="nama_barang['+i+']" placeholder="Nama Barang"><input type="hidden" id="id_barang_'+i+'" name="id_barang['+i+']"></div></td><td><div class="col-sm-2" style="margin-left:-15px; margin-right:5px;"><input style="width:95px;" type="text" class="form-control" id="hargabarang_'+i+'" name="harga_barang['+i+']" placeholder="harga" disabled></div></td><td><label for="JumlahBarang" style="margin-left:-12px;" class="col-sm-1 control-label">Kuantitas</label><div class="col-sm-1" style="margin-left:48.5px;"><input style="width:55px;" type="text" class="form-control" id="jumlahbarang_'+i+'" name="jumlah_barang['+i+']"></div></td><td><label for="SatuanBarang" style="margin-left:-81.5px;" class="col-sm-1 control-label">Satuan</label><div class="col-sm-1" style="margin-left:-28px;"><input style="width:55px;" type="text" class="form-control" id="satuanbarang_'+i+'" name="satuan_barang['+i+']" disabled></div></td><td><div class="col-sm-2" style="margin-left:-11px;"><input style="width:110px;" type="text" class="form-control" id="subtotal_'+i+'" placeholder="Subtotal" disabled><input type="hidden" id="subtotal_'+i+'_sent" name="subtotal['+i+']"></div></td><td><a style="margin-left:5px; height:35px; margin-top:-22px;" id="'+i+'" class="btn btn-danger btn_remove"><span class="glyphicon glyphicon-remove"></span></a></td></tr>');
-    autocomplete(document.getElementById('barang_'+i+''), nama, result, 'barang',i, document.getElementById('jumlahbarang_'+i+''));
-  $(document).on('click', '.btn_remove', function(){
-  //console.log("a");
-  var button_id = $(this).attr("id");
-  $('#row_'+button_id+'').remove();
-      });
+    $('#listbarang').append('<tr id="row_'+i+'"><td><div class="autocomplete col-sm-3" style="margin-left:177.5px;"><input style="width:236px;" type="text" class="form-control barang" id="barang_'+i+'" name="nama_barang['+i+']" placeholder="Nama Barang"><input type="hidden" id="id_barang_'+i+'" name="id_barang['+i+']"></div></td><td><div class="col-sm-2" style="margin-left:-15px; margin-right:5px;"><input style="width:95px;" type="text" class="form-control harga" id="hargabarang_'+i+'" name="harga_barang['+i+']" placeholder="harga"></div></td><td><label for="JumlahBarang" style="margin-left:-12px;" class="col-sm-1 control-label">Kuantitas</label><div class="col-sm-1" style="margin-left:48.5px;"><input style="width:55px;" type="text" class="form-control" id="jumlahbarang_'+i+'" name="jumlah_barang['+i+']"></div></td><td><label for="SatuanBarang" style="margin-left:-81.5px;" class="col-sm-1 control-label">Satuan</label><div class="col-sm-1" style="margin-left:-28px;"><input style="width:55px;" type="text" class="form-control" id="satuanbarang_'+i+'" name="satuan_barang['+i+']" disabled></div></td><td><div class="col-sm-2" style="margin-left:-11px;"><input style="width:110px;" type="text" class="form-control" id="subtotal_'+i+'" placeholder="Subtotal" disabled><input type="hidden" id="subtotal_'+i+'_sent" name="subtotal['+i+']"></div></td><td><a style="margin-left:5px; height:35px; margin-top:-22px;" id="'+i+'" class="btn btn-danger btn_remove"><span class="glyphicon glyphicon-remove"></span></a></td></tr>');
+    autocomplete(document.getElementById('barang_'+i+''), nama, result, 'barang',i, document.getElementById('jumlahbarang_'+i+''),document.getElementById('hargabarang_'+i+''));
   });
 });
 $(document).on('click', '.btn_remove', function(){
   //console.log("a");
   var button_id = $(this).attr("id");
   console.log(button_id);
+  var harga_current = $('#total_harga').val();
+  var row_subtotal = $('#subtotal_'+button_id+'').val();
+  subtotal.splice(button_id,1); 
+  $('#total_harga').val(harga_current - row_subtotal);
+  $('#total_harga_sent').val(harga_current - row_subtotal);
   $('#row_'+button_id+'').remove();
+
 });
 $(document).ready(function(){
 
@@ -248,7 +248,7 @@ $(document).ready(function(){
       data.result.forEach(function(response){
         result.push(response);
       });
-      autocomplete(document.getElementById("barang_0"), nama, result, 'barang', 0, document.getElementById("jumlahbarang_0"));
+      autocomplete(document.getElementById("barang_0"), nama, result, 'barang', 0, document.getElementById("jumlahbarang_0"), document.getElementById("hargabarang_0"));
     }
   });
 });
@@ -268,7 +268,7 @@ $(document).ready(function (){
                 result.push(response);
                 
             });
-            autocomplete(document.getElementById("myInput"), nama, result, 'pelanggan',null, null);
+            autocomplete(document.getElementById("myInput"), nama, result, 'pelanggan',null, null,null);
         }
     });
 });
@@ -357,7 +357,7 @@ function getSum(total, num){
   return total + num;
 }
 //function subtotal()
-function autocomplete(inp, arr, result, flag, counter, quantity) {
+function autocomplete(inp, arr, result, flag, counter, quantity, price) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
   console.log(quantity);
@@ -415,7 +415,7 @@ function autocomplete(inp, arr, result, flag, counter, quantity) {
               $('#id_barang_'+counter+'').val($(this.getElementsByTagName("input")[0]).data('id'));
               $('#hargabarang_'+counter+'').val($(this.getElementsByTagName("input")[0]).data('harga'));
               $('#satuanbarang_'+counter+'').val($(this.getElementsByTagName("input")[0]).data('satuan'));
-              harga_jual_now = $(this.getElementsByTagName("input")[0]).data('harga');
+              harga_jual_now = $('#hargabarang_'+counter+'').val();
               $('#subtotal_'+counter+'').val(harga_jual_now * banyak);
               $('#subtotal_'+counter+'_sent').val(harga_jual_now * banyak);
               subtotal[counter] = parseInt(document.getElementById('subtotal_'+counter+'').value);
@@ -424,8 +424,19 @@ function autocomplete(inp, arr, result, flag, counter, quantity) {
               countAll();
               quantity.addEventListener("input", function(e){
                 banyak = this.value;
-                $('#subtotal_'+counter+'').val(harga_jual_now * banyak);
-                $('#subtotal_'+counter+'_sent').val(harga_jual_now * banyak);
+                harga_jual_new = $('#hargabarang_'+counter+'').val();
+                $('#subtotal_'+counter+'').val(harga_jual_new * banyak);
+                $('#subtotal_'+counter+'_sent').val(harga_jual_new * banyak);
+                subtotal[counter] = parseInt(document.getElementById('subtotal_'+counter+'').value);
+                $('#total_harga').val(subtotal.reduce(getSum));
+                $('#total_harga_sent').val(subtotal.reduce(getSum));
+                countAll();
+              });
+              price.addEventListener("input", function(e){
+                banyak = quantity.value;
+                harga_jual_new = this.value;
+                $('#subtotal_'+counter+'').val(harga_jual_new * banyak);
+                $('#subtotal_'+counter+'_sent').val(harga_jual_new * banyak);
                 subtotal[counter] = parseInt(document.getElementById('subtotal_'+counter+'').value);
                 $('#total_harga').val(subtotal.reduce(getSum));
                 $('#total_harga_sent').val(subtotal.reduce(getSum));
@@ -498,5 +509,9 @@ document.addEventListener("click", function (e) {
     closeAllLists(e.target);
 });
 }
+
+$('.harga').on('keyup',function(){
+  console.log()
+});
 </script>
 @stop

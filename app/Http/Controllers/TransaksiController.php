@@ -7,6 +7,8 @@ use App\Pelanggan;
 use App\Barang;
 use App\Supplier;
 use App\Penjualan_detail;
+use App\BarangDetail;
+use App\LogBarang;
 //use Surat_jalan;
 use DB;
 use Auth;
@@ -50,25 +52,29 @@ class TransaksiController extends Controller
         $penjualan->potongan = $req->input('potongan_harga');
         $penjualan->total_akhir = $req->input('harga_akhir');
         $penjualan->kembalian = $req->input('uang_kembalian');
+        $penjualan->uang_dibayar = $req->input('uang_tunai');
         $penjualan->save();
 
         //dd($penjualan);
-        $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id);
+        $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id,$req->input('harga_barang'));
         return redirect('/transaksi/detail/'.$penjualan->id.'');
 
     }
-    public function inputdetail($barang,$jumlah,$subtotal,$penjualan)
+    public function inputdetail($barang,$jumlah,$subtotal,$penjualan,$harga_satuan)
     {
-        $count = count($barang);
-
-        for($i=0;$i<$count;$i++)
-        {
+       
+        foreach ($barang as $key => $value) {
             $detail = new Penjualan_detail;
+            //dd($key,$value);
             $detail->penjualan_id = $penjualan;
-            $detail->barang_id = $barang[$i];
-            $detail->jumlah = $jumlah[$i];
-            $detail->total_satuan = $subtotal[$i];
+            $detail->barang_id = $value;
+            $detail->jumlah = $jumlah[$key];
+            $detail->total_satuan = $subtotal[$key];
+            $detail->harga_satuan = $harga_satuan[$key];
+            //dd($detail);
             $detail->save();
+            $this->logKeuntungan($detail,2);
+            //$this->createLog($detail);
         }
         return;
     }
@@ -137,8 +143,9 @@ class TransaksiController extends Controller
         $penjualan->potongan = $request->input('potongan_harga');
         $penjualan->total_akhir = $request->input('harga_akhir');
         $penjualan->kembalian = $request->input('uang_kembalian');
+        $penjualan->uang_dibayar = $request->input('uang_tunai');
         $this->deletedetail($request->penjualan_id);
-        $this->inputdetail($request->input('id_barang'),$request->input('jumlah_barang'),$request->input('subtotal'),$penjualan->id);
+        $this->inputdetail($request->input('id_barang'),$request->input('jumlah_barang'),$request->input('subtotal'),$penjualan->id,$request->input('harga_barang'));
         if($penjualan->save())
         {
             $request->session()->flash('alert-success', 'Data transaksi berhasil diubah.');
@@ -166,5 +173,33 @@ class TransaksiController extends Controller
         $detail = Penjualan_detail::where('penjualan_id',$id)->get();
         //dd($penjualan,$detail);
         return view('printpenjualan',['penjualan'=>$penjualan,'detail'=>$detail]);   
+    }
+    public function logKeuntungan($data,$flag)
+    {
+        //dd($data);
+        $query = BarangDetail::where('barang_id',$data->barang_id)
+                            ->orderBy('harga_beli','asc')
+                            ->get();
+        //dd($query);
+        $temp_jumlah_beli = $data->jumlah;
+        foreach ($query as $item) 
+        {   
+            if($item->jumlah >= $temp_jumlah_beli)
+            {
+                $item->jumlah -= $temp_jumlah_beli;
+                $item->save();
+                app('App\Http\Controllers\LogController')->create($data,$flag,$item->id,$temp_jumlah_beli);
+                break;    
+            }
+            elseif($item->jumlah < $temp_jumlah_beli)
+            {
+                $temp_jumlah_beli -= $item->jumlah;
+                app('App\Http\Controllers\LogController')->create($data,$flag,$item->id,$item->jumlah);
+                $item->jumlah = 0;
+                $item->save();
+            }
+            
+        }
+        return;
     }
 }

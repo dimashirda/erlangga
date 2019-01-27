@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Barang;
+use App\BarangDetail;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -77,6 +78,29 @@ class BarangController extends Controller
         else{
             $data->session()->flash('alert-danger', 'Data barang gagal dihapus.');
             return redirect ('/barang');
+        }
+    }
+    public function createDetail($data,$flag)
+    {   
+        $query = BarangDetail::where('barang_id',$data->barang_id)
+                            ->where('harga_beli',$data->harga_satuan)
+                            ->first();
+        if(!empty($query))
+        {
+            $query->jumlah += $data->jumlah;
+            $query->save();
+            app('App\Http\Controllers\LogController')->create($data,$flag,$query->id);
+            return;
+        }
+        else
+        {
+            $detail = new BarangDetail;
+            $detail->barang_id = $data->barang_id;
+            $detail->jumlah = $data->jumlah;
+            $detail->harga_beli = $data->harga_satuan;
+            $detail->save();
+            app('App\Http\Controllers\LogController')->create($data,$flag,$detail->id);
+            return;    
         }
     }
 }
