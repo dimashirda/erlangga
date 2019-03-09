@@ -51,18 +51,53 @@ CREATE TABLE `barang_detail` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 /*Data for the table `barang_detail` */
 
 insert  into `barang_detail`(`id`,`barang_id`,`jumlah`,`harga_beli`,`created_at`,`updated_at`,`deleted_at`) values 
-(1,1,450,1500,'2019-01-27 13:35:57','2019-01-27 06:35:57',NULL),
-(2,1,500,1800,'2019-01-13 11:58:42','2019-01-13 11:58:42',NULL),
-(3,2,0,1000,'2019-01-27 13:13:31','2019-01-27 06:13:31',NULL),
-(4,2,450,1900,'2019-01-27 13:13:31','2019-01-27 06:13:31',NULL),
+(1,1,150,1500,'2019-03-07 14:58:12','2019-03-07 07:58:12',NULL),
+(2,1,695,1800,'2019-03-07 14:44:08','2019-03-07 07:44:08',NULL),
+(3,2,100,1000,'2019-03-07 15:00:53','2019-03-07 08:00:53',NULL),
+(4,2,545,1900,'2019-03-07 14:45:47','2019-03-07 07:45:47',NULL),
 (5,1,100,2000,'2019-01-26 17:01:20','2019-01-26 10:01:20',NULL),
-(6,2,5,2000,'2019-01-27 05:01:44','2019-01-27 05:01:44',NULL),
-(7,1,0,1000,'2019-01-27 13:35:56','2019-01-27 06:35:56',NULL);
+(6,2,100,2000,'2019-03-07 14:46:37','2019-03-07 07:46:37',NULL),
+(7,1,0,1000,'2019-01-27 13:35:56','2019-01-27 06:35:56',NULL),
+(10,2,200,750,'2019-03-07 14:58:12','2019-03-07 07:58:12',NULL);
+
+/*Table structure for table `log_barang` */
+
+DROP TABLE IF EXISTS `log_barang`;
+
+CREATE TABLE `log_barang` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `barang_detail_id` int(11) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `flag` int(11) DEFAULT NULL COMMENT '1=jual,2=beli,3=potong',
+  `penjualan_detail_id` int(11) DEFAULT NULL,
+  `pembelian_detail_id` int(11) DEFAULT NULL,
+  `pemotongan_detail_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+/*Data for the table `log_barang` */
+
+insert  into `log_barang`(`id`,`barang_detail_id`,`jumlah`,`created_at`,`updated_at`,`deleted_at`,`flag`,`penjualan_detail_id`,`pembelian_detail_id`,`pemotongan_detail_id`) values 
+(1,1,50,'2019-03-07 07:42:58','2019-03-07 07:42:58',NULL,3,NULL,NULL,1),
+(2,2,95,'2019-03-07 07:42:58','2019-03-07 07:42:58',NULL,3,NULL,NULL,2),
+(3,1,50,'2019-03-07 07:44:08','2019-03-07 07:44:08',NULL,3,NULL,NULL,3),
+(4,2,100,'2019-03-07 07:44:08','2019-03-07 07:44:08',NULL,3,NULL,NULL,4),
+(5,1,50,'2019-03-07 07:45:47','2019-03-07 07:45:47',NULL,3,NULL,NULL,5),
+(6,4,95,'2019-03-07 07:45:47','2019-03-07 07:45:47',NULL,3,NULL,NULL,6),
+(7,1,50,'2019-03-07 07:46:37','2019-03-07 07:46:37',NULL,3,NULL,NULL,7),
+(8,6,95,'2019-03-07 07:46:37','2019-03-07 07:46:37',NULL,3,NULL,NULL,8),
+(12,1,50,'2019-03-07 07:57:49','2019-03-07 07:57:49',NULL,3,NULL,NULL,13),
+(13,10,100,'2019-03-07 07:57:49','2019-03-07 07:57:49',NULL,3,NULL,NULL,14),
+(14,1,50,'2019-03-07 07:58:12','2019-03-07 07:58:12',NULL,3,NULL,NULL,15),
+(15,10,100,'2019-03-07 07:58:12','2019-03-07 07:58:12',NULL,3,NULL,NULL,16);
 
 /*Table structure for table `log_transaksi` */
 
@@ -81,7 +116,7 @@ CREATE TABLE `log_transaksi` (
   `harga_satuan` int(11) DEFAULT NULL,
   `total_satuan` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 /*Data for the table `log_transaksi` */
 
@@ -93,7 +128,8 @@ insert  into `log_transaksi`(`id`,`barang_detail_id`,`penjualan_id`,`pembelian_i
 (5,4,35,NULL,2,50,'2019-01-27 06:13:31','2019-01-27 06:13:31',NULL,3000,1650000),
 (6,7,NULL,15,1,100,'2019-01-27 06:34:41','2019-01-27 06:34:41',NULL,1000,100000),
 (7,7,36,NULL,2,100,'2019-01-27 06:35:56','2019-01-27 06:35:56',NULL,2000,300000),
-(8,1,36,NULL,2,50,'2019-01-27 06:35:57','2019-01-27 06:35:57',NULL,2000,300000);
+(8,1,36,NULL,2,50,'2019-01-27 06:35:57','2019-01-27 06:35:57',NULL,2000,300000),
+(9,3,NULL,16,1,100,'2019-03-07 08:00:53','2019-03-07 08:00:53',NULL,1000,100000);
 
 /*Table structure for table `pelanggan` */
 
@@ -135,7 +171,7 @@ CREATE TABLE `pembelian` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 /*Data for the table `pembelian` */
 
@@ -154,7 +190,8 @@ insert  into `pembelian`(`id`,`users_id`,`supplier_id`,`tanggal_transaksi`,`tang
 (12,2,1,'2019-01-26 16:59:45',NULL,'2',190000,'2019-01-26 09:59:45','2019-01-26 09:59:45',NULL),
 (13,2,1,'2019-01-26 17:01:20',NULL,'2',190000,'2019-01-26 10:01:20','2019-01-26 10:01:20',NULL),
 (14,2,1,'2019-01-27 12:01:43',NULL,'2',10000,'2019-01-27 05:01:43','2019-01-27 05:01:43',NULL),
-(15,2,1,'2019-01-27 13:34:40',NULL,'2',100000,'2019-01-27 06:34:40','2019-01-27 06:34:40',NULL);
+(15,2,1,'2019-01-27 13:34:40',NULL,'2',100000,'2019-01-27 06:34:40','2019-01-27 06:34:40',NULL),
+(16,1,1,'2019-03-07 15:00:53',NULL,'2',100000,'2019-03-07 08:00:53','2019-03-07 08:00:53',NULL);
 
 /*Table structure for table `pembelian_detail` */
 
@@ -171,7 +208,7 @@ CREATE TABLE `pembelian_detail` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `total_satuan` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 /*Data for the table `pembelian_detail` */
 
@@ -190,7 +227,66 @@ insert  into `pembelian_detail`(`id`,`pembelian_id`,`barang_id`,`jumlah`,`harga_
 (12,12,1,95,2000,'2019-01-26 09:59:45','2019-01-26 09:59:45',NULL,190000),
 (13,13,1,95,2000,'2019-01-26 10:01:20','2019-01-26 10:01:20',NULL,190000),
 (14,14,2,5,2000,'2019-01-27 05:01:43','2019-01-27 05:01:43',NULL,10000),
-(15,15,1,100,1000,'2019-01-27 06:34:40','2019-01-27 06:34:40',NULL,100000);
+(15,15,1,100,1000,'2019-01-27 06:34:40','2019-01-27 06:34:40',NULL,100000),
+(16,16,2,100,1000,'2019-03-07 08:00:53','2019-03-07 08:00:53',NULL,100000);
+
+/*Table structure for table `pemotongan` */
+
+DROP TABLE IF EXISTS `pemotongan`;
+
+CREATE TABLE `pemotongan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `barang_awal_id` int(11) DEFAULT NULL,
+  `barang_akhir_id` int(11) DEFAULT NULL,
+  `jumlah_barang_akhir` int(11) DEFAULT NULL,
+  `jumlah_barang_awal` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+/*Data for the table `pemotongan` */
+
+insert  into `pemotongan`(`id`,`barang_awal_id`,`barang_akhir_id`,`jumlah_barang_akhir`,`jumlah_barang_awal`,`created_at`,`updated_at`,`deleted_at`) values 
+(2,1,2,95,50,'2019-03-07 07:42:58','2019-03-07 07:42:58',NULL),
+(3,1,2,100,50,'2019-03-07 07:44:08','2019-03-07 07:44:08',NULL),
+(4,1,2,95,50,'2019-03-07 07:45:47','2019-03-07 07:45:47',NULL),
+(5,1,2,95,50,'2019-03-07 07:46:37','2019-03-07 07:46:37',NULL),
+(9,1,2,100,50,'2019-03-07 07:57:49','2019-03-07 07:57:49',NULL),
+(10,1,2,100,50,'2019-03-07 07:58:12','2019-03-07 07:58:12',NULL);
+
+/*Table structure for table `pemotongan_detail` */
+
+DROP TABLE IF EXISTS `pemotongan_detail`;
+
+CREATE TABLE `pemotongan_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `barang_detail_id` int(11) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `flag` int(11) DEFAULT NULL COMMENT '0=kurang,1=tambah',
+  `pemotongan_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+/*Data for the table `pemotongan_detail` */
+
+insert  into `pemotongan_detail`(`id`,`barang_detail_id`,`jumlah`,`created_at`,`updated_at`,`deleted_at`,`flag`,`pemotongan_id`) values 
+(1,1,50,'2019-03-07 07:42:58','2019-03-07 07:42:58',NULL,0,2),
+(2,2,95,'2019-03-07 07:42:58','2019-03-07 07:42:58',NULL,1,2),
+(3,1,50,'2019-03-07 07:44:08','2019-03-07 07:44:08',NULL,0,3),
+(4,2,100,'2019-03-07 07:44:08','2019-03-07 07:44:08',NULL,1,3),
+(5,1,50,'2019-03-07 07:45:47','2019-03-07 07:45:47',NULL,0,4),
+(6,4,95,'2019-03-07 07:45:47','2019-03-07 07:45:47',NULL,1,4),
+(7,1,50,'2019-03-07 07:46:37','2019-03-07 07:46:37',NULL,0,5),
+(8,6,95,'2019-03-07 07:46:37','2019-03-07 07:46:37',NULL,1,5),
+(13,1,50,'2019-03-07 07:57:49','2019-03-07 07:57:49',NULL,0,9),
+(14,10,100,'2019-03-07 07:57:49','2019-03-07 07:57:49',NULL,1,9),
+(15,1,50,'2019-03-07 07:58:12','2019-03-07 07:58:12',NULL,0,10),
+(16,10,100,'2019-03-07 07:58:12','2019-03-07 07:58:12',NULL,1,10);
 
 /*Table structure for table `penjualan` */
 
