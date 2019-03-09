@@ -17,6 +17,6 @@ class LogTransaksi extends Model
 
     public function keuntungan()
     {
-
+        
     }
 }

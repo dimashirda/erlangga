@@ -151,6 +151,22 @@ return [
             'icon'        => 'money',
         ],
         [
+            'text'        => 'Pemotongan',
+            'icon'        => 'cut',
+            'submenu'     => [
+                [
+                    'text' => 'Tambah Stok',
+                    'icon' => 'dropbox',
+                    'url'  => '/pemotongan-stok',
+                ],
+                /*[
+                    'text' => 'Jasa Potong',
+                    'icon' => 'btc',
+                    'url'  => 'pemotongan-klien',
+                ],*/
+            ],
+        ],
+        [
             'text'        => 'Laporan',
             'url'         => '/laporan',
             'icon'        => 'newspaper-o',
