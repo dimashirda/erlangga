@@ -18,7 +18,7 @@
 
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="kodebarang" name="kode_barang"
-                                    autocomplete="off">
+                                    autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -26,21 +26,26 @@
 
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="namabarang" name="nama_barang"
-                                    autocomplete="off">
+                                    autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="HargaJual" class="col-sm-2 control-label">Harga Jual</label>
 
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" autocomplete="off" id="hargajual" name="harga_jual">
+                                    <input type="number" class="form-control" autocomplete="off" id="hargajual" name="harga_jual" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="SatuanBarang" class="col-sm-2 control-label">Satuan</label>
-
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="satuanbarang" name="satuan_barang" autocomplete="off">
+                                    <select class="select-2 satuan" data-width="50%" name="satuan_barang" required>
+                                        <option disabled selected>Pilih Satuan</option>
+                                        <option value="RIM">RIM</option>
+                                        <option value="Lembar">Lembar</option>
+                                        <option value="Box">Box</option>
+                                        <option value="RIM-Plano">RIM-Plano</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -58,4 +63,9 @@
                 </div>
             </div>
         </div>
+@stop
+@section('js')
+    <script type="text/javascript">
+        $('.satuan').select2();
+    </script>
 @stop

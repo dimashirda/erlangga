@@ -56,6 +56,8 @@
                             <thead>
                             <tr>
                                 <th>Nama Barang</th>
+                                <th>Satuan</th>
+                                <th>Harga Jual</th>
                                 <th>Harga Beli</th>
                                 <th>Stok</th>
                                 @if(Auth::User()->role == 1)
@@ -67,6 +69,8 @@
                             @foreach($detail as $a)
                             <tr>
                                 <td>{{ $a->barang->nama }}</td>
+                                <td>{{ $a->barang->satuan}}</td>
+                                <td>{{ $a->barang->harga_jual}}</td>
                                 <td>{{ $a->harga_beli }}</td>
                                 <td>{{ $a->jumlah }}</td>
                                 @if(Auth::User()->role == 1)
