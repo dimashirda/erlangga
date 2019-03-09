@@ -44,11 +44,11 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <br>
-<!--                     <div class="row">
+                    <div class="row">
                         <div class="col-xs-6">
-                            <a href="{{url('/barang/tambah')}}" class='btn btn-primary'><i class="fa fa-plus-circle"></i> Tambah baru</a>
+                            <a href="{{url('/barang/tambahdetail')}}/{{$id}}" class='btn btn-primary'><i class="fa fa-plus-circle"></i> Tambah baru</a>
                         </div>
-                    </div> -->
+                    </div>
                     <br>
                     @if($detail->count())
                     <div style="overflow-x:auto;">

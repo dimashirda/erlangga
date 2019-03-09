@@ -20,7 +20,9 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/barang','Barang\ViewController@index');
 	Route::get('/barang/detail/{id}','Barang\ViewController@detail');
 	Route::get('/barang/tambah','Barang\ViewController@tambah');
+	Route::get('/barang/tambahdetail/{id}','Barang\ViewController@tambahDetail');
 	Route::post('/barang/simpan','Barang\CreateController@simpan');
+	Route::post('/barang/simpandetail','Barang\CreateController@simpanDetail');
 	Route::post('/barang/edit/{id_barang}','Barang\CreateController@edit');
 	Route::get('/barang/delete/{id_barang}','Barang\DeleteController@delete');
 	Route::post('/barangdetail/edit/{id_barang}','Barang\CreateController@editDetail');

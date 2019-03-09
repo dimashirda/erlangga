@@ -39,7 +39,36 @@ class CreateController extends Controller
             }
         }
     }
-
+    public function simpanDetail(Request $request)
+    {   
+        $query = BarangDetail::where('barang_id',$request->barang_id)
+                            ->where('harga_beli',$request->harga_beli)
+                            ->get();
+        //dd($query);
+        if(count($query) == 0)
+        {
+            $detail = new BarangDetail;
+            $detail->barang_id = $request->barang_id;
+            $detail->jumlah = $request->jumlah;
+            $detail->harga_beli = $request->harga_beli;
+            if($detail->save())
+            {
+                $request->session()->flash('alert-success', 'Data barang telah ditambahkan.');
+                return redirect ('/barang/detail/'.$request->barang_id.'');
+            }
+            else
+            {
+                $request->session()->flash('alert-danger', 'Data barang gagal ditambahkan.');
+                return redirect ('/barang/detail/'.$request->barang_id.'');
+            }
+        }
+        else
+        {
+            $request->session()->flash('alert-danger', 'Data barang gagal ditambahkan. Harga sudah ada');
+                return redirect ('/barang/detail/'.$request->barang_id.'');   
+        }
+        
+    }
     public function edit(request $data, $id)
     {
         $edit = Barang::where('id',$id)->first();

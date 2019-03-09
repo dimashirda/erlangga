@@ -20,9 +20,16 @@ class ViewController extends Controller
     	return view('tambahbarang')->with('nav','barang');
     }
 
+    public function tambahDetail($id)
+    {   
+        $data['id'] = $id;
+        return view('tambahdetailbarang',$data)->with('nav','barang');
+    }
+
     public function detail($id)
     {
     	$data['detail'] = BarangDetail::where('barang_id',$id)->get();
+        $data['id'] = $id;
     	return view('barangdetail',$data)->with('nav','barang');
     }
 }
