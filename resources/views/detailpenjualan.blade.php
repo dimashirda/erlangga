@@ -29,6 +29,7 @@
                     <br>
                     <div class="row">
                         <div class="col-xs-6">
+                            <a href="{{url('/transaksi/pelunasan')}}/{{$penjualan->id}}" class='btn btn-warning' target="__blank">Pelunasan</a>
                             <a href="{{url('/transaksi/print')}}/{{$penjualan->id}}" class='btn btn-primary' target="__blank">Print</a>
                             <a href="{{url('/transaksi/edit')}}/{{$penjualan->id}}" class='btn btn-info'>Edit</a>
                             <button type="button" class="btn btn-danger delete-button" 

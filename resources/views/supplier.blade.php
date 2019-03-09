@@ -60,7 +60,7 @@
                                 <th>Alamat Supplier</th>
                                 <th>No Telpon</th>
                                 <th>Kota</th>
-                                @if(Auth::User()->name == 'dimas')
+                                @if(Auth::User()->role == 1)
                                 <th style="text-align: center" colspan="2">Action</th>
                                 @endif
                             </tr>
@@ -73,7 +73,7 @@
                                 <td>{{ $a->alamat }}</td>
                                 <td>{{ $a->telepon }}</td>
                                 <td>{{ $a->kota }}</td>
-                                @if(Auth::User()->name == 'dimas')
+                                @if(Auth::User()->role == 1)
                                 <td align="center" width="30px">
                                     <button type="button" class="btn btn-default edit-button" data-toggle="modal" 
                                     data-target="#modal-default"

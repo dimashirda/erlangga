@@ -47,6 +47,8 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/transaksi/delete','TransaksiController@delete');
 	Route::get('/transaksi/cari','TransaksiController@search');
 	Route::get('/transaksi/print/{id}','TransaksiController@print');
+	Route::get('/transaksi/pelunasan/{id}','TransaksiController@pelunasan');
+	Route::post('/transaksi/pelunasan/{id}/bayar','TransaksiController@pelunasanBayar');
 
 	Route::get('/search/barang','SearchController@barang');
 	Route::get('/search/pelanggan','SearchController@pelanggan');
@@ -62,4 +64,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/pemotongan-klien','Pemotongan\ViewController@potongKlien');
 
 	Route::get('/laporan','Lapran\ViewController@index');
+
+	Route::get('/pelanggan/detail/{id}','PelangganController@historiBelanja');
+	Route::get('/pelanggan/detail/{id}/{flag}','PelangganController@historiBelanja');
 });

@@ -39,11 +39,16 @@
         <div class="col-xs-12">
             <div class="box box-danger">
                 <div class="box-header">
-                    <h3 class="box-title">List Transaksi Penjualan</h3>
+                    <h3 class="box-title">List Transaksi Penjualan
+                    @if(!empty($flag))
+                        @if($flag == 1) (Semua) @elseif ($flag == 2) (Belum Lunas) @else (Sudah Lunas) 
+                        @endif
+                    @endif</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <br>
+                    @if(empty($flag))
                     <div class="row">
                         <div class="col-xs-6">
                             <a href="{{url('/transaksi/tambah')}}" class='btn btn-primary'><i class="fa fa-plus-circle"></i> Tambah baru</a>
@@ -57,6 +62,21 @@
                         </div>
                         </form>
                     </div>
+                    @else
+                    <label>Pilih Jenis Transaksi</label>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <a href="{{url('/pelanggan/detail')}}/{{$pelanggan_id}}/2" class='btn btn-primary'>Belum Lunas</a>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="{{url('/pelanggan/detail')}}/{{$pelanggan_id}}/3" class='btn btn-primary'>Sudah Lunas</a>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="{{url('/pelanggan/detail')}}/{{$pelanggan_id}}" class='btn btn-primary'>Semua</a>
+                        </div>
+                    </div>
+                    @endif
+
                     <br>
                     @if($acc->count())
                     <div style="overflow-x:auto;">

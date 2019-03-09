@@ -61,7 +61,7 @@
                                 <th>Satuan</th>
                                 <th>Stok</th>
                                 <th>Detail</th>
-                                @if(Auth::User()->name == 'dimas')
+                                @if(Auth::User()->role == 1)
                                 <th style="text-align: center" colspan="2">Action</th>
                                 @endif
                             </tr>
@@ -81,7 +81,7 @@
                                 @endforeach
                                 <td>{{ $total_stok }}</td>
                                 <td><a href="{{url()->current()}}/detail/{{$a->id}}"><button type="button" class="btn btn-info">Detail</button></a></td>
-                                @if(Auth::User()->name == 'dimas')
+                                @if(Auth::User()->role == 1)
                                 <td align="center" width="30px">
                                     <button type="button" class="btn btn-default edit-button" data-toggle="modal" 
                                     data-target="#modal-default" data-id="{{$a->id}}" data-kode="{{$a->kode}}" 

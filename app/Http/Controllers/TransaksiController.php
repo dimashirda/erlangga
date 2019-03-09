@@ -202,4 +202,25 @@ class TransaksiController extends Controller
         }
         return;
     }
+    public function pelunasan($id)
+    {
+        $data['penjualan'] = Penjualan::find($id);
+        return view('pelunasan',$data)->with('nav','transaksi');
+    }
+    public function pelunasanBayar($id,Request $request)
+    {
+        //dd($id,$request);
+        $query = Penjualan::find($id);
+        $query->terbayar = $request->bayar;
+        //$query->save();
+        if($query->save())
+        {
+            $request->session()->flash('alert-success', 'Berhasil Terbayarkan');
+            return redirect ('/pelanggan/detail/'.$query->pelanggan->id.'');
+        }
+        else{
+            $request->session()->flash('alert-danger', 'Data transaksi gagal diubah.');
+            return redirect ('/transaksi');
+        }
+    }
 }

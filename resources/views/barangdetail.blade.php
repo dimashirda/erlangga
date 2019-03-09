@@ -44,11 +44,11 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <br>
-                    <div class="row">
+<!--                     <div class="row">
                         <div class="col-xs-6">
                             <a href="{{url('/barang/tambah')}}" class='btn btn-primary'><i class="fa fa-plus-circle"></i> Tambah baru</a>
                         </div>
-                    </div>
+                    </div> -->
                     <br>
                     @if($detail->count())
                     <div style="overflow-x:auto;">
@@ -58,7 +58,7 @@
                                 <th>Nama Barang</th>
                                 <th>Harga Beli</th>
                                 <th>Stok</th>
-                                @if(Auth::User()->name == 'dimas')
+                                @if(Auth::User()->role == 1)
                                 <th style="text-align: center" colspan="2">Action</th>
                                 @endif
                             </tr>
@@ -69,7 +69,7 @@
                                 <td>{{ $a->barang->nama }}</td>
                                 <td>{{ $a->harga_beli }}</td>
                                 <td>{{ $a->jumlah }}</td>
-                                @if(Auth::User()->name == 'dimas')
+                                @if(Auth::User()->role == 1)
                                 <td align="center" width="30px">
                                     <button type="button" class="btn btn-default edit-button" data-toggle="modal" 
                                     data-target="#modal-default" data-id="{{$a->id}}" data-hargajual="{{$a->harga_jual}}" 

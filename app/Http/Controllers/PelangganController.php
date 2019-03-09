@@ -6,6 +6,7 @@ use DB;
 use Auth;
 use App\Pelanggan;
 use Illuminate\Http\Request;
+use App\Penjualan;
 
 class PelangganController extends Controller
 {
@@ -87,5 +88,31 @@ class PelangganController extends Controller
             $data->session()->flash('alert-danger', 'Data pelanggan gagal dihapus.');
             return redirect ('/pelanggan');
         }
+    }
+
+    public function historiBelanja($id,$flag=1)
+    {   
+        if($flag == 1)
+        {
+            $acc = Penjualan::where('pelanggan_id',$id)
+                        ->orderBy('tanggal_transaksi','desc')->paginate(10);    
+        }
+        else if($flag == 2)
+        {   
+            $acc = Penjualan::where('pelanggan_id',$id)
+                        ->whereColumn('terbayar','<','total_akhir')
+                        ->where('jenis_penjualan',1)
+                        ->orderBy('tanggal_transaksi','desc')->paginate(10);
+            //dd($acc);   
+        }
+        else
+        {
+            $acc = Penjualan::where('pelanggan_id',$id)
+                        ->where('jenis_penjualan',2)
+                        ->orWhereColumn('terbayar','>=','total_akhir')
+                        ->orderBy('tanggal_transaksi','desc')->paginate(10);
+        }
+        $pelanggan_id = $id;
+        return view('transaksi',['acc'=>$acc , 'flag'=>$flag , 'pelanggan_id'=>$pelanggan_id])->with('nav','pelanggan');
     }
 }

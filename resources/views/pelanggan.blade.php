@@ -62,7 +62,8 @@
                                 <th>Kota</th>
                                 <th>Limit</th>
                                 <th>Kredit</th>
-                                @if(Auth::User()->name == 'dimas')
+                                <th>Detail</th>
+                                @if(Auth::User()->name == 1)
                                 <th style="text-align: center" colspan="2">Action</th>
                                 @endif
                             </tr>
@@ -77,7 +78,12 @@
                                 <td>{{ $a->kota }}</td>
                                 <td>{{ $a->limit }}</td>
                                 <td>{{ $a->kredit }}</td>
-                                @if(Auth::User()->name == 'dimas')
+                                <td align="center" width="30px">
+                                    <button type="button" class="btn btn-info" onclick="window.location.href='{{url('/pelanggan/detail')}}/{{$a->id}}'">
+                                        Detail
+                                    </button>
+                                </td>
+                                @if(Auth::User()->role == 1)
                                 <td align="center" width="30px">
                                     <button type="button" class="btn btn-default edit-button" data-toggle="modal" data-target="#modal-default"
                                     data-id="{{$a->id}}" data-name="{{$a->nama}}" data-alamat="{{$a->alamat}}" 
