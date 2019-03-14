@@ -71,13 +71,15 @@
                             <tbody>
                             @foreach($acc as $a)
                             <tr>
+                                @php $limit = number_format($a->limit,2,",","."); 
+                                    $kredit = number_format($a->kredit,2,",","."); @endphp
                                 <td>{{ $a->id }}</td>
                                 <td>{{ $a->nama }}</td>
                                 <td>{{ $a->alamat }}</td>
                                 <td>{{ $a->telepon }}</td>
                                 <td>{{ $a->kota }}</td>
-                                <td>{{ $a->limit }}</td>
-                                <td>{{ $a->kredit }}</td>
+                                <td>{{ $limit }}</td>
+                                <td>{{ $kredit }}</td>
                                 <td align="center" width="30px">
                                     <button type="button" class="btn btn-info" onclick="window.location.href='{{url('/pelanggan/detail')}}/{{$a->id}}'">
                                         Detail
@@ -102,6 +104,7 @@
                             </tr>
                             @endforeach
                             </tbody>
+                            {{$acc->links()}}
                         </table>
                     </div>
                 </div>

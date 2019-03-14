@@ -101,7 +101,7 @@
                             <tr>
                                 <td>{{$i}}</td>
                                 <td>{{ $a->kasir->name }}</td>
-                                <td>{{ $a->pelanggan->nama }}</td>
+                                <td>{{ $a->pelanggan->nama or '-' }}</td>
                                 <td>{{ $a->tanggal_transaksi }}</td>
                                 <td>{{ $a->tanggal_jatuh_tempo }}</td>
                                 <td>@if($a->jenis_penjualan == 1) Kredit @else Tunai @endif</td>

@@ -101,6 +101,7 @@
                             </tr>
                             @endforeach
                             </tbody>
+                            {{$acc->links()}}
                         </table>
                     </div>
                 </div>

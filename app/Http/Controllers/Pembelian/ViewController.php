@@ -12,6 +12,7 @@ class ViewController extends Controller
     public function index()
     {	
         $acc = Pembelian::paginate(25);
+        //dd($acc);
     	return view('pembelian.index',['acc'=>$acc])->with('nav','pembelian');
     }
 
