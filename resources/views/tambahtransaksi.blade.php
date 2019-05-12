@@ -172,9 +172,9 @@ body {
                                 <div class="radio col-sm-2">
                                   <label><input type="radio" name="giro" id="bayar_giro">Giro</label>
                                 </div>
-                                <div class="radio col-sm-2">
-                                  <label><input type="radio" name="campur" id="bayar_campur">Campuran</label>
-                                </div>
+                            <!-- <div class="radio col-sm-2">
+                              <label><input type="radio" name="campur" id="bayar_campur">Campuran</label>
+                            </div> -->
                             </div>
                             <div class="form-group" id="tunai" style="display:none;">
                                 <label for="TerimaTunai" class="col-sm-2 control-label">Tunai</label>
@@ -233,13 +233,14 @@ body {
     } );
 var nama = [];
 var result = [];
+var stok = [];
 var subtotal = [], total_harga = 0, harga_akhir = 0, uang_kembalian = 0;;
 $(document).ready(function(){
   var i = 0;
   $('#add').click(function(){
     i++;
     $('#listbarang').append('<tr id="row_'+i+'"><td><div class="autocomplete col-sm-3" style="margin-left:177.5px;"><input style="width:236px;" type="text" class="form-control barang" id="barang_'+i+'" name="nama_barang['+i+']" placeholder="Nama Barang"><input type="hidden" id="id_barang_'+i+'" name="id_barang['+i+']"></div></td><td><div class="col-sm-2" style="margin-left:-15px; margin-right:5px;"><input style="width:95px;" type="text" class="form-control harga" id="hargabarang_'+i+'" name="harga_barang['+i+']" placeholder="harga"></div></td><td><label for="JumlahBarang" style="margin-left:-12px;" class="col-sm-1 control-label">Kuantitas</label><div class="col-sm-1" style="margin-left:48.5px;"><input style="width:55px;" type="text" class="form-control" id="jumlahbarang_'+i+'" name="jumlah_barang['+i+']"></div></td><td><label for="SatuanBarang" style="margin-left:-81.5px;" class="col-sm-1 control-label">Satuan</label><div class="col-sm-1" style="margin-left:-28px;"><input style="width:55px;" type="text" class="form-control" id="satuanbarang_'+i+'" name="satuan_barang['+i+']" disabled></div></td><td><div class="col-sm-2" style="margin-left:-11px;"><input style="width:110px;" type="text" class="form-control" id="subtotal_'+i+'" placeholder="Subtotal" disabled><input type="hidden" id="subtotal_'+i+'_sent" name="subtotal['+i+']"></div></td><td><a style="margin-left:5px; height:35px; margin-top:-22px;" id="'+i+'" class="btn btn-danger btn_remove"><span class="glyphicon glyphicon-remove"></span></a></td></tr>');
-    autocomplete(document.getElementById('barang_'+i+''), nama, result, 'barang',i, document.getElementById('jumlahbarang_'+i+''),document.getElementById('hargabarang_'+i+''));
+    autocomplete(document.getElementById('barang_'+i+''), nama, result, 'barang',i, document.getElementById('jumlahbarang_'+i+''),document.getElementById('hargabarang_'+i+''),stok);
   });
 });
 $(document).on('click', '.btn_remove', function(){
@@ -268,7 +269,10 @@ $(document).ready(function(){
       data.result.forEach(function(response){
         result.push(response);
       });
-      autocomplete(document.getElementById("barang_0"), nama, result, 'barang', 0, document.getElementById("jumlahbarang_0"), document.getElementById("hargabarang_0"));
+      data.stok.forEach(function(response){
+        result.push(response.stok);
+      });
+      autocomplete(document.getElementById("barang_0"), nama, result, 'barang', 0, document.getElementById("jumlahbarang_0"), document.getElementById("hargabarang_0"),stok);
     }
   });
 });
@@ -288,7 +292,7 @@ $(document).ready(function (){
                 result.push(response);
                 
             });
-            autocomplete(document.getElementById("myInput"), nama, result, 'pelanggan',null, null,null);
+            autocomplete(document.getElementById("myInput"), nama, result, 'pelanggan',null, null,null,null);
         }
     });
 });
@@ -395,7 +399,7 @@ function getSum(total, num){
   return total + num;
 }
 //function subtotal()
-function autocomplete(inp, arr, result, flag, counter, quantity, price) {
+function autocomplete(inp, arr, result, flag, counter, quantity, price , stok) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
   console.log(quantity);

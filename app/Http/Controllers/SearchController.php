@@ -21,9 +21,22 @@ class SearchController extends Controller
 
     public function barang()
     {
-    	$nama = Barang::select('nama')->get();
+    	$nama = Barang::select('nama')->get()->toArray();
     	$result = Barang::select('id','satuan','harga_jual')->get();
-    	return json_encode(['result'=>$result, 'nama'=>$nama]);
+        $barang = Barang::all();
+        $stok = [];
+        $jumlah_barang = 0;
+        foreach ($barang as $key => $item) {
+            $jumlah_barang = 0;
+            foreach ($item->barang_detail as $detail) {
+                $jumlah_barang += $detail->jumlah;
+            }
+            array_push($stok,$jumlah_barang);
+            // dd($jumlah_barang,$nama[$key]);
+            $nama[$key]['nama'] .= ' - '.$jumlah_barang;
+        }
+        // dd($nama);
+    	return json_encode(['result'=>$result, 'nama'=>$nama, 'stok'=>$stok]);
     }
 
     public function supplier()
