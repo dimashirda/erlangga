@@ -163,11 +163,17 @@ body {
                             </div>
                             <div class="form-group">
                                 <label for="CaraPembayaran" class="col-sm-2 control-label">Metode Pembayaran</label>
-                                <div class="radio col-sm-3">
+                                <div class="radio col-sm-2">
                                   <label><input type="radio" name="tunai" id="bayar_tunai">Tunai</label>
                                 </div>
-                                <div class="radio col-sm-3">
+                                <div class="radio col-sm-2">
                                   <label><input type="radio" name="kredit" id="bayar_kredit">Kredit</label>
+                                </div>
+                                <div class="radio col-sm-2">
+                                  <label><input type="radio" name="giro" id="bayar_giro">Giro</label>
+                                </div>
+                                <div class="radio col-sm-2">
+                                  <label><input type="radio" name="campur" id="bayar_campur">Campuran</label>
                                 </div>
                             </div>
                             <div class="form-group" id="tunai" style="display:none;">
@@ -188,8 +194,22 @@ body {
                             <div class="form-group" style="display:none;" id="jatuh_tempo">
                               <label for="JatuhTempo" class="col-sm-2 control-label">Jatuh Tempo</label>
                               <div class="col-sm-10">
-                                  <input type="text" name="jatuhtempo" class="form-control" id="datepicker">
+                                  <input type="date" name="jatuhtempo" class="form-control" id="datepicker">
                               </div>
+                            </div>
+                            <div class="form-group" style="display:none;" id="form_giro">
+                                <label class="col-sm-2 control-label">Nomor Seri</label>
+                                <div class="col-sm-10">
+                                  <input type="text" name="no_seri_giro" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">Tanggal Pencairan</label>
+                                <div class="col-sm-10">
+                                  <input type="date" name="tanggal_pencairan" id="datepicker" class="form-control">
+                                </div>
+                                <label class="col-sm-2 control-label">Nominal</label>
+                                <div class="col-sm-10">
+                                  <input type="number" name="nominal_giro" class="form-control">
+                                </div>
                             </div>
                         </div>
                         <!-- /.box-body -->
@@ -310,9 +330,12 @@ document.getElementById("bayar_tunai").addEventListener("click", function(e){
   $('#uang_tunai').val('');
   $('#uang_kembalian').val('');
   $('#bayar_kredit').prop("checked", false);
+  $('#bayar_giro').prop("checked", false);
+  $('#bayar_campur').prop("checked", false);
   $('#jatuh_tempo').hide();
   $('#tunai').show();
   $('#kembalian').show();
+  $('#form_giro').hide();
   document.getElementById("uang_tunai").addEventListener("input", function(e){
     uang_kembalian = this.value - harga_akhir;
     $('#uang_kembalian').val(uang_kembalian);
@@ -325,9 +348,24 @@ document.getElementById("bayar_kredit").addEventListener("click", function(e){
   $('#uang_tunai').val('');
   $('#uang_kembalian').val('');
   $('#bayar_tunai').prop("checked", false);
+  $('#bayar_giro').prop("checked", false);
+  $('#bayar_campur').prop("checked", false);
   $('#jatuh_tempo').show();
   $('#tunai').hide();
   $('#kembalian').hide();
+  $('#form_giro').hide();
+});
+
+$('#bayar_giro').on('click', function(){
+    $('#uang_tunai').val('');
+    $('#uang_kembalian').val('');
+    $('#bayar_tunai').prop("checked", false);
+    $('#bayar_kredit').prop("checked", false);
+    $('#bayar_campur').prop("checked", false);
+    $('#jatuh_tempo').hide();
+    $('#tunai').hide();
+    $('#kembalian').hide();
+    $('#form_giro').show();
 });
 
 document.getElementById("pilihan_diskon").addEventListener("click", function(e){
