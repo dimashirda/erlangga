@@ -70,3 +70,6 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/pelanggan/detail/{id}','PelangganController@historiBelanja');
 	Route::get('/pelanggan/detail/{id}/{flag}','PelangganController@historiBelanja');
 });
+
+Route::get('/generate-tanggal','Generator@generate');
+Route::get('/import-barang','Barang\ImportController@importBarang');

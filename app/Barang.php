@@ -9,9 +9,7 @@ use App\BarangDetail;
 class Barang extends Model
 {
     protected $table = 'barang';
-
-    public $incrementing = false;
-
+    use SoftDeletes;
     public function barang_jual()
     {
     	return $this->hasMany('App\Pembelian','barang_id','id');
