@@ -100,4 +100,11 @@ class CreateController extends Controller
             return redirect('/barang/detail/'.$id.'');
         }
     }
+
+    public function deleteDetail($id)
+    {   
+        $barang_detail = BarangDetail::find($id);
+        $barang_detail->delete();
+        return back();
+    }
 }
