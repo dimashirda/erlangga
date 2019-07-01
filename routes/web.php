@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::post('/barang/edit/{id_barang}','Barang\CreateController@edit');
 	Route::get('/barang/delete/{id_barang}','Barang\DeleteController@delete');
 	Route::post('/barangdetail/edit/{id_barang}','Barang\CreateController@editDetail');
-	Route::post('/barangdetail/delete/{id_barang}','Barang\CreateController@deleteDetail');
+	Route::get('/barangdetail/delete/{id_barang}','Barang\CreateController@deleteDetail');
 
 	Route::get('/pelanggan','PelangganController@index');
 	Route::get('/pelanggan/tambah','PelangganController@tambah');
