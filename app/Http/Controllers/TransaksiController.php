@@ -15,7 +15,7 @@ use Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
+use Session;
 class TransaksiController extends Controller
 {
     public function index()
@@ -43,6 +43,16 @@ class TransaksiController extends Controller
                 $penjualan->jenis_penjualan = 1;
                 $this->kredit($req->input('id_pelanggan'),$req->input('harga_akhir'));
             }
+            else if(!empty($req->transfer))
+            {
+                $penjualan->tanggal_jatuh_tempo = null;
+                $penjualan->jenis_penjualan = 4;
+            }
+            else if(!empty($req->giro))
+            {
+                $penjualan->tanggal_jatuh_tempo = null;
+                $penjualan->jenis_penjualan = 3;
+            }
             else
             {
                 $penjualan->tanggal_jatuh_tempo = null;
@@ -55,6 +65,10 @@ class TransaksiController extends Controller
             $penjualan->kembalian = $req->input('uang_kembalian');
             $penjualan->uang_dibayar = $req->input('uang_tunai');
             $penjualan->save();
+            if(!empty($req->giro))
+                app('App\Http\Controllers\Giro\CreateController')->create($penjualan->id,$req->no_seri_giro,$req->tanggal_pencairan,$req->nominal_giro); //buat record giro
+            if(!empty($req->transfer))
+                app('App\Http\Controllers\Transfer\CreateController')->create($penjualan->id); //buat record transfer
             $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id,$req->input('harga_barang'));
             DB::commit();
             return redirect('/transaksi/detail/'.$penjualan->id.'');
@@ -124,41 +138,45 @@ class TransaksiController extends Controller
         return view('edittransaksi',['pel'=>$pel, 'bar'=>$bar, 'penjualan'=>$penjualan, 'detail'=>$detail])->with('nav','transaksi');
     }
     public function editsimpan(Request $request)
-    {
-        //dd($request);
-        $penjualan = Penjualan::find($request->penjualan_id);
-        $penjualan->pelanggan_id = $request->input('id_pelanggan');
-        $penjualan->users_id = Auth::user()->id;
-        $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
-        if(!empty($request->input('kredit')))
-        {
-            $penjualan->tanggal_jatuh_tempo = Carbon::parse($request->input('jatuh_tempo'));
-            $penjualan->jenis_penjualan = 1;
-            $this->kredit($request->input('id_pelanggan'),$request->input('harga_akhir'));
-        }
-        else
-        {
-            $penjualan->tanggal_jatuh_tempo = null;
-            $penjualan->jenis_penjualan = 2;
-        }
-        $penjualan->total = $request->input('total_harga');
-        $penjualan->diskon = $request->input('diskon_transaksi');
-        $penjualan->potongan = $request->input('potongan_harga');
-        $penjualan->total_akhir = $request->input('harga_akhir');
-        $penjualan->kembalian = $request->input('uang_kembalian');
-        $penjualan->uang_dibayar = $request->input('uang_tunai');
-        $this->deletedetail($request->penjualan_id);
-        $this->inputdetail($request->input('id_barang'),$request->input('jumlah_barang'),$request->input('subtotal'),$penjualan->id,$request->input('harga_barang'));
-        if($penjualan->save())
-        {
-            $request->session()->flash('alert-success', 'Data transaksi berhasil diubah.');
-            return redirect ('/transaksi/detail/'.$penjualan->id.'');
-        }
-        else{
+    {   
+        DB::beginTransaction();
+        try {
+            $penjualan = Penjualan::find($request->penjualan_id);
+            $penjualan->pelanggan_id = $request->input('id_pelanggan');
+            $penjualan->users_id = Auth::user()->id;
+            $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
+            if(!empty($request->input('kredit')))
+            {
+                $penjualan->tanggal_jatuh_tempo = Carbon::parse($request->input('jatuh_tempo'));
+                $penjualan->jenis_penjualan = 1;
+                $this->kredit($request->input('id_pelanggan'),$request->input('harga_akhir'));
+            }
+            else
+            {
+                $penjualan->tanggal_jatuh_tempo = null;
+                $penjualan->jenis_penjualan = 2;
+            }
+            $penjualan->total = $request->input('total_harga');
+            $penjualan->diskon = $request->input('diskon_transaksi');
+            $penjualan->potongan = $request->input('potongan_harga');
+            $penjualan->total_akhir = $request->input('harga_akhir');
+            $penjualan->kembalian = $request->input('uang_kembalian');
+            $penjualan->uang_dibayar = $request->input('uang_tunai');
+            $this->deletedetail($request->penjualan_id);
+            $this->inputdetail($request->input('id_barang'),$request->input('jumlah_barang'),$request->input('subtotal'),$penjualan->id,$request->input('harga_barang'));
+            DB::commit();
+            if($penjualan->save())
+            {
+                $request->session()->flash('alert-success', 'Data transaksi berhasil diubah.');
+                return redirect ('/transaksi/detail/'.$penjualan->id.'');
+            }
+        } 
+        catch (Exception $e) {
+            DB::rollBack();
             $request->session()->flash('alert-danger', 'Data transaksi gagal diubah.');
-            return redirect ('/transaksi');
+                return redirect ('/transaksi');
         }
-        //dd($penjualan);
+        
         
     }
     public function deletedetail($id)
@@ -214,7 +232,7 @@ class TransaksiController extends Controller
     {
         //dd($id,$request);
         $query = Penjualan::find($id);
-        $query->terbayar = $request->bayar;
+        $query->terbayar += $request->bayar;
         //$query->save();
         if($query->save())
         {
@@ -224,6 +242,40 @@ class TransaksiController extends Controller
         else{
             $request->session()->flash('alert-danger', 'Data transaksi gagal diubah.');
             return redirect ('/transaksi');
+        }
+    }
+    public function konfirmasiGiro($penjualan_id,$giro_id)
+    {
+        try {
+            DB::beginTransaction();
+            $giro = app('App\Http\Controllers\Giro\EditController')->konfirmasi($giro_id);
+            $penjualan = Penjualan::where('id',$penjualan_id)->first();
+            $penjualan->terbayar = $giro->nominal;
+            $penjualan->save();
+            DB::commit();
+            Session::flash('alert-success', 'Berhasil Terbayarkan');
+            return back();
+        } catch (Exception $e) {
+            DB::rollBack();
+            Session::flash('alert-danger', 'Gagal Terbayarkan');
+            return back();
+        }
+    }
+    public function konfirmasiTransfer($penjualan_id,$transfer_id)
+    {
+        try {
+            DB::beginTransaction();
+            $giro = app('App\Http\Controllers\Transfer\EditController')->konfirmasi($transfer_id);
+            $penjualan = Penjualan::where('id',$penjualan_id)->first();
+            $penjualan->terbayar = $penjualan->total;
+            $penjualan->save();
+            DB::commit();
+            Session::flash('alert-success', 'Berhasil Terbayarkan');
+            return back();
+        } catch (Exception $e) {
+            DB::rollBack();
+            Session::flash('alert-danger', 'Gagal Terbayarkan');
+            return back();
         }
     }
 }

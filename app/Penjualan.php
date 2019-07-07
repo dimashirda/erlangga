@@ -20,4 +20,14 @@ class Penjualan extends Model
     {
     	return $this->hasOne('App\Regis_user','id','users_id');
     }
+
+    public function giro()
+    {
+        return $this->hasOne('App\Giro','penjualan_id','id');
+    }
+
+    public function transfer()
+    {
+        return $this->hasOne('App\Transfer','penjualan_id','id');
+    }
 }

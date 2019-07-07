@@ -15,6 +15,15 @@ class LogTransaksi extends Model
         return $this->hasOne('App\BarangDetail','id','barang_detail_id');
     }
 
+    public function penjualan()
+    {
+    	return $this->hasOne('App\Penjualan','id','penjualan_id');
+    }
+
+    public function pembelian()
+    {
+    	return $this->hasOne('App\Pembelian','id','pembelian_id');
+    }
     public function keuntungan()
     {
         

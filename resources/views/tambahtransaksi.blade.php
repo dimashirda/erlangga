@@ -172,6 +172,9 @@ body {
                                 <div class="radio col-sm-2">
                                   <label><input type="radio" name="giro" id="bayar_giro">Giro</label>
                                 </div>
+                                <div class="radio col-sm-2">
+                                  <label><input type="radio" name="transfer" id="bayar_transfer">Transfer</label>
+                                </div>
                             <!-- <div class="radio col-sm-2">
                               <label><input type="radio" name="campur" id="bayar_campur">Campuran</label>
                             </div> -->
@@ -194,7 +197,7 @@ body {
                             <div class="form-group" style="display:none;" id="jatuh_tempo">
                               <label for="JatuhTempo" class="col-sm-2 control-label">Jatuh Tempo</label>
                               <div class="col-sm-10">
-                                  <input type="date" name="jatuhtempo" class="form-control" id="datepicker">
+                                  <input type="text" name="jatuhtempo" class="form-control datepicker">
                               </div>
                             </div>
                             <div class="form-group" style="display:none;" id="form_giro">
@@ -204,7 +207,7 @@ body {
                                 </div>
                                 <label class="col-sm-2 control-label">Tanggal Pencairan</label>
                                 <div class="col-sm-10">
-                                  <input type="date" name="tanggal_pencairan" id="datepicker" class="form-control">
+                                  <input type="text" name="tanggal_pencairan" class="form-control datepicker">
                                 </div>
                                 <label class="col-sm-2 control-label">Nominal</label>
                                 <div class="col-sm-10">
@@ -229,7 +232,7 @@ body {
 <script>
  var j = jQuery.noConflict();
     j( function() {
-        j( "#datepicker" ).datepicker();
+        j( ".datepicker" ).datepicker();
     } );
 var nama = [];
 var result = [];
@@ -336,6 +339,7 @@ document.getElementById("bayar_tunai").addEventListener("click", function(e){
   $('#bayar_kredit').prop("checked", false);
   $('#bayar_giro').prop("checked", false);
   $('#bayar_campur').prop("checked", false);
+  $('#bayar_transfer').prop('checked',false);
   $('#jatuh_tempo').hide();
   $('#tunai').show();
   $('#kembalian').show();
@@ -354,6 +358,7 @@ document.getElementById("bayar_kredit").addEventListener("click", function(e){
   $('#bayar_tunai').prop("checked", false);
   $('#bayar_giro').prop("checked", false);
   $('#bayar_campur').prop("checked", false);
+  $('#bayar_transfer').prop('checked',false);
   $('#jatuh_tempo').show();
   $('#tunai').hide();
   $('#kembalian').hide();
@@ -366,10 +371,24 @@ $('#bayar_giro').on('click', function(){
     $('#bayar_tunai').prop("checked", false);
     $('#bayar_kredit').prop("checked", false);
     $('#bayar_campur').prop("checked", false);
+    $('#bayar_transfer').prop('checked',false);
     $('#jatuh_tempo').hide();
     $('#tunai').hide();
     $('#kembalian').hide();
     $('#form_giro').show();
+});
+
+$('#bayar_transfer').on('click',function (){
+    $('#uang_tunai').val('');
+    $('#uang_kembalian').val('');
+    $('#bayar_tunai').prop("checked", false);
+    $('#bayar_kredit').prop("checked", false);
+    $('#bayar_campur').prop("checked", false);
+    $('#bayar_giro').prop('checked',false);
+    $('#jatuh_tempo').hide();
+    $('#tunai').hide();
+    $('#kembalian').hide();
+    $('#form_giro').hide();
 });
 
 document.getElementById("pilihan_diskon").addEventListener("click", function(e){

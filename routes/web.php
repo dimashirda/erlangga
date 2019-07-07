@@ -51,6 +51,8 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/transaksi/print/{id}','TransaksiController@print');
 	Route::get('/transaksi/pelunasan/{id}','TransaksiController@pelunasan');
 	Route::post('/transaksi/pelunasan/{id}/bayar','TransaksiController@pelunasanBayar');
+	Route::get('/transaksi/{penjualan_id}/konfirmasi/giro/{giro_id}','TransaksiController@konfirmasiGiro');
+	Route::get('/transaksi/{penjualan_id}/konfirmasi/transfer/{transfer_id}','TransaksiController@konfirmasiTransfer');
 
 	Route::get('/search/barang','SearchController@barang');
 	Route::get('/search/pelanggan','SearchController@pelanggan');
@@ -69,6 +71,8 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::get('/pelanggan/detail/{id}','PelangganController@historiBelanja');
 	Route::get('/pelanggan/detail/{id}/{flag}','PelangganController@historiBelanja');
+
+	Route::get('/giro/{id}','Giro\ViewController@single');
 });
 
 Route::get('/generate-tanggal','Generator@generate');

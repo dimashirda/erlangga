@@ -36,7 +36,9 @@ class HomeController extends Controller
                                 ->whereBetween('created_at',[$start,$end])->get();
         $data['untung'] = 0;
         foreach ($log_jual as $jual) 
-        {
+        {   
+            if($jual->penjualan->terbayar < $jual->penjualan->total)
+                continue;
             $harga_beli = $jual->barangDetail->harga_beli;
             $data['untung'] += ($jual->harga_satuan - $harga_beli) * $jual->jumlah;
         }
