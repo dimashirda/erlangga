@@ -73,3 +73,4 @@ Route::middleware(['auth'])->group(function(){
 
 Route::get('/generate-tanggal','Generator@generate');
 Route::get('/import-barang','Barang\ImportController@importBarang');
+Route::get('update-import','Barang\ImportController@updateImport');

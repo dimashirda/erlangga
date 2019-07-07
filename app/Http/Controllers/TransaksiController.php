@@ -31,50 +31,53 @@ class TransaksiController extends Controller
     }
     public function simpan(Request $req)
     {   
-        //dd($req);
-        $penjualan = new Penjualan;
-        $penjualan->pelanggan_id = $req->input('id_pelanggan');
-        $penjualan->users_id = Auth::user()->id;
-        $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
-        if(!empty($req->input('kredit')))
-        {
-            $penjualan->tanggal_jatuh_tempo = Carbon::parse($req->input('jatuh_tempo'));
-            $penjualan->jenis_penjualan = 1;
-            $this->kredit($req->input('id_pelanggan'),$req->input('harga_akhir'));
+        DB::beginTransaction();
+        try {
+            $penjualan = new Penjualan;
+            $penjualan->pelanggan_id = $req->input('id_pelanggan');
+            $penjualan->users_id = Auth::user()->id;
+            $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
+            if(!empty($req->input('kredit')))
+            {
+                $penjualan->tanggal_jatuh_tempo = Carbon::parse($req->input('jatuh_tempo'));
+                $penjualan->jenis_penjualan = 1;
+                $this->kredit($req->input('id_pelanggan'),$req->input('harga_akhir'));
+            }
+            else
+            {
+                $penjualan->tanggal_jatuh_tempo = null;
+                $penjualan->jenis_penjualan = 2;
+            }
+            $penjualan->total = $req->input('total_harga');
+            $penjualan->diskon = $req->input('diskon_transaksi');
+            $penjualan->potongan = $req->input('potongan_harga');
+            $penjualan->total_akhir = $req->input('harga_akhir');
+            $penjualan->kembalian = $req->input('uang_kembalian');
+            $penjualan->uang_dibayar = $req->input('uang_tunai');
+            $penjualan->save();
+            $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id,$req->input('harga_barang'));
+            DB::commit();
+            return redirect('/transaksi/detail/'.$penjualan->id.'');
+        } 
+        catch (Exception $e) {
+            DB::rollBack();
+            dd($e);
         }
-        else
-        {
-            $penjualan->tanggal_jatuh_tempo = null;
-            $penjualan->jenis_penjualan = 2;
-        }
-        $penjualan->total = $req->input('total_harga');
-        $penjualan->diskon = $req->input('diskon_transaksi');
-        $penjualan->potongan = $req->input('potongan_harga');
-        $penjualan->total_akhir = $req->input('harga_akhir');
-        $penjualan->kembalian = $req->input('uang_kembalian');
-        $penjualan->uang_dibayar = $req->input('uang_tunai');
-        $penjualan->save();
-
-        //dd($penjualan);
-        $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id,$req->input('harga_barang'));
-        return redirect('/transaksi/detail/'.$penjualan->id.'');
-
     }
     public function inputdetail($barang,$jumlah,$subtotal,$penjualan,$harga_satuan)
     {
-       
+        
         foreach ($barang as $key => $value) {
+            if(empty($value))
+                continue;
             $detail = new Penjualan_detail;
-            //dd($key,$value);
             $detail->penjualan_id = $penjualan;
             $detail->barang_id = $value;
             $detail->jumlah = $jumlah[$key];
             $detail->total_satuan = $subtotal[$key];
             $detail->harga_satuan = $harga_satuan[$key];
-            //dd($detail);
             $detail->save();
             $this->logKeuntungan($detail,2);
-            //$this->createLog($detail);
         }
         return;
     }

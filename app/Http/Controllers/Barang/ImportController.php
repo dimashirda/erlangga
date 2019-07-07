@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Barang;
 use App\BarangDetail;
+use DB;
 class ImportController extends Controller
 {
     public function importBarang()
@@ -31,7 +32,7 @@ class ImportController extends Controller
         fclose($file);
         dd('done');
     }
-    public function inputHarga()
+    public function updateImport()
     {
         DB::beginTransaction();
         try {
@@ -41,9 +42,9 @@ class ImportController extends Controller
             while(!feof($file))
             {
                 $data = fgetcsv($file);
-                $barang = Barang::where('nama',$data[1])->first();
+                $barang = Barang::where('nama',$data[0])->first();
                 if (empty($barang)) {
-                    array_push($nama_kosong,$data[1]);
+                    array_push($nama_kosong,$data[0]);
                 }
                 else
                 {
@@ -54,6 +55,8 @@ class ImportController extends Controller
                     $detail->save();    
                 }
             }
+            DB::commit();
+            dd($nama_kosong);
         } catch (Exception $e) {
             DB::rollBack();
             dd($e);

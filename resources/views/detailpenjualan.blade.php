@@ -43,10 +43,10 @@
                     <div style="overflow-x:auto;">
                         <div class="row col-md-12">
                             <div class="col-md-3">
-                            <h4>Pembeli : {{$penjualan->pelanggan->nama}}</h4>
+                            <h4>Pembeli : {{$penjualan->pelanggan->nama or '-'}}</h4>
                             </div>
                             <div class="col-md-3">
-                            <h4>Kasir : {{$penjualan->kasir->name}}</h4>
+                            <h4>Kasir : {{$penjualan->kasir->name or '-'}}</h4>
                             </div>
                             <div class="col-md-3">
                             <h4>Jenis Pembayaran : @if($penjualan->jenis_penjualan == 1) Kredit @else Tunai @endif</h4>    
@@ -68,12 +68,14 @@
                             <tbody>
                             @foreach($detail as $a)
                             <tr>
+                            @if(!empty($a->total_satuan && $a->harga_satuan))
                             @php $number = number_format("$a->total_satuan",2,",","."); 
                             $number2 = number_format("$a->harga_satuan",2,",",".") @endphp
-                                <td>{{ $a->barang->nama }}</td>
-                                <td>{{ $a->jumlah }}</td>
-                                <td>Rp {{ $number2 }}</td>
-                                <td>Rp {{ $number }}</td>
+                            @endif
+                                <td>{{ $a->barang->nama or '-' }}</td>
+                                <td>{{ $a->jumlah or '-' }}</td>
+                                <td>Rp {{ $number2 or '-' }}</td>
+                                <td>Rp {{ $number or '-' }}</td>
                             </tr>
                             @endforeach
                             <tr>
@@ -82,12 +84,14 @@
                                 <th></th>
                                 <th>Total Pembelian</th>
                             </tr>
+                            @if(!empty($penjualan->total_akhir))
                             @php $number = number_format("$penjualan->total_akhir",2,",","."); @endphp
+                            @endif
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>Rp {{$number}}</td>
+                                <td>Rp {{$number or '-'}}</td>
                             </tr>
                             </tbody>
                         </table>
