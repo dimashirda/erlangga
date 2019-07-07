@@ -12,7 +12,7 @@ class ImportController extends Controller
     public function importBarang()
     {   
         ini_set('max_execution_time', 0);
-        $file = fopen("stock.csv","r");
+        $file = fopen("stock-baru.csv","r");
         $data = fgetcsv($file);
         while(!feof($file))
         {
@@ -36,7 +36,7 @@ class ImportController extends Controller
     {
         DB::beginTransaction();
         try {
-            $file = fopen("stock.csv","r");
+            $file = fopen("stock-baru.csv","r");
             $data = fgetcsv($file);
             $nama_kosong = [];
             while(!feof($file))

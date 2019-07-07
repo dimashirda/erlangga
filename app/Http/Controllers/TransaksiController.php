@@ -80,7 +80,6 @@ class TransaksiController extends Controller
     }
     public function inputdetail($barang,$jumlah,$subtotal,$penjualan,$harga_satuan)
     {
-        
         foreach ($barang as $key => $value) {
             if(empty($value))
                 continue;
@@ -197,7 +196,7 @@ class TransaksiController extends Controller
     }
     public function logKeuntungan($data,$flag)
     {
-        //dd($data);
+        // dd($data);
         $query = BarangDetail::where('barang_id',$data->barang_id)
                             ->orderBy('harga_beli','asc')
                             ->get();
