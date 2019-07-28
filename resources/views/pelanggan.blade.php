@@ -52,7 +52,7 @@
                     <br>
                     @if($acc->count())
                     <div style="overflow-x:auto;">
-                        <table class="table table-new table-striped table-hover">
+                        <table class="table table-new table-striped table-hover" id="example">
                             <thead>
                             <tr>
                                 <th>ID</th>
@@ -63,48 +63,11 @@
                                 <th>Limit</th>
                                 <th>Kredit</th>
                                 <th>Detail</th>
-                                @if(Auth::User()->name == 1)
-                                <th style="text-align: center" colspan="2">Action</th>
+                                @if(Auth::User()->role == 1)
+                                <th>Action</th>
                                 @endif
                             </tr>
                             </thead>
-                            <tbody>
-                            @foreach($acc as $a)
-                            <tr>
-                                @php $limit = number_format($a->limit,2,",","."); 
-                                    $kredit = number_format($a->kredit,2,",","."); @endphp
-                                <td>{{ $a->id }}</td>
-                                <td>{{ $a->nama }}</td>
-                                <td>{{ $a->alamat }}</td>
-                                <td>{{ $a->telepon }}</td>
-                                <td>{{ $a->kota }}</td>
-                                <td>{{ $limit }}</td>
-                                <td>{{ $kredit }}</td>
-                                <td align="center" width="30px">
-                                    <button type="button" class="btn btn-info" onclick="window.location.href='{{url('/pelanggan/detail')}}/{{$a->id}}'">
-                                        Detail
-                                    </button>
-                                </td>
-                                @if(Auth::User()->role == 1)
-                                <td align="center" width="30px">
-                                    <button type="button" class="btn btn-default edit-button" data-toggle="modal" data-target="#modal-default"
-                                    data-id="{{$a->id}}" data-name="{{$a->nama}}" data-alamat="{{$a->alamat}}" 
-                                    data-telpon="{{$a->telepon}}" data-kota="{{$a->kota}}" 
-                                    data-limit="{{$a->limit}}" data-kredit="{{$a->kredit}}">
-                                        Edit
-                                    </button>
-                                </td>
-                                <td align="center" width="30px">
-                                    <button type="button" class="btn btn-danger delete-button" data-name="{{$a->nama}}" 
-                                    data-id="{{$a->id}}" data-toggle="modal" data-target="#modal-danger">
-                                        Hapus
-                                    </button>
-                                </td>
-                                    @endif
-                            </tr>
-                            @endforeach
-                            </tbody>
-                            {{$acc->links()}}
                         </table>
                     </div>
                 </div>
@@ -208,6 +171,24 @@
     </div>
 
     <script>
+        $(document).ready(function(){
+            $('#example').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ url('pelanggan/all') }}",
+                columns: [
+                        { data: 'id', name: 'id' },
+                        { data: 'nama', name: 'nama' },
+                        { data: 'alamat', name: 'alamat' },
+                        { data: 'telepon', name: 'telepon' },
+                        { data: 'kota', name: 'kota'},
+                        { data: 'limit', name: 'limit'},
+                        { data: 'kredit', name: 'kredit'},
+                        { data: 'detail', name: 'detail'},
+                        { data: 'aksi', name: 'aksi'}
+                        ]
+            }); 
+        });
         $(document).on("click", ".edit-button", function(){
             var nama_pelanggan = $(this).data('name');
             var id = $(this).data('id');
@@ -216,8 +197,6 @@
             var kota = $(this).data('kota');
             var limit = $(this).data('limit');
             var kredit = $(this).data('kredit');
-            //console.log(id);
-            //console.log(val(nama_barang));
             $("#idpelanggan").val(id);
             $("#namapelanggan").val(nama_pelanggan);
             $("#kota").val(kota);

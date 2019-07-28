@@ -80,10 +80,9 @@
                     <br>
                     @if($acc->count())
                     <div style="overflow-x:auto;">
-                        <table class="table table-new table-striped table-hover">
+                        <table class="table table-new table-striped table-hover" id="example">
                             <thead>
                             <tr>
-                                <th>Nomor</th>
                                 <th>Kasir</th>
                                 <th>Pelanggan</th>
                                 <th>Tanggal Transaksi</th>
@@ -91,35 +90,11 @@
                                 <th>Jenis Belanja</th>
                                 <th>Total Belanja</th>
                                 @if(Auth::User()->role == '1')
-                                <th style="text-align: center" colspan="2">Action</th>
+                                <th>Action</th>
                                 @endif
                             </tr>
                             </thead>
-                            <tbody>
-                            @php $i = 1; @endphp
-                            @foreach($acc as $a)
-                            <tr>
-                                <td>{{$i}}</td>
-                                <td>{{ $a->kasir->name }}</td>
-                                <td>{{ $a->pelanggan->nama or '-' }}</td>
-                                <td>{{ $a->tanggal_transaksi }}</td>
-                                <td>{{ $a->tanggal_jatuh_tempo }}</td>
-                                <td>@if($a->jenis_penjualan == 1) Kredit @else Tunai @endif</td>
-                                <td>{{ $a->total }}</td>
-                                @if(Auth::User()->role == '1')
-                                <td align="center" width="30px">
-                                    <a class="btn btn-default edit-button" 
-                                    href="{{url('transaksi/detail/')}}/{{$a->id}}">
-                                        Detail
-                                    </a>
-                                </td>
-                                    @endif
-                            </tr>
-                            @php $i++; @endphp
-                            @endforeach
-                            </tbody>
                         </table>
-                        {{$acc->links()}}
                     </div>
                 </div>
                 @else
@@ -134,5 +109,22 @@
     j( function() {
         j( "#datepicker" ).datepicker();
     } );
+    $(document).ready(function(){
+        $('#example').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ url('transaksi/all') }}",
+
+            columns: [
+                    { data: 'kasir', name: 'kasir' },
+                    { data: 'pembeli', name: 'pembeli' },
+                    { data: 'tanggal_transaksi', name: 'tanggal_transaksi' },
+                    { data: 'tanggal_jatuh_tempo', name: 'tanggal_jatuh_tempo' },
+                    { data: 'jenis', name: 'jenis'},
+                    { data: 'total', name: 'total'},
+                    { data: 'detail', name: 'detail'}
+                    ]
+        }); 
+    });
     </script>
 @stop

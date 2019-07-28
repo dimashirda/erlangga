@@ -7,7 +7,7 @@ use Auth;
 use App\Pelanggan;
 use Illuminate\Http\Request;
 use App\Penjualan;
-
+use DataTables;
 class PelangganController extends Controller
 {
     public function index()
@@ -89,7 +89,6 @@ class PelangganController extends Controller
             return redirect ('/pelanggan');
         }
     }
-
     public function historiBelanja($id,$flag=1)
     {   
         if($flag == 1)
@@ -114,5 +113,50 @@ class PelangganController extends Controller
         }
         $pelanggan_id = $id;
         return view('transaksi',['acc'=>$acc , 'flag'=>$flag , 'pelanggan_id'=>$pelanggan_id])->with('nav','pelanggan');
+    }
+    public function all()
+    {
+        $pelanggan = Pelanggan::all();
+        return DataTables::of($pelanggan)
+            ->addColumn('limit', function($pelanggan){
+                return '<td>'.number_format($pelanggan->limit,2,",",".").'</td>';
+            })
+            ->addColumn('kredit', function($pelanggan){
+                if(empty($pelanggan->kredit))
+                        $kredit = 0;
+                    else
+                        $kredit = $pelanggan->kredit;
+                return '<td>'.number_format($kredit,2,",",".").'</td>';
+            })
+            ->addColumn('detail', function($pelanggan){
+                return '<td><a href="'.url('/pelanggan/detail/'.$pelanggan->id).'"><button type="button" class="btn btn-info">Detail</button></a></td>';
+            })
+            ->addColumn('aksi', function($pelanggan){
+                if(Auth::User()->role == 1)
+                {
+                    if(empty($pelanggan->kredit))
+                        $kredit = 0;
+                    else
+                        $kredit = $pelanggan->kredit;
+                    return '<td align="center" width="30px">
+                                <button type="button" class="btn btn-default edit-button" data-toggle="modal" data-target="#modal-default"
+                                data-id="'.$pelanggan->id.'" data-name="'.$pelanggan->nama.'" data-alamat="'.$pelanggan->alamat.'" 
+                                data-telpon="'.$pelanggan->telepon.'" data-kota="'.$pelanggan->kota.'" 
+                                data-limit="'.$pelanggan->limit.'" data-kredit="'.$kredit.'">
+                                    Edit
+                                </button>
+                            </td>
+                            <td align="center" width="30px">
+                                <button type="button" class="btn btn-danger delete-button" data-name="'.$pelanggan->nama.'" 
+                                data-id="'.$pelanggan->id.'" data-toggle="modal" data-target="#modal-danger">
+                                    Hapus
+                                </button>
+                            </td>';
+                }   
+                else
+                    return;
+            })
+            ->escapeColumns([])
+            ->make(true);
     }
 }

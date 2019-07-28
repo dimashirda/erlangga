@@ -52,56 +52,19 @@
                     <br>
                     @if($acc->count())
                     <div style="overflow-x:auto;">
-                        <table class="table table-new table-striped table-hover">
+                        <table class="table table-new table-striped table-hover js-dataTable-full" id="example">
                             <thead>
                             <tr>
-                                <th>Kode Barang</th>
                                 <th>Nama Barang</th>
                                 <th>Harga Jual</th>
                                 <th>Satuan</th>
                                 <th>Stok</th>
                                 <th>Detail</th>
                                 @if(Auth::User()->role == 1)
-                                <th style="text-align: center" colspan="2">Action</th>
+                                <th>Action</th>
                                 @endif
                             </tr>
                             </thead>
-                            <tbody>
-                            @foreach($acc as $a)
-                            <tr>
-                                <td>{{ $a->kode }}</td>
-                                <td>{{ $a->nama }}</td>
-                                <td>{{ $a->harga_jual }}</td>
-                                <td>{{ $a->satuan }}</td>
-                                @php
-                                $total_stok = 0;
-                                @endphp
-                                @foreach($a->barang_detail as $item)
-                                @php $total_stok += $item->jumlah; @endphp
-                                @endforeach
-                                <td>{{ $total_stok }}</td>
-                                <td><a href="{{url()->current()}}/detail/{{$a->id}}"><button type="button" class="btn btn-info">Detail</button></a></td>
-                                @if(Auth::User()->role == 1)
-                                <td align="center" width="30px">
-                                    <button type="button" class="btn btn-default edit-button" data-toggle="modal" 
-                                    data-target="#modal-default" data-id="{{$a->id}}" data-kode="{{$a->kode}}" 
-                                    data-name="{{$a->nama}}" data-hargabeli="{{$a->harga_beli}}" 
-                                    data-hargajual="{{$a->harga_jual}}"
-                                    data-stok="{{$a->stok}}" data-satuan="{{$a->satuan}}">
-                                        Edit
-                                    </button>
-                                </td>
-                                <td align="center" width="30px">
-                                    <button type="button" class="btn btn-danger delete-button" data-name="{{$a->nama}}" 
-                                    data-id="{{$a->id}}" data-toggle="modal" data-target="#modal-danger">
-                                        Hapus
-                                    </button>
-                                </td>
-                                    @endif
-                            </tr>
-                            @endforeach
-                            </tbody>
-                            {{$acc->links()}}
                         </table>
                     </div>
                 </div>
@@ -202,23 +165,28 @@
             </div>
         </div>
     </div>
-<script src="{{asset('assets/js/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        jQuery('.js-dataTable-full').dataTable({
-            "ordering": true,
-            pageLength: 8,
-            lengthMenu: [[5, 8, 15, 20], [5, 8, 15, 20]],
-            autoWidth: false
+        $('#example').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ url('barang/all') }}",
+            columns: [
+                    { data: 'nama', name: 'nama' },
+                    { data: 'harga_jual', name: 'harga_jual' },
+                    { data: 'satuan', name: 'satuan' },
+                    { data: 'stok', name: 'stok' },
+                    { data: 'detail', name: 'detail'},
+                    { data: 'aksi', name: 'aksi'}
+                    ]
         }); 
     });
     $(document).on("click", ".edit-button", function(){
         var nama_barang = $(this).data('name');
         var id = $(this).data('id');
-        var harga_beli = $(this).data('hargabeli');
+        // var harga_beli = $(this).data('hargabeli');
         var harga_jual = $(this).data('hargajual');
-        var stok = $(this).data('stok');
+        // var stok = $(this).data('stok');
         var satuan = $(this).data('satuan');
         var kode = $(this).data('kode');
         //console.log(id);
@@ -226,9 +194,9 @@
         $("#id").val(id);
         $("#kodebarang").val(kode)
         $("#namabarang").val(nama_barang);
-        $("#hargabeli").val(harga_beli);
+        // $("#hargabeli").val(harga_beli);
         $("#hargajual").val(harga_jual);
-        $("#stokbarang").val(stok);
+        // $("#stokbarang").val(stok);
         $("#satuan").val(satuan);
 
         $("#form-edit").attr('action','{{url('/barang/edit')}}' + '/' + id);

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
+use DataTables;
 class TransaksiController extends Controller
 {
     public function index()
@@ -276,5 +277,32 @@ class TransaksiController extends Controller
             Session::flash('alert-danger', 'Gagal Terbayarkan');
             return back();
         }
+    }
+    public function all()
+    {
+        $penjualan = Penjualan::with('kasir','pelanggan')->get();
+        return DataTables::of($penjualan)
+            ->addColumn('kasir',function($penjualan){
+                return $penjualan->kasir->name;
+            })
+            ->addColumn('pembeli', function($penjualan){
+                return $penjualan->pelanggan->nama;
+            })
+            ->addColumn('jenis',function($penjualan){
+                if($penjualan->jenis_penjualan == 1)
+                    return 'Kredit';
+                else
+                    return 'Tunai';
+            })
+            ->addColumn('detail',function($penjualan){
+                return '<td align="center" width="30px">
+                            <a class="btn btn-default edit-button" 
+                            href="'.url('transaksi/detail/'.$penjualan->id.'').'">
+                                Detail
+                            </a>
+                        </td>';
+            })
+            ->escapeColumns([])
+            ->make(true);
     }
 }

@@ -11,7 +11,7 @@ class ViewController extends Controller
 {
     public function index()
     {	
-        $acc = Barang::paginate(25);
+        $acc = Barang::all();
     	return view('barang',['acc'=>$acc])->with('nav','barang');
     }
 

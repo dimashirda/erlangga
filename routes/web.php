@@ -18,6 +18,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/home','HomeController@index');
 	
 	Route::get('/barang','Barang\ViewController@index');
+	Route::get('barang/all','Barang\ReadController@all');
 	Route::get('/barang/detail/{id}','Barang\ViewController@detail');
 	Route::get('/barang/tambah','Barang\ViewController@tambah');
 	Route::get('/barang/tambahdetail/{id}','Barang\ViewController@tambahDetail');
@@ -29,6 +30,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/barangdetail/delete/{id_barang}','Barang\CreateController@deleteDetail');
 
 	Route::get('/pelanggan','PelangganController@index');
+	Route::get('/pelanggan/all','PelangganController@all');
 	Route::get('/pelanggan/tambah','PelangganController@tambah');
 	Route::post('/pelanggan/simpan','PelangganController@simpan');
 	Route::post('/pelanggan/edit/{id_pelanggan}','PelangganController@edit');
@@ -41,6 +43,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/supplier/delete/{id_supplier}','Supplier\DeleteController@delete');
 
 	Route::get('/transaksi','TransaksiController@index');
+	Route::get('/transaksi/all','TransaksiController@all');
 	Route::get('/transaksi/tambah','TransaksiController@tambah');
 	Route::post('/transaksi/simpan','TransaksiController@simpan');
 	Route::get('/transaksi/detail/{id}', 'TransaksiController@detail');
