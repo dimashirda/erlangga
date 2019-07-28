@@ -53,14 +53,6 @@
                         <div class="col-xs-6">
                             <a href="{{url('/transaksi/tambah')}}" class='btn btn-primary'><i class="fa fa-plus-circle"></i> Tambah baru</a>
                         </div>
-                        <form action="{{url('/transaksi/search')}}" method="get">
-                        <div class="col-xs-3">
-                            <input type="text" name="tanggal" class="form-control" id="datepicker">
-                        </div>
-                        <div class="col-xs-1">
-                            <button type="submit" class="btn btn-primary">Cari</button>
-                        </div>
-                        </form>
                     </div>
                     @else
                     <label>Pilih Jenis Transaksi</label>
