@@ -202,35 +202,44 @@
             </div>
         </div>
     </div>
+<script src="{{asset('assets/js/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        jQuery('.js-dataTable-full').dataTable({
+            "ordering": true,
+            pageLength: 8,
+            lengthMenu: [[5, 8, 15, 20], [5, 8, 15, 20]],
+            autoWidth: false
+        }); 
+    });
+    $(document).on("click", ".edit-button", function(){
+        var nama_barang = $(this).data('name');
+        var id = $(this).data('id');
+        var harga_beli = $(this).data('hargabeli');
+        var harga_jual = $(this).data('hargajual');
+        var stok = $(this).data('stok');
+        var satuan = $(this).data('satuan');
+        var kode = $(this).data('kode');
+        //console.log(id);
+        //console.log(val(nama_barang));
+        $("#id").val(id);
+        $("#kodebarang").val(kode)
+        $("#namabarang").val(nama_barang);
+        $("#hargabeli").val(harga_beli);
+        $("#hargajual").val(harga_jual);
+        $("#stokbarang").val(stok);
+        $("#satuan").val(satuan);
 
-    <script type="text/javascript">
-        $(document).on("click", ".edit-button", function(){
-            var nama_barang = $(this).data('name');
-            var id = $(this).data('id');
-            var harga_beli = $(this).data('hargabeli');
-            var harga_jual = $(this).data('hargajual');
-            var stok = $(this).data('stok');
-            var satuan = $(this).data('satuan');
-            var kode = $(this).data('kode');
-            //console.log(id);
-            //console.log(val(nama_barang));
-            $("#id").val(id);
-            $("#kodebarang").val(kode)
-            $("#namabarang").val(nama_barang);
-            $("#hargabeli").val(harga_beli);
-            $("#hargajual").val(harga_jual);
-            $("#stokbarang").val(stok);
-            $("#satuan").val(satuan);
+        $("#form-edit").attr('action','{{url('/barang/edit')}}' + '/' + id);
+    });
 
-            $("#form-edit").attr('action','{{url('/barang/edit')}}' + '/' + id);
-        });
+    $(document).on("click",".delete-button", function () {
+        var id = $(this).data('id')
+        var nama_barang = $(this).data('name');
+        $("#del-btn").attr('href','{{url('/barang/delete')}}' + '/' + id)
+        $("#show-name").html('Anda yakin ingin Barang ' + nama_barang + '?')
 
-        $(document).on("click",".delete-button", function () {
-            var id = $(this).data('id')
-            var nama_barang = $(this).data('name');
-            $("#del-btn").attr('href','{{url('/barang/delete')}}' + '/' + id)
-            $("#show-name").html('Anda yakin ingin Barang ' + nama_barang + '?')
-
-        })
-    </script>
+    });
+</script>
 @stop
