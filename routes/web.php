@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/barang/delete/{id_barang}','Barang\DeleteController@delete');
 	Route::post('/barangdetail/edit/{id_barang}','Barang\CreateController@editDetail');
 	Route::get('/barangdetail/delete/{id_barang}','Barang\CreateController@deleteDetail');
+	Route::get('/barang/print','Barang\ViewController@printStok');
 
 	Route::get('/pelanggan','PelangganController@index');
 	Route::get('/pelanggan/all','PelangganController@all');

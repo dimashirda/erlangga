@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laporan Stok</title>
+	<title>Print Nota</title>
 	<style type="text/css">
 	body{
 		font-family: sans-serif;
-		font-size: 11px;
+		font-size: 14px;
 	}
 	table{
 		width: 100%;
@@ -51,10 +51,10 @@
 						<td>Telp.</td>
 						<td>031-5991755, 5929736</td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td></td>
 						<td>0812</td>
-					</tr>
+					</tr> -->
 				</table>
 				<br>
 				<table>
@@ -62,18 +62,18 @@
 						<td>Kepada Yth :</td>
 					</tr>
 					<tr>
-						<td>YULIA (87)</td>
+						<td>{{$data['penjualan']->pelanggan->nama}}</td>
 					</tr>
 					<tr>
-						<td>WISMA PERMAI BARAT VII B</td>
+						<td>{{$data['penjualan']->pelanggan->alamat}}</td>
 					</tr>
 					<tr>
-						<td>SURABAYA</td>
+						<td>{{$data['penjualan']->pelanggan->kota}}</td>
 					</tr>
 				</table>
 			</td>
 			<td width="40%" class="title"> 
-				SURAT JALAN
+				Surat Jalan
 			</td>
 			<td width="30%">
 				<table>
@@ -83,7 +83,7 @@
 					</tr>
 					<tr>
 						<td>Tanggal</td>
-						<td>: 24-08-2019</td>
+						<td>: {{$data['tanggal']}}</td>
 					</tr>
 					<tr>
 						<td>Syarat Pbyr</td>
@@ -91,15 +91,15 @@
 					</tr>
 					<tr>
 						<td>Jatuh Tempo</td>
-						<td>: 24-08-2019</td>
+						<td>: @if(!empty($data['tanggal_jatuh_tempo'])) {{$data['tanggal_jatuh_tempo']}} @else - @endif</td>
 					</tr>
 					<tr>
 						<td>ADMIN</td>
-						<td>: ADMIN</td>
+						<td>: {{$data['admin']}}</td>
 					</tr>
 					<tr>
 						<td>Time Printed</td>
-						<td>: 10:00:03</td>
+					<td>: {{$data['jam']}}</td>
 					</tr>
 				</table>
 			</td>
@@ -109,19 +109,25 @@
 	<table>
 		<thead>
 			<tr>
+				<th class="double" width="5%">No</th>
 				<th class="double" width="35%">NAMA BARANG</th>
 				<th class="double" width="15%">SATUAN</th>
 				<th class="double" width="15%">JUMLAH</th>
-				<th class="double" width="35%">KETERANGAN</th>
+				<th class="double" width="30%">KETERANGAN</th>
 			</tr>
 		</thead>
 		<tbody>
+			@php $i = 1; @endphp
+			@foreach($data['detail'] as $item)
 			<tr>
-				<td>IVORY 250-GR 79X109</td>
-				<td>LEMBAR</td>
-				<td>28</td>
+				<td>{{$i}}</td>
+				<td>{{$item->barang->nama}}</td>
+				<td>{{$item->barang->satuan}}</td>
+				<td>{{$item->jumlah}}</td>
 				<td></td>
 			</tr>
+			@php $i++; @endphp
+			@endforeach
 		</tbody>
 	</table>
 </body>

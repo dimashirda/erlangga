@@ -5,7 +5,7 @@
 	<style type="text/css">
 	body{
 		font-family: sans-serif;
-		font-size: 11px;
+		font-size: 14px;
 	}
 	table{
 		width: 100%;
@@ -43,14 +43,14 @@
 	<br><br>
 	<table>
 		<tr>
-			<td width="50%" class="subtitle">Tanggal Cetak : 29-06-2019</td>
-			<td width="50%" class="subtitle righted">Halaman : 1</td>
+			<td width="50%" class="subtitle">Tanggal Cetak : @if(!empty($data)) {{$data['tanggal']}} @endif</td>
+			<!-- <td width="50%" class="subtitle righted">Halaman : 1</td> -->
 		</tr>
 	</table>
 	<table>
 		<thead>
 			<tr>
-				<th class="double" width="15%">KODE BARANG</th>
+				<!-- <th class="double" width="15%">KODE BARANG</th> -->
 				<th class="double" width="25%">NAMA BARANG</th>
 				<th class="double" width="15%">KMS</th>
 				<th class="double" width="10%">ONHAND</th>
@@ -59,14 +59,21 @@
 			</tr>
 		</thead>
 		<tbody>
+			@if(!empty($data))
+			@foreach($data['barang'] as $item)
 			<tr>
-				<td>AC001</td>
-				<td>AC 190 GR/PD/65X100</td>
-				<td>RIM-PLN</td>
-				<td>10</td>
-				<td class="righted">990000</td>
-				<td class="righted">950085</td>
+				<!-- <td>{{$item->kode}}</td> -->
+				<td>{{$item->nama}}</td>
+				<td>{{$item->satuan}}</td>
+				<td>{{$item->stok}}</td>
+				<td class="righted"><p>Rp {{number_format($item->harga_jual,2,",",".")}}</p></td>
+				<td class="righted"><p>Rp @if(!empty($item->harga_beli)) 
+					{{number_format($item->harga_beli->harga_beli,2,",",".")}}
+					@else 0
+					@endif </p></td>
 			</tr>
+			@endforeach
+			@endif
 		</tbody>
 	</table>
 </body>

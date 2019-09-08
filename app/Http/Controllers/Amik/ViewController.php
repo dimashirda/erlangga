@@ -10,19 +10,22 @@ class ViewController extends Controller
 {
 	public function printSuratJalan()
 	{
+		$data = null;
 		$pdf = DOMPDF::loadView('amik.print-surjal');
-		return $pdf->stream('print.pdf');    	
+		return $pdf->stream('print.pdf',['data'=>$data]);    	
 	}
 
 	public function printFaktur()
 	{
-		$pdf = DOMPDF::loadView('amik.print-faktur');
+		$data = null;
+		$pdf = DOMPDF::loadView('amik.print-faktur',['data'=>$data]);
 		return $pdf->stream('print.pdf');    	
 	}
 
 	public function printLaporanStok()
 	{
-		$pdf = DOMPDF::loadView('amik.print-stok');
+		$data = null;
+		$pdf = DOMPDF::loadView('amik.print-stok',['data'=>$data]);
 		return $pdf->stream('print.pdf');    	
 	}
 }

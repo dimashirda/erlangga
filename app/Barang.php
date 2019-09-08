@@ -22,4 +22,13 @@ class Barang extends Model
     {   
         return $this->hasMany('App\BarangDetail','barang_id','id')->where('jumlah','>','0');
     }
+    public function getStokAttribute()
+    {
+        return $this->hasMany('App\BarangDetail','barang_id','id')->sum('jumlah');
+    }
+    public function getHargaBeliAttribute()
+    {   
+        // dd($this->hasMany('App\BarangDetail','barang_id','id')->where('jumlah','>','0')->orderBy('harga_beli','ASC')->first());
+        return $this->hasMany('App\BarangDetail','barang_id','id')->where('jumlah','>','0')->orderBy('harga_beli','ASC')->first();
+    }
 }
