@@ -128,16 +128,17 @@
 		</thead>
 		<tbody>
 			@if(!empty($data))
-			@php $i = 1; @endphp
+			@php $i = 1; $total = 0;@endphp
 			@foreach($data['detail'] as $item)
 			<tr>
 				<td class="centered">{{$i}}</td>
 				<td>{{$item->barang->nama}}</td>
 				<td>{{$item->barang->satuan}}</td>
-				<td class="righted">{{$item->jumlah}}</td>
-				<td class="righted"></td>
-				<td class="righted"></td>
-				<td class="righted"></td>
+				<td>{{$item->jumlah}}</td>
+				<td>Rp {{number_format($item->barang->harga_jual,2,",",".")}}</td>
+				<td>@if(!empty($data['penjualan']->diskon)) Rp {{number_format($data['penjualan']->diskon,2,",",".")}} @else Rp 0 @endif</td>
+				<td>Rp {{number_format($item->barang->harga_jual * $item->jumlah,2,",",".")}}</td>
+				@php $total += $item->barang->harga_jual * $item->jumlah; @endphp
 			</tr>
 			@php $i++; @endphp
 			@endforeach
@@ -147,7 +148,7 @@
 			</tr>
 			<tr>
 				<td class="double righted bold" colspan="6"> TOTAL SELURUH : Rp.</td>
-				<td class="double righted bold">10.000.000</td>
+				<td class="double righted bold">{{number_format($total,2,",",".")}}</td>
 			</tr>
 		</tbody>
 	</table>
@@ -224,26 +225,38 @@
 		<thead>
 			<tr>
 				<th class="double" width="5%">No</th>
-				<th class="double" width="35%">NAMA BARANG</th>
-				<th class="double" width="15%">SATUAN</th>
+				<th class="double" width="25%">NAMA BARANG</th>
+				<th class="double" width="10%">SATUAN</th>
 				<th class="double" width="15%">JUMLAH</th>
-				<th class="double" width="30%">KETERANGAN</th>
+				<th class="double" width="15%">HARGA</th>
+				<th class="double" width="15%">DISC</th>
+				<th class="double" width="15%">TOTAL</th>
 			</tr>
 		</thead>
 		<tbody>
 			@if(!empty($data))
-			@php $i = 1; @endphp
+			@php $i = 1; $total = 0;@endphp
 			@foreach($data['detail'] as $item)
 			<tr>
-				<td>{{$i}}</td>
+				<td class="centered">{{$i}}</td>
 				<td>{{$item->barang->nama}}</td>
 				<td>{{$item->barang->satuan}}</td>
 				<td>{{$item->jumlah}}</td>
-				<td></td>
+				<td>Rp {{number_format($item->barang->harga_jual,2,",",".")}}</td>
+				<td>@if(!empty($data['penjualan']->diskon)) Rp {{number_format($data['penjualan']->diskon,2,",",".")}} @else Rp 0 @endif</td>
+				<td>Rp {{number_format($item->barang->harga_jual * $item->jumlah,2,",",".")}}</td>
+				@php $total += $item->barang->harga_jual * $item->jumlah; @endphp
 			</tr>
 			@php $i++; @endphp
 			@endforeach
 			@endif
+			<tr>
+				<td colspan="7" class="dummy">.</td>
+			</tr>
+			<tr>
+				<td class="double righted bold" colspan="6"> TOTAL SELURUH : Rp.</td>
+				<td class="double righted bold">{{number_format($total,2,",",".")}}</td>
+			</tr>
 		</tbody>
 	</table>
 </body>
