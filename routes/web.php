@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/barang/delete/{id_barang}','Barang\DeleteController@delete');
 	Route::post('/barangdetail/edit/{id_barang}','Barang\CreateController@editDetail');
 	Route::get('/barangdetail/delete/{id_barang}','Barang\CreateController@deleteDetail');
+	Route::get('/barang/print','Barang\ViewController@printStok');
 
 	Route::get('/pelanggan','PelangganController@index');
 	Route::get('/pelanggan/all','PelangganController@all');
@@ -81,3 +82,8 @@ Route::middleware(['auth'])->group(function(){
 Route::get('/generate-tanggal','Generator@generate');
 Route::get('/import-barang','Barang\ImportController@importBarang');
 Route::get('update-import','Barang\ImportController@updateImport');
+
+
+Route::get('/print-surjal', 'Amik\ViewController@printSuratJalan');
+Route::get('/print-faktur', 'Amik\ViewController@printFaktur');
+Route::get('/print-stok', 'Amik\ViewController@printLaporanStok');

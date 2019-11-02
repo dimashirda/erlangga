@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
 use DataTables;
+use DOMPDF;
 class TransaksiController extends Controller
 {
     public function index()
@@ -189,11 +190,23 @@ class TransaksiController extends Controller
         return;
     }
     public function print($id)
-    {
+    {   
+        date_default_timezone_set('Asia/Jakarta');
         $penjualan = Penjualan::where('id',$id)->first();
+        // dd(Carbon::now());
         $detail = Penjualan_detail::where('penjualan_id',$id)->get();
+        $data['nomor_surat'] = $penjualan->id + 20000;
+        $data['jam'] = Carbon::now()->format('H:i:s');
+        if(!empty($penjualan->tanggal_jatuh_tempo))
+            $data['tanggal_jatuh_tempo'] = Carbon::parse($penjualan->tanggal_jatuh_tempo)->format('d-M-Y');
+        $data['tanggal'] = Carbon::now()->format('d-M-Y');
+        $data['admin'] = Auth::user()->name;
+        $data['penjualan'] = $penjualan;
+        $data['detail'] = $detail;
+        $pdf = DOMPDF::loadView('amik.print-faktur',['data'=>$data]);
+        return $pdf->stream('print.pdf');
         //dd($penjualan,$detail);
-        return view('printpenjualan',['penjualan'=>$penjualan,'detail'=>$detail]);   
+        // return view('printpenjualan',['penjualan'=>$penjualan,'detail'=>$detail]);   
     }
     public function logKeuntungan($data,$flag)
     {

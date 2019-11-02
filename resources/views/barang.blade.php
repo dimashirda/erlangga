@@ -45,8 +45,11 @@
                 <div class="box-body">
                     <br>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-xs-1">
                             <a href="{{url('/barang/tambah')}}" class='btn btn-primary'><i class="fa fa-plus-circle"></i> Tambah baru</a>
+                        </div>
+                        <div class="col-xs-1">
+                            <a href="{{url('/barang/print')}}" class='btn btn-primary'><i class="fa fa-print"></i> Print Stok</a>
                         </div>
                     </div>
                     <br>
