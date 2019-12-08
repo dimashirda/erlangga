@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Barang;
 use App\BarangDetail;
+use App\Pelanggan;
+use App\Supplier;
 use DB;
 class ImportController extends Controller
 {
@@ -57,6 +59,67 @@ class ImportController extends Controller
             }
             DB::commit();
             dd($nama_kosong);
+        } catch (Exception $e) {
+            DB::rollBack();
+            dd($e);
+        }
+    }
+
+    public function importPelanggan()
+    {
+        DB::beginTransaction();
+        try {
+            $file = fopen('data-pelanggan.csv','r');
+            $data = fgetcsv($file);
+            $flag = 0;
+            while (!feof($file)) 
+            {
+                if($flag == 0)
+                {
+                    $flag ++;
+                    continue;
+                }
+                $data = fgetcsv($file);
+                $pelanggan = new Pelanggan;
+                $pelanggan->nama = $data[0];
+                $pelanggan->alamat = $data[1];
+                $pelanggan->telepon = $data[2];
+                $pelanggan->kota = $data[3];
+                $pelanggan->limit = $data[4];
+                $pelanggan->save();
+            }
+            DB::commit();
+            echo "success";
+        } catch (Exception $e) {
+            DB::rollBack();
+            dd($e);
+        }
+    }
+
+    public function importSuplier()
+    {
+        DB::beginTransaction();
+        try {
+            $file = fopen('data-suplier.csv','r');
+            $data = fgetcsv($file);
+            $flag = 0;
+            while (!feof($file)) 
+            {
+                if($flag == 0)
+                {
+                    $flag ++;
+                    continue;
+                }
+                $data = fgetcsv($file);
+                $suplier = new Supplier;
+                $suplier->nama = $data[0];
+                $suplier->alamat = $data[1];
+                $suplier->telepon = $data[2];
+                $suplier->kota = $data[3];
+                $suplier->save();
+            }
+            DB::commit();
+            echo "success";
         } catch (Exception $e) {
             DB::rollBack();
             dd($e);

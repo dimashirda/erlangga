@@ -82,7 +82,8 @@ Route::middleware(['auth'])->group(function(){
 Route::get('/generate-tanggal','Generator@generate');
 Route::get('/import-barang','Barang\ImportController@importBarang');
 Route::get('update-import','Barang\ImportController@updateImport');
-
+Route::get('/import-pelanggan','Barang\ImportController@importPelanggan');
+Route::get('/import-suplier','Barang\ImportController@importSuplier');
 
 Route::get('/print-surjal', 'Amik\ViewController@printSuratJalan');
 Route::get('/print-faktur', 'Amik\ViewController@printFaktur');
