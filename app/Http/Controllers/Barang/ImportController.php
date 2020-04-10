@@ -80,7 +80,7 @@ class ImportController extends Controller
                     continue;
                 }
                 $data = fgetcsv($file);
-                $pelanggan = new Pelanggan;
+                $pelanggan = new Pelanggan;          
                 $pelanggan->nama = $data[0];
                 $pelanggan->alamat = $data[1];
                 $pelanggan->telepon = $data[2];
