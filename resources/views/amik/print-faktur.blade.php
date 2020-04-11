@@ -45,6 +45,9 @@
 	.bold{
 		font-weight: bold;
 	}
+	@page{
+		size : 138mm 242mm;
+	}
 </style>
 </head>
 <body>

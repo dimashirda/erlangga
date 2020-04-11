@@ -51,10 +51,10 @@
                     <div style="overflow-x:auto;">
                         <div class="row col-md-12">
                             <div class="col-md-2">
-                            <h4>Pembeli : {{$penjualan->pelanggan->nama or '-'}}</h4>
+                            <h4>Pembeli : {{$penjualan->pelanggan->nama}}</h4>
                             </div>
                             <div class="col-md-2">
-                            <h4>Kasir : {{$penjualan->kasir->name or '-'}}</h4>
+                            <h4>Kasir : {{$penjualan->kasir->name}}</h4>
                             </div>
                             <div class="col-md-5">
                             <h4>Jenis Pembayaran : @if($penjualan->jenis_penjualan == 1) Kredit @elseif($penjualan->jenis_penjualan == 3) 
@@ -82,10 +82,10 @@
                             @php $number = number_format("$a->total_satuan",2,",","."); 
                             $number2 = number_format("$a->harga_satuan",2,",",".") @endphp
                             @endif
-                                <td>{{ $a->barang->nama or '-' }}</td>
-                                <td>{{ $a->jumlah or '-' }}</td>
-                                <td>Rp {{ $number2 or '-' }}</td>
-                                <td>Rp {{ $number or '-' }}</td>
+                                <td>{{ $a->barang->nama}}</td>
+                                <td>{{ $a->jumlah}}</td>
+                                <td>Rp {{ $number2}}</td>
+                                <td>Rp {{ $number }}</td>
                             </tr>
                             @endforeach
                             <tr>
@@ -101,7 +101,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>Rp {{$number or '-'}}</td>
+                                <td>Rp {{$number}}</td>
                             </tr>
                             </tbody>
                         </table>

@@ -108,7 +108,7 @@ class TransaksiController extends Controller
         //dd($id);
         $penjualan = Penjualan::where('id',$id)->first();
         $detail = Penjualan_detail::where('penjualan_id',$id)->get();
-        //dd($penjualan,$detail);
+        // dd($penjualan,$detail);
         return view('detailpenjualan',['penjualan'=>$penjualan,'detail'=>$detail]);
     }
     public function delete(Request $request)
