@@ -30,4 +30,9 @@ class Penjualan extends Model
     {
         return $this->hasOne('App\Transfer','penjualan_id','id');
     }
+
+    public function detail()
+    {
+        return $this->hasMany('App\Penjualan_detail','penjualan_id','id');
+    }
 }

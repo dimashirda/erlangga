@@ -46,7 +46,9 @@
 		font-weight: bold;
 	}
 	@page{
-		size : 138mm 242mm;
+		size : 242mm 138mm;
+		font-weight: bold;
+		margin-top: 0mm;
 	}
 </style>
 </head>

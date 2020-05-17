@@ -71,7 +71,8 @@ Route::middleware(['auth'])->group(function(){
 	Route::post('/pemotongan-stok/tambah','Pemotongan\PostController@tambahStok');
 	Route::get('/pemotongan-klien','Pemotongan\ViewController@potongKlien');
 
-	Route::get('/laporan','Lapran\ViewController@index');
+	Route::get('/laporan','Laporan\ViewController@index');
+	Route::get('/laporan/penjualan','Laporan\ReadController@laporanPenjualan');
 
 	Route::get('/pelanggan/detail/{id}','PelangganController@historiBelanja');
 	Route::get('/pelanggan/detail/{id}/{flag}','PelangganController@historiBelanja');
