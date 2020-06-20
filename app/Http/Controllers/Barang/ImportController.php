@@ -19,6 +19,7 @@ class ImportController extends Controller
         while(!feof($file))
         {
         	$data = fgetcsv($file);
+            // dd($data[0]);
         	$barang = new Barang;
         	$barang->nama = $data[0];
         	$barang->satuan = $data[1];

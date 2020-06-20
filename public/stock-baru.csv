@@ -1,522 +1,549 @@
-﻿Amplop Samson B,pak,16500,10500,6,
-Amplop Samson C,pak,21500,19500,49,
-Amplop Samson D,pak,30000,28525,68,
-Amplop Samson E,pak,38500,36750,44,
-Amplop Royal 90,pak,18000,15320,13,
-Amplop Royal tanggung,pak,12500,11080,8,
-Amplop Jaya 90,pak,19000,0,17,
-Amplop JPLUS 90/90 gr -merah,pak,18000,16500,19,19
-Amplop JPLUS 90/80 gr -biru,pak,17000,15500,7,7
-Amplop Paperline tanggung,pak,13000,11750,49,49
-AC 190 gr / PD / 65x100,rim-pln,990000,950000,10,
-AC 190 gr / PD / 79x109,rim-pln,1315000,1258644,6,
-AC 210 gr / PD / 65x100,rim-pln,1095000,1050000,5,
-AC 210 gr / PD / 79x109,rim-pln,1450000,1391133,1,
-AC 230 gr / PD / 65x100,rim-pln,1195000,1150103,9,
-AC 230 gr / PD / 79x109,rim-pln,1590000,1523621,2,
-AC 260 gr / PD / 65x100,rim-pln,1365000,1300117,18,
-AC 260 gr / PD / 79x109,rim-pln,1795000,1757505,5,
-AC 260 gr / PD / 65x90,rim-pln,1225000,1170105,4,
-AC 310 gr / PD / 65x100,rim-pln,1665000,1599507,7,
-AC 310 gr / PD / 79x109,rim-pln,0,0,0,
-AC 360 gr / PD / 65x100,rim-pln,1925000,1857492,1,
-AC 360 gr / PD / 79x109,rim-pln,0,0,0,
-AC 190 gr / PD / 65x100,lembar,2100,1900,360,
-AC 190 gr / PD / 79x109,lembar,2750,2517,60,
-AC 210 gr / PD / 65x100,lembar,2350,2100,427,
-AC 210 gr / PD / 79x109,lembar,3100,2782,197,
-AC 230 gr / PD / 65x100,lembar,2500,2300,2,
-AC 230 gr / PD / 79x109,lembar,3400,3047,128,
-AC 260 gr / PD / 65x90,lembar,2500,2340,215,
-AC 260 gr / PD / 65x100,lembar,2850,2600,570,
-AC 260 gr / PD / 79x109,lembar,3700,3515,140,
-AC 260 gr / PD / 65x90,lembar,0,0,0,
-AC 310 gr / PD / 65x100,lembar,3400,3200,140,
-AC 310 gr / PD / 79x109,lembar,0,0,0,
-AC 360 gr / PD / 65x100,lembar,3850,3715,104,
-AC 360 gr / PD / 79x109,lembar,5100,4921,442,
-AC 190 gr / NBA / 79x109,rim-pln,1175000,1202526,2,
-AC 190 gr / NBA / 79x109,lembar,2700,2405,56,
-AC 260 gr / NBA / 65x100,lembar,2800,2484,65,
-AC 260 gr / S / 79x109,lembar,3300,2888,250,
-Glory 230 gr/ 79x109,lembar,5000,0,12,
-"Glory 230 gr/ 76,2x101,6",lembar,3600,0,310,
-AP 100 gr/ NBA / 79x109,rim-pln,0,663047,3,
-AP 120 gr/ NBA / 65x100,rim-pln,0,0,0,
-AP 120 gr/ NBA / 79x109,rim-pln,0,0,0,
-AP 150 gr/ NBA / 65x90,lembar,0,0,0,
-AP 150 gr/ NBA / 65x100,rim-pln,795000,692250,2,
-AP 150 gr/ NBA / 79x109,rim-pln,985000,936704,1,
-AP 120 gr/ NBA / 65x100,lembar,0,0,0,
-AP 120 gr/ NBA / 79x109,lembar,0,0,0,
-AP 150 gr/ NBA / 79x109,lembar,0,0,0,
-AP 85 gr / Victory / 65x100,rim-pln,420000,374318,2,
-AP 100 gr / Victory / 60x86,rim-pln,365000,419680,1,
-AP 150 gr / Victory / 60x86,rim-pln,550000,565000,0,
-AP 100 gr / Victory / 65x100,lembar,0,0,0,
-AP 100 gr / Victory / 79x109,lembar,0,0,0,
-AP 120 gr / Victory / 65x100,lembar,0,0,0,
-AP 120 gr / Victory / 79x109,lembar,0,0,0,
-AP 150 gr / Victory / 65x100,lembar,1700,1443,86,
-AP 150 gr / Victory / 79x109,lembar,0,0,0,
-AP 150 gr/ NBA / 65x100,lembar,0,0,0,
-Glory 230 gr/ 79x109,rim-pln,0,0,0,
-AP 120 gr/ PINDO / 79x109,rim-pln,0,0,0,
-AP 120 gr/ PINDO / 65x100,rim-pln,0,0,0,
-AP 120 gr/ PINDO / 79x109,lembar,0,0,0,
-AP 120 gr/ PINDO / 65x100,lembar,0,0,0,
-AP 150 gr/ PINDO / 65x90,rim-pln,0,0,0,
-AP 85 gr / NEVIA / 61x86,rim-pln,450000,401319,31,
-AP 100 gr / NEVIA / 65x100,rim-pln,0,0,0,
-AP 120 gr / NEVIA / 65x100,rim-pln,585000,565500,12,
-AP 150 gr / NEVIA / 65x100,rim-pln,845000,706875,8,
-AP 150 gr / NEVIA / 65x90,rim-pln,0,0,0,
-AP 100 gr / NEVIA / 65x100,lembar,0,0,0,
-AP 120 gr / NEVIA / 65x100,lembar,1250,1131,252,
-AP 150 gr / NEVIA / 65x100,lembar,1600,1413,389,
-AP 150 gr / NEVIA / 79x109,lembar,2100,1873,323,
-AP 118 gr / Import / 65x100,lembar,0,0,0,
-BC Pindo 160 - 61x86 putih,rim-pln,735000,674509,1,
-BC Pindo 160 - 61x86 biru muda,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 biru tua,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 biru benhur,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 kuning muda,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 kuning tua,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 hijau muda,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 hijau tua,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 hijau daun,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 merah tua,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 merah muda,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 orange,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 coklat muda,rim-pln,0,0,0,
-BC Pindo 160 - 61x86 putih,lembar,1700,1349,1563,
-BC Pindo 160 - 61x86 biru muda,lembar,1800,1382,1122,
-BC Pindo 160 - 61x86 biru tua,lembar,2300,1940,247,
-BC Pindo 160 - 61x86 biru benhur,lembar,2300,1940,337,
-BC Pindo 160 - 61x86 kuning muda,lembar,1800,1382,397,
-BC Pindo 160 - 61x86 kuning tua,lembar,2300,1940,128,
-BC Pindo 160 - 61x86 hijau muda,lembar,1800,1382,590,
-BC Pindo 160 - 61x86 hijau tua,lembar,2300,1940,5,
-BC Pindo 160 - 61x86 hijau daun,lembar,2300,1940,967,
-BC Pindo 160 - 61x86 merah tua,lembar,2300,1940,119,
-BC Pindo 160 - 61x86 merah muda,lembar,1800,1382,2047,
-BC Pindo 160 - 61x86 orange,lembar,2300,1940,526,
-BC Pindo 160 - 61x86 coklat muda,lembar,2300,1940,557,
-BC Paperplus 150 - 61x86 putih,rim-pln,645000,594109,3,
-BC Paperplus 150 - 61x86 putih,lembar,1500,1188,108,
-BC Paperplus 150 - 65x100 putih,rim-pln,0,0,0,
-BC Paperplus 150 - 65x100 putih,lembar,1650,1500,250,
-BC Buffalo dof merah muda,pak,21500,0,7,
-BC Buffalo dof putih polos,pak,21000,18000,59,
-BC TIK 200 -79x109 putih,rim-pln,1485000,1383959,4,
-BC TIK 200 -79x109 kuning muda,rim-pln,0,0,0,
-BC TIK 200 -79x109 hijau muda,rim-pln,0,0,0,
-BC TIK 200 -79x109 merah muda,rim-pln,0,0,0,
-BC TIK 200 -79x109 biru muda,rim-pln,0,0,0,
-BC TIK 200 -79x109 putih,lembar,3300,2768,510,
-BC TIK 200 -79x109 kuning muda,lembar,3500,2835,939,
-BC TIK 200 -79x109 hijau muda,lembar,3500,2835,381,
-BC TIK 200 -79x109 merah muda,lembar,3500,2835,1453,
-BC TIK 200 -79x109 biru muda,lembar,3500,2835,659,
-BC JANGKAR 150 -61x86 merah,rim-pln,0,0,0,
-BC JANGKAR 150 -61x86 hijau,rim-pln,655000,610000,2,
-BC JANGKAR 150 -61x86 biru,rim-pln,0,0,0,
-BC JANGKAR 150 -61x86 kuning,rim-pln,0,0,0,
-BC JANGKAR 150 -61x86 merah,lembar,1600,1218,1008,
-BC JANGKAR 150 -61x86 hijau,lembar,1600,1218,77,
-BC JANGKAR 150 -61x86 biru,lembar,1600,1218,257,
-BC JANGKAR 150 -61x86 kuning,lembar,1600,1218,1061,
-BC JANGKAR 150 -65x100 hijau,lembar,0,0,0,
-Blush White 250 gr- 79x109,rim-pln,1850000,1729949,5,
-Blush White 250 gr- 79x109,lembar,4000,3460,368,
-BC super putih 65x100,lembar,1760,1671,250,
-Buffalo PINDO 210-79x109 hijau muda,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 hijau tua,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 hijau daun,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 kuning muda,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 kuning tua,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 merah muda,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 merah tua,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 orange,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 biru muda,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 biru tua,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 biru benhur,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 abu-abu,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 coklat muda,rim-pln,0,0,0,
-Buffalo PINDO 210-79x109 hijau muda,lembar,4900,4200,375,
-Buffalo PINDO 210-79x109 hijau tua,lembar,0,0,0,
-Buffalo PINDO 210-79x109 hijau daun,lembar,4700,4400,464,
-Buffalo PINDO 210-79x109 kuning muda,lembar,4900,4200,365,
-Buffalo PINDO 210-79x109 kuning tua,lembar,4900,4400,213,
-Buffalo PINDO 210-79x109 merah muda,lembar,4900,4200,164,
-Buffalo PINDO 210-79x109 merah tua,lembar,4900,4400,748,
-Buffalo PINDO 210-79x109 orange,lembar,4900,4600,273,
-Buffalo PINDO 210-79x109 biru muda,lembar,4900,4200,433,
-Buffalo PINDO 210-79x109 biru tua,lembar,4900,4400,122,
-Buffalo PINDO 210-79x109 biru benhur,lembar,4900,4600,180,
-Buffalo PINDO 210-79x109 abu-abu,lembar,4500,4400,117,
-Buffalo PINDO 210-79x109 coklat muda,lembar,4500,4200,230,
-Buffalo PINDO 230-79x109 putih,rim-pln,0,0,0,
-Buffalo PINDO 230-79x109 biru benhur,rim-pln,0,0,0,
-Buffalo PINDO 230-79x109 putih,lembar,4500,4400,336,
-Buffalo PINDO 230-79x109 biru benhur,lembar,4900,0,225,
-Buffalo PINDO 230-79x109 hijau tua,lembar,4500,4600,135,
-Karton 30 A,pak,265000,245000,9,
-Karton 30 gembos,pak,105000,77500,10,
-Karton 30 JKT(lapis) 64x75,pak,185000,140000,13,
-Karton 30* - 64x75,pak,195000,175000,10,
-Karton 30** - 64x75,pak,175000,147500,31,
-Karton 40 - 64x75,pak,275000,245000,5,
-Karton 40 A,pak,0,0,0,
-Karton 40 K,pak,0,0,0,
-Karton 40*,pak,195000,167500,5,
-Karton tipis(u/nota) - 66x78,pak,15000,12000,47,
-Karton 30 A,lembar,9500,8200,14,
-Karton 30 gembos,lembar,0,0,0,
-Karton 30 JKT(lapis) 64x75,lembar,0,0,0,
-Karton 30* - 64x75,lembar,8000,5850,19,
-Karton 30** - 64x75,lembar,6500,4920,41,
-Karton 40 - 64x75,lembar,6000,6125,24,
-Karton 40 A,lembar,7500,5250,129,
-Karton 40 K,lembar,0,0,0,
-Karton 40*,lembar,0,0,0,
-Karton tipis(u/nota) - 66x78,lembar,2000,1200,60,
-Casing 65x100,rim-pln,210000,190000,8,
-Casing 65x100,lembar,600,380,290,
-CD / TA / 65x100,rim-pln,215000,193375,17,
-CD / TA / 61x86,rim-pln,180000,158690,24,
-CD / TA / 43x33,rim-DF,0,0,0,
-"CD / TA / 21,5x29,7",rim-A4,23500,0,6,
-"CD / TA / 21,5x33",rim folio,24500,0,8,
-Concorde tipis 79x109 light yellow,rim-pln,1125000,1025000,2,
-Concorde tipis 79x109 putih,rim-pln,0,0,0,
-Concorde tipis 79x109 hijau muda,rim-pln,0,0,0,
-Concorde tipis 79x109 biru muda,rim-pln,0,0,0,
-Concorde tipis 79x109 cream,rim-pln,0,0,0,
-Concorde tipis 79x109 merah muda,rim-pln,0,0,0,
-Concorde tipis 79x109 abu-abu,rim-pln,0,0,0,
-Concorde tipis 79x109 light yellow,lembar,2600,2050,516,
-Concorde tipis 79x109 putih,lembar,2600,2050,1165,
-Concorde tipis 79x109 hijau muda,lembar,2600,2050,601,
-Concorde tipis 79x109 biru muda,lembar,2600,2050,383,
-Concorde tipis 79x109 cream,lembar,2600,2050,1048,
-Concorde tipis 79x109 merah muda,lembar,2600,2050,571,
-Concorde tipis 79x109 abu-abu,lembar,2600,2050,237,
-Concorde tebal 79x109 light yellow,rim-pln,0,0,0,
-Concorde tebal 79x109 putih,rim-pln,0,0,0,
-Concorde tebal 79x109 hijau muda,rim-pln,0,0,0,
-Concorde tebal 79x109 biru muda,rim-pln,0,0,0,
-Concorde tebal 79x109 cream,rim-pln,0,0,0,
-Concorde tebal 79x109 merah muda,rim-pln,0,0,0,
-Concorde tebal 79x109 abu-abu,rim-pln,0,0,0,
-Concorde tebal 79x109 light yellow,lembar,4800,4300,495,
-Concorde tebal 79x109 putih,lembar,4800,4300,43,
-Concorde tebal 79x109 hijau muda,lembar,4800,4030,557,
-Concorde tebal 79x109 biru muda,lembar,4800,4120,39,
-Concorde tebal 79x109 cream,lembar,4800,4300,259,
-Concorde tebal 79x109 merah muda,lembar,4800,4300,275,
-Concorde tebal 79x109 abu-abu,lembar,4600,4300,109,
-Copenhagen tebal putih,rim-pln,2325000,2150000,1,
-Copenhagen tebal ivory,rim-pln,2725000,2600000,3,
-Copenhagen tebal putih,lembar,4800,4300,139,
-Copenhagen tebal ivory,lembar,5600,5200,56,
-Doorslag RB 44x69 merah,rim-pln,112000,100000,1,
-Doorslag RB 44x69 hijau,rim-pln,0,0,0,
-Doorslag RB 44x69 biru,rim-pln,0,0,0,
-Doorslag RB 44x69 putih,rim-pln,0,0,0,
-Doorslag RB 44x69 merah,rim folio,28500,25000,2,
-Doorslag RB 44x69 hijau,rim folio,0,0,0,
-Doorslag RB 44x69 biru,rim folio,0,0,0,
-Doorslag RB 44x69 putih,rim folio,25000,21250,5,
-Doorslag Java 88x69 putih,rim-pln,0,0,0,
-Doorslag Java 88x69 putih,rim folio,0,0,0,
-Doorslag RB 88x69 putih,rim-pln,225000,200376,33,
-Duplex 250 gr / 70x100 PAKERIN,rim-pln,0,0,0,
-Duplex 250 gr / 79x109 PAKERIN,rim-pln,1245000,1138500,7,
-Duplex 250 gr / 89x120 PAKERIN,rim-pln,0,0,0,
-Duplex 310 gr / 70x100 PAKERIN,rim-pln,0,0,0,
-Duplex 310 gr / 79x109 PAKERIN,rim-pln,1410000,1291500,10,
-Duplex 310 gr / 89x120 PAKERIN,rim-pln,0,0,0,
-Duplex 350 gr / 70x100 PAKERIN,rim-pln,0,0,0,
-Duplex 350 gr / 79x109 PAKERIN,rim-pln,1545000,1399500,5,
-Duplex 350 gr / 89x120 PAKERIN,rim-pln,0,0,0,
-Duplex 350 gr / 89x120 PAKERIN,rim-pln,1755000,1415050,3,
-Duplex 400 gr / 79x109 PAKERIN,rim-pln,1735000,1592500,7,
-Duplex 450 gr / 79x109 PAKERIN,rim-pln,0,0,0,
-Duplex 250 gr / 70x100 PAKERIN,lembar,0,0,0,
-Duplex 250 gr / 79x100 PAKERIN,lembar,0,0,0,
-Duplex 250 gr / 79x109 PAKERIN,lembar,2750,2277,236,
-Duplex 250 gr / 89x120 PAKERIN,lembar,2890,2825,725,
-Duplex 310 gr / 70x100 PAKERIN,lembar,0,0,0,
-Duplex 310 gr / 79x100 PAKERIN,lembar,0,0,0,
-Duplex 310 gr / 79x109 PAKERIN,lembar,0,0,0,
-Duplex 310 gr / 89x120 PAKERIN,lembar,3650,3169,570,
-Duplex 350 gr / 70x100 PAKERIN,lembar,0,0,0,
-Duplex 350 gr / 79x109 PAKERIN,lembar,3300,2830,77,
-Duplex 350 gr / 89x120 PAKERIN,lembar,4150,2830,315,
-Duplex 400 gr / 79x109 PAKERIN,lembar,3750,3185,440,
-Duplex 400 gr / 89x120 PAKERIN,lembar,0,0,0,
-Duplex 450 gr / 79x109 PAKERIN,lembar,3990,3519,1,
-Duplex 250 gr / 79x109 ND,lembar,0,0,0,
-Duplex 250 gr / IKA / 79x109,rim-pln,1160000,1100550,5,
-Duplex 310 gr / IKA / 79x109,rim-pln,0,0,0,
-Duplex 350 gr / IKA / 89x120,rim-pln,1575000,1399500,4,
-Duplex 250 gr / IKA / 79x109,lembar,2320,2200,130,
-Duplex 310 gr / IKA / 79x109,lembar,0,0,0,
-Duplex 350 gr / IKA / 79x109,lembar,3300,2799,345,
-Duplex 350 gr / IKA / 89x120,lembar,3900,3472,675,
-Swiss tebal putih,rim-pln,2325000,2200000,2,
-Swiss tebal ivory,rim-pln,2725000,2600000,9,
-Java tebal putih,rim-pln,2325000,1675000,1,
-Florida tebal putih,rim-pln,0,0,0,
-Florida tebal ivory,rim-pln,2725000,2600000,2,
-Millenium tebal pearl white,rim-pln,0,0,0,
-Iceland tebal diamond white,rim-pln,2700000,2225000,1,
-Hummer tebal putih,rim-pln,2325000,2150000,10,
-Swiss tebal putih,lembar,4800,4400,68,
-Swiss tebal ivory,lembar,5600,5200,820,
-Java tebal putih,lembar,4800,3350,458,
-Florida tebal putih,lembar,4800,4400,244,
-Florida tebal ivory,lembar,5600,5200,783,
-Millenium tebal pearl white,lembar,4100,4000,80,
-Iceland tebal diamond white,lembar,5600,4450,91,
-Hummer tebal putih,lembar,5000,4300,450,
-Book paper 55 gr / 65x100,rim-pln,0,0,0,
-Book paper 55 gr / 61x86,rim-pln,0,0,0,
-HVS warna 70 gr/PD/65x100/merah,rim-pln,445000,390162,2,
-HVS warna 70 gr/PD/65x100/kuning,rim-pln,445000,391000,2,
-HVS warna 70 gr/PD/65x100/hijau,rim-pln,445000,390162,2,
-HVS warna 70 gr/PD/65x100/biru,rim-pln,445000,391000,4,
-HVS warna 70 gr/PD/65x100/merah,rim folio,0,0,0,
-HVS warna 70 gr/PD/65x100/kuning,rim folio,0,0,0,
-HVS warna 70 gr/PD/65x100/hijau,rim folio,0,0,0,
-HVS warna 70 gr/PD/65x100/biru,rim folio,0,0,0,
-HVS warna 70 gr/PD/65x100/merah,rim-DF,0,0,0,
-HVS warna 70 gr/PD/65x100/kuning,rim-DF,0,0,0,
-HVS warna 70 gr/PD/65x100/hijau,rim-DF,0,0,0,
-HVS warna 70 gr/PD/65x100/biru,rim-DF,0,0,0,
-HVS warna 55 gr/ IK / merah,rim-pln,0,0,0,
-HVS warna 55 gr/ IK / kuning,rim-pln,345000,334000,3,
-HVS warna 55 gr/ IK / hijau,rim-pln,345000,333706,3,
-HVS warna 55 gr/ IK / biru,rim-pln,345000,333706,1,
-HVS warna 60 gr/ IK / merah,rim-pln,0,0,0,
-HVS warna 60 gr/ IK / kuning,rim-pln,0,0,0,
-HVS warna 60 gr/ IK / hijau,rim-pln,0,0,0,
-HVS warna 60 gr/ IK / biru,rim-pln,0,0,0,
-HVS warna 55 gr/ IK / merah,rim folio,0,0,0,
-HVS warna 55 gr/ IK / kuning,rim folio,0,0,0,
-HVS warna 55 gr/ IK / hijau,rim folio,0,0,0,
-HVS warna 55 gr/ IK / biru,rim folio,0,0,0,
-HVS warna 60 gr/ IK / merah,rim folio,0,0,0,
-HVS warna 60 gr/ IK / kuning,rim folio,0,0,0,
-HVS warna 60 gr/ IK / hijau,rim folio,0,0,0,
-HVS warna 60 gr/ IK / biru,rim folio,0,0,0,
-HVS warna 60 gr/ IK / merah,rim-DF,0,0,0,
-HVS warna 60 gr/ IK / kuning,rim-DF,0,0,0,
-HVS warna 60 gr/ IK / hijau,rim-DF,0,0,0,
-HVS warna 60 gr/ IK / biru,rim-DF,0,0,0,
-HVS 70 gr / APRIL / 61x86,rim-pln,303000,285385,5,
-HVS 70 gr / APRIL / 65x90,rim-pln,335000,337840,4,
-HVS 70 gr / APRIL / 65x100,rim-pln,370000,352625,1,
-HVS 70 gr / APRIL / 43x33,rim-DF,85000,81000,2,
-"HVS 70 gr / APRIL / 21,5x29,7",rim A4,38500,0,12,
-HVS 70 gr / APRIL / 21.5x33,rim folio,43000,0,1,
-"HVS 70 gr / APRIL / 43x29,7",rim A3,0,0,0,
-HVS 80 gr / APRIL / 21.5x33,rim folio,0,0,0,
-HVS 80 gr / APRIL / 65x90,lembar,0,0,0,
-HVS 70 gr / APRIL / 61x86,lembar,0,0,0,
-HVS 80 gr / APRIL / 65x100,rim-pln,420000,384800,1,
-HVS 80 gr / APRIL / 65x100,lembar,870,770,200,
-HVS 58 gr / ISTANA / 65x100,rim-pln,215000,188500,1,
-"HVS 58 gr / ISTANA / 21,5x33",rim folio,0,0,0,
-"HVS 58 gr / NRB/TJIWI K/ 43,5x100",rim-pln,215000,203985,11,
-HVS 58 gr / RB/ 43x33,rim-DF,0,0,0,
-HVS 58 gr / RB/ APRIL 65x100,rim-pln,0,0,0,
-HVS 70 gr / TL / A / 65x100,rim-pln,0,0,0,
-HVS 60 gr / PAPERPLUS / 65X100,rim-pln,338000,304200,3,
-HVS 60 gr / PAPERPLUS / 79X109,rim-pln,455000,415911,2,
-HVS 60 gr / PAPERPLUS / 43X33,rim-DF,0,0,0,
-"HVS 70 gr / PAPERPLUS / 43,5 x 100",rim-pln,250000,232942,1,
-HVS 70 gr / PAPERPLUS / 61X86,rim-pln,310000,269906,6,
-HVS 70 gr / PAPERPLUS / 65X90,rim-pln,340000,300982,8,
-HVS 70 gr / PAPERPLUS / 65X90,lembar,0,0,0,
-HVS 70 gr / PAPERPLUS / 65X100,rim-pln,380000,334425,13,
-HVS 70 gr / PAPERPLUS / 65X100,lembar,0,0,0,
-HVS 70 gr / PAPERPLUS / 79X109,rim-pln,0,0,0,
-"HVS 70 gr / PAPERPLUS / 21,5 x 29,7",rim A4,0,0,0,
-HVS 70 gr / PAPERPLUS / 43X33,rim-DF,0,0,0,
-"HVS 70 gr / PAPERPLUS / 21,5 x 33",rim folio,0,0,0,
-"HVS 80 gr / PAPERPLUS / 21,5 x 29,7",rim A4,0,0,0,
-"HVS 80 gr / PAPERPLUS / 21,5 x 33",rim folio,0,0,0,
-HVS 80 gr / PAPERPLUS / 61X86,rim-pln,0,0,0,
-HVS 80 gr / PAPERPLUS / 61X86,lembar,0,0,0,
-HVS 80 gr / PAPERPLUS / 65X90,rim-pln,390000,337100,4,
-HVS 80 gr / PAPERPLUS / 65X90,lembar,810,674,250,
-HVS 80 gr / PAPERPLUS / 65X100,rim-pln,430000,382200,10,
-HVS 80 gr / PAPERPLUS / 65X100,lembar,0,0,0,
-HVS 80 gr / PAPERPLUS / 79X109,rim-pln,560000,523548,1,
-HVS 80 gr / PAPERPLUS / 43X33,rim-DF,0,0,0,
-HVS 80 gr / PAPERPLUS / A3,rim A3,0,0,0,
-HVS 100 gr / PAPERPLUS / 61x86,rim-pln,0,0,0,
-HVS 100 gr / PAPERPLUS / 65x100,rim-pln,528000,477750,15,
-HVS 100 gr / PAPERPLUS / 65x100,lembar,0,0,0,
-HVS 100 gr / PAPERPLUS / 79x109,rim-pln,685000,632908,1,
-HVS 100 gr / PAPERPLUS / 79x109,lembar,0,0,0,
-HVS 100 gr / PAPERPLUS / 43x33,rim-DF,0,0,0,
-"HVS 100 gr / PAPERPLUS / 21,5x33",rim folio,0,0,0,
-HVS 100 gr / EXP/TJIWI K/A / 65x100,rim-pln,565000,503750,14,
-HVS 60 gr / EXTRAPRINT ,rim folio,0,0,0,
-HVS 70 gr / EXTRAPRINT / A4,rim A4,0,0,0,
-HVS 100 gr / EXTRAPRINT / 65x100,lembar,0,0,0,
-HVS 80 gr / MIRAGE/ 61X86,rim-pln,290000,257956,1,
-HVS 80 gr / MIRAGE/ 61X86,lembar,600,516,250,
-HVS 58 gr / INDIGO / 65X100,rim-pln,337000,273325,2,
-HVS 58 gr / INDIGO / A3,rim A3,0,0,0,
-"HVS 58 gr / INDIGO / 21,5 x 33",rim folio,0,0,0,
-HVS 58 gr / INDIGO / 43 x 33,rim-DF,0,0,0,
-HVS 70 gr / INDIGO / 61X86,rim-pln,0,0,0,
-HVS 70 gr / INDIGO / 65X100,rim-pln,360000,327600,12,
-HVS 70 gr / INDIGO / 65X100,lembar,0,0,0,
-HVS 70 gr / INDIGO / 79X109,rim-pln,0,0,0,
-"HVS 70 gr / INDIGO / 21,5 x 33",rim folio,0,0,0,
-HVS 70 gr / INDIGO / df,rim-DF,0,0,0,
-HVS 70 gr / INDIGO / A3,rim A3,0,0,0,
-HVS 70 gr / INDIGO / A4,rim A4,0,0,0,
-HVS 70 gr / CAKRA / 65X100,rim-pln,0,0,0,
-"HVS 70 gr / CAKRA / 21,5X33",rim folio,0,0,0,
-HVS 70 gr /BMO/ A4,rim A4,39500,35000,1,
-HVS 70 gr /BMO/ folio,rim folio,41000,41750,25,
-HVS 70 gr / SIDU,rim folio,45000,33500,2,
-HVS 80 gr / SIDU,rim folio,0,0,0,
-IVORY 210 gr - 79 x109,rim-pln,1510000,1428585,5,
-IVORY 230 gr - 79 x109,rim-pln,1600000,1564618,3,
-IVORY 250 gr - 79 x109,rim-pln,1740000,1700672,5,
-IVORY 300 gr - 79 x109,rim-pln,2090000,2040807,2,
-IVORY 350 gr - 79 x109,rim-pln,2445000,2380941,2,
-IVORY 210 gr - 79 x109,lembar,3100,2857,347,
-IVORY 230 gr - 79 x109,lembar,3500,3129,210,
-IVORY 250 gr - 79 x109,lembar,3700,3401,226,
-IVORY 300 gr - 79 x109,lembar,4500,4082,261,
-IVORY 350 gr - 79 x109,lembar,5300,4762,109,
-IVORY 350 gr/IK /IA - 79 x109,rim-pln,0,0,0,
-IVORY 300 gr/IK /IA - 79 x109,rim-pln,0,0,0,
-IVORY 250 gr/IK /IA - 79 x109,rim-pln,0,0,0,
-IVORY 350 gr/IK /IA - 79 x109,lembar,0,0,0,
-IVORY 300 gr/IK /IA - 79 x109,lembar,0,0,0,
-IVORY 250 gr/IK /IA - 79 x109,lembar,3700,3250,464,
-JASMINE tebal 79 x 109 putih,rim-pln,0,0,0,
-JASMINE tebal 79 x 109 Hijau,rim-pln,0,0,0,
-JASMINE tebal 79 x 109 biru muda,rim-pln,0,0,0,
-JASMINE tebal 79 x 109 cream,rim-pln,0,0,0,
-JASMINE tebal 79 x 109 merah muda,rim-pln,0,0,0,
-JASMINE MILLENIUM 79 x 109 putih,lembar,5000,4500,254,
-JASMINE tebal 79 x 109 putih,lembar,4200,3500,2788,
-JASMINE tebal 79 x 109 Hijau,lembar,4200,3500,378,
-JASMINE tebal 79 x 109 biru muda,lembar,4200,3500,676,
-JASMINE tebal 79 x 109 cream,lembar,4200,3500,1088,
-JASMINE tebal 79 x 109 merah muda,lembar,4200,3500,565,
-JASMINE GOLD DUST,rim-pln,0,0,0,
-JASMINE TEBAL PUTIH 200 gr,rim-pln,0,0,0,
-Kotak kartu nama kosongan,buah,900,600,1677,
-LINEN PINDO 230 gr - putih,rim-pln,2350000,2250000,6,
-LINEN PINDO 230 gr - putih,lembar,4900,4500,209,
-LINEN HITAM TEBAL 79x109,lembar,5500,4750,1000,
-LINEN HOLLAND TEBAL PUTIH 200gr/79X109 ,lembar,5000,4300,2646,
-KAIN LINEN HITAM,roll,185000,155000,0,
-KAIN LINEN MERAH,roll,170000,150000,0,
-KAIN LINEN BIRU,roll,185000,150000,0,
-LITTO 30 gr / JAVA / 88  x 69,rim,175000,142085,28,
-LITTO 30 gr / NRB/TK/A / 44x69,rim,30000,0,0,
-Kertas roti putih 40 gr,rim-pln,475000,440000,0,
-Foopak natural white 40 gr/ 75x100,rim-pln,410000,380000,0,
-MATT PAPER 150 gr /NEVIA/ 65x100,rim-pln,840000,723937,5,
-MATT PAPER 150 gr /NEVIA/ 65x100,lembar,1800,1450,135,
-MATT PAPER 120 gr /NEVIA/ 65x100,rim-pln,625000,565656,3,
-MATT PAPER 120 gr /NEVIA/ 65x100,lembar,0,0,0,
-MC PAPIRUS 150 gr/61x86 - kuning,rim-pln,355000,305000,10,
-MC PAPIRUS 150 gr/61x86 - hijau,rim-pln,355000,305000,2,
-MC PAPIRUS 150 gr/61x86 - biru,rim-pln,355000,305000,8,
-MC PAPIRUS 150 gr/61x86 - merah,rim-pln,355000,305000,2,
-MC PAPIRUS 150 gr/61x86 - kuning,lembar,1000,588,0,
-MC PAPIRUS 150 gr/61x86 - hijau,lembar,1000,588,88,
-MC PAPIRUS 150 gr/61x86 - biru,lembar,1000,588,250,
-MC PAPIRUS 150 gr/61x86 - merah,lembar,1000,588,250,
-Mika putih polos,pak,22500,19750,33,
-Mika OHP Yassica,pak,0,0,0,
-Buffalo dof,pak,22000,20250,53,
-Kalkir 85 gr  DIAMOND -65x100,lembar,5500,4750,429,
-Kalkir 100 gr  DIAMOND -65x100,lembar,7500,6150,161,
-NCR/RB/top white,rim folio,48000,45815,38,
-NCR/RB/Middle blue,rim folio,49000,46305,0,
-NCR/RB/Middle pink,rim folio,49000,46305,5,
-NCR/RB/Middle yellow,rim folio,49000,46305,18,
-NCR/RB/Middle green,rim folio,49000,46305,11,
-NCR/RB/Middle white,rim folio,49000,46305,7,
-NCR/RB/bottom pink,rim folio,44000,41895,10,
-NCR/RB/bottom blue,rim folio,44000,41895,17,
-NCR/RB/bottom green,rim folio,44000,41895,13,
-NCR/RB/bottom yellow,rim folio,44000,41895,8,
-NCR/RB/bottom white,rim folio,44000,41895,18,
-DF NCR/RB/top white,rim,0,0,0,
-DF NCR/RB/Middle blue,rim,0,0,0,
-DF NCR/RB/Middle pink,rim,0,0,0,
-DF NCR/RB/Middle yellow,rim,0,0,0,
-DF NCR/RB/Middle green,rim,0,0,0,
-DF NCR/RB/Middle white,rim,0,0,0,
-DF NCR/RB/bottom pink,rim,0,0,0,
-DF NCR/RB/bottom blue,rim,0,0,0,
-DF NCR/RB/bottom green,rim,0,0,0,
-DF NCR/RB/bottom yellow,rim,0,0,0,
-DF NCR/RB/bottom white,rim,0,0,0,
-DF NCR/RB/top white,rim,0,0,0,
-DF NCR/RB/Middle blue,rim,0,0,0,
-DF NCR/RB/Middle pink,rim,0,0,0,
-DF NCR/RB/Middle yellow,rim,0,0,0,
-DF NCR/RB/Middle green,rim,0,0,0,
-DF NCR/RB/Middle white,rim,0,0,0,
-DF NCR/RB/bottom pink,rim,0,0,0,
-DF NCR/RB/bottom blue,rim,0,0,0,
-DF NCR/RB/bottom green,rim,0,0,0,
-DF NCR/RB/bottom yellow,rim,0,0,0,
-DF NCR/RB/bottom white,rim,0,0,0,
-NCR / IMP / bottom green,rim folio,46000,43561,28,
-NCR / IMP / bottom yellow,rim folio,46000,43561,18,
-NCR / IMP / bottom white,rim folio,46000,43561,7,
-NCR / IMP / bottom pink,rim folio,46000,43561,12,
-NCR / IMP / bottom blue,rim folio,46000,43561,25,
-NCR / IMP / middle green,rim folio,49000,48363,17,
-NCR / IMP / middle white,rim folio,49000,48363,14,
-NCR / IMP / middle blue,rim folio,49000,48363,16,
-NCR / IMP / middle pink,rim folio,49000,48363,31,
-NCR / IMP / middle yellow,rim folio,49000,48363,15,
-NCR / IMP / top white,rim folio,48000,47383,19,
-NCR / IMP / top blue,rim folio,45000,47383,5,
-F4 NCR / IMP / top white,rim folio,0,0,0,
-F4 NCR / IMP / middle yellow,rim folio,0,0,0,
-F4 NCR / IMP / middle green,rim folio,0,0,0,
-F4 NCR / IMP / middle white,rim folio,0,0,0,
-F4 NCR / IMP / middle blue,rim folio,0,0,0,
-F4 NCR / IMP / middle pink,rim folio,0,0,0,
-F4 NCR / IMP / bottom green,rim folio,0,0,0,
-F4 NCR / IMP / bottom yellow,rim folio,0,0,0,
-F4 NCR / IMP / bottom white,rim folio,0,0,0,
-F4 NCR / IMP / bottom pink,rim folio,0,0,0,
-F4 NCR / IMP / bottom blue,rim folio,0,0,0,
-KRAFT SAMSON PURA 80 gr - 90x120,rim-pln,595000,550000,2,
-KRAFT SAMSON PURA 80 gr - 90x120,lembar,1700,1100,197,
-SAMSON IMPORT 140 GR,rim-pln,0,0,0,
-SAMSON IMPORT 130 GR,rim-pln,0,0,0,
-SAMSON IMPORT 120 GR,rim-pln,0,0,0,
-SAMSON IMPORT 140 GR,lembar,0,0,0,
-SAMSON IMPORT 130 GR,lembar,0,0,0,
-SAMSON IMPORT 120 GR,lembar,0,0,0,
-Stiker/CC/CAMEL/ 54x70,rim-pln,1225000,1135000,6,
-Stiker/HVS/CAMEL/ 54x70,rim-pln,0,0,0,
-Stiker/CC/STAR/ 54x70,rim-pln,1015000,1000000,1,
-Stiker/CC/CAMEL/ 54x70,lembar,2600,2270,497,
-Stiker/HVS/CAMEL/ 54x70,lembar,2500,1940,230,
-Stiker/CC/STAR/ 54x70,lembar,2200,2000,353,
-VINIL SUSU 53x86,lembar,5800,5500,174,
-VINIL TRANSPARAN 49x79,lembar,5000,4110,350,
-BONTAX MIRROR CAMEL dobel 108x70,lembar,4500,0,5,
-BONTAX MIRROR VERITEC LITE,lembar,2100,1720,110,
+"AC 190 gr / NBA / 79x109","rim-pln","0","0","0",""
+"AC 190 gr / NBA / 79x109","lembar","0","0","0",""
+"AC 190 gr / PD / 65x100","rim-pln","965000","913900","2",""
+"AC 190 gr / PD / 65x100","lembar","2100","1827","296",""
+"AC 190 gr / PD / 79x109","rim-pln","1265000","1202596","8",""
+"AC 190 gr / PD / 79x109","lembar","2700","2405","474",""
+"AC 210 gr / PD / 65x100","rim-pln","1065000","1016925","10",""
+"AC 210 gr / PD / 65x100","lembar","2300","2033","393",""
+"AC 210 gr / PD / 79x109","rim-pln","1395000","1329107","1",""
+"AC 210 gr / PD / 79x109","lembar","3000","2658","260",""
+"AC 230 gr / PD / 65x100","rim-pln","1160000","1106300","7",""
+"AC 230 gr / PD / 65x100","lembar","2500","2212","73",""
+"AC 230 gr / PD / 65x90","rim-pln","0","0","0",""
+"AC 230 gr / PD / 65x90","lembar","0","0","0",""
+"AC 230 gr / PD / 79x109","rim-pln","1525000","1455689","1",""
+"AC 230 gr / PD / 79x109","lembar","3250","2911","14",""
+"AC 260 gr / NBA / 79x109","lembar","3450","3223","258",""
+"AC 260 gr / PD / 65x100","rim-pln","1300000","1233700","5",""
+"AC 260 gr / PD / 65x100","lembar","2750","2467","171",""
+"AC 260 gr / PD / 65x90","rim-pln","0","0","0",""
+"AC 260 gr / PD / 65x90","lembar","0","0","0",""
+"AC 260 gr / PD / 79x109","rim-pln","1750000","1667950","5",""
+"AC 260 gr / PD / 79x109","lembar","3650","3335","375",""
+"AC 310 gr / PD / 65x100","rim-pln","1625000","1551550","5",""
+"AC 310 gr / PD / 65x100","lembar","3400","3103","159",""
+"AC 310 gr / PD / 79x109","rim-pln","2158217","2055445","3",""
+"AC 310 gr / PD / 79x109","lembar","4400","4110","242",""
+"AC 360 gr / PD / 65x100","rim-pln","0","0","0",""
+"AC 360 gr / PD / 65x100","lembar","4020","3603","268",""
+"AC 360 gr / PD / 79x109","rim-pln","0","0","0",""
+"AC 360 gr / PD / 79x109","lembar","5100","4773","104",""
+"AC 400 gr / PD / 65x100","rim-pln","0","0","0",""
+"AC 400 gr / PD / 65x100","lembar","0","0","0",""
+"AC 400 gr / PD / 79x109","rim-pln","0","0","0",""
+"AC 400 gr / PD / 79x109","lembar","0","0","0",""
+"Amplop Concorde biru muda","pak","0","0","0",""
+"Amplop Concorde cream","pak","0","0","0",""
+"Amplop Concorde putih","pak","0","0","0",""
+"Amplop Jaya 90","pak","18500","16500","19",""
+"Amplop JPLUS 90/80 gr -biru","pak","17500","15500","106",""
+"Amplop JPLUS 90/90 gr -merah","pak","18500","16500","2",""
+"Amplop JPLUS tanggung","pak","14500","11750","6",""
+"Amplop Paperline biru 90","pak","17500","16500","27",""
+"Amplop Paperline tanggung","pak","0","0","0",""
+"Amplop Royal 90","pak","0","0","0",""
+"Amplop Royal tanggung","pak","0","0","0",""
+"Amplop Samson B","pak","16000","13500","26",""
+"Amplop Samson C","pak","21500","18750","35",""
+"Amplop Samson D","pak","32000","27000","4",""
+"Amplop Samson E","pak","38500","34650","40",""
+"AP 100 gr / NBA / 65x100","lembar","1100","890","200",""
+"AP 100 gr / NEVIA / 60x86","rim-pln","0","0","0",""
+"AP 100 gr / NEVIA / 65x100","rim-pln","0","0","0",""
+"AP 100 gr / NEVIA / 65x100","lembar","1100","955","400",""
+"AP 100 gr / VICTORY / 65x100","rim-pln","475000","445250","2",""
+"AP 100 gr/ NBA / 79x109","rim-pln","0","0","0",""
+"AP 100 gr/ NBA / 79x109","lembar","0","0","0",""
+"AP 118 gr / Import / 65x100","lembar","0","0","0",""
+"AP 120 gr / NEVIA / 65x100","rim-pln","610000","573300","18",""
+"AP 120 gr / NEVIA / 65x100","lembar","1300","1146","35",""
+"AP 120 gr / NEVIA / 79x109","rim-pln","745000","707824","6",""
+"AP 120 gr / NEVIA / 79x109","lembar","1700","1518","100",""
+"AP 120 gr/ NBA / 65x100","rim-pln","0","0","0",""
+"AP 120 gr/ NBA / 65x100","lembar","0","0","0",""
+"AP 120 gr/ NBA / 79x109","lembar","1750","1415","20",""
+"AP 120 gr/ PINDO / 65x100","rim-pln","0","0","0",""
+"AP 120 gr/ PINDO / 65x100","lembar","0","0","0",""
+"AP 150 gr / NEVIA / 61x86","rim-pln","0","0","0",""
+"AP 150 gr / NEVIA / 61x86","lembar","0","0","0",""
+"AP 150 gr / NEVIA / 65x100","rim-pln","755000","716625","14",""
+"AP 150 gr / NEVIA / 65x100","lembar","1650","1483","80",""
+"AP 150 gr / NEVIA / 79x109","rim-pln","965000","884780","14",""
+"AP 150 gr / NEVIA / 79x109","lembar","0","0","0",""
+"AP 150 gr/ NBA / 65x100","rim-pln","0","0","0",""
+"AP 150 gr/ NBA / 65x100","lembar","0","0","0",""
+"AP 150 gr/ NBA / 65x90","lembar","0","0","0",""
+"AP 150 gr/ PINDO / 65x90","rim-pln","0","0","0",""
+"AP 150 gr/ PINDO / 65x90","lembar","0","0","0",""
+"AP 85 gr / NEVIA / 61x86","rim-pln","365000","334432","6",""
+"AP 85 gr / NEVIA / 61x86","lembar","730","668","250",""
+"BC Buffalo dof putih polos","pak","20000","17500","28",""
+"BC JANGKAR 150 gr/61 x 86 /biru","rim-pln","635000","599185","1",""
+"BC JANGKAR 150 gr/61 x 86 /biru","lembar","1600","1198","100",""
+"BC JANGKAR 150 gr/61 x 86 /hijau","rim-pln","635000","599185","1",""
+"BC JANGKAR 150 gr/61 x 86 /hijau","lembar","0","0","0",""
+"BC JANGKAR 150 gr/61 x 86 /kuning","rim-pln","635000","599185","1",""
+"BC JANGKAR 150 gr/61 x 86 /kuning","lembar","1600","1198","49",""
+"BC JANGKAR 150 gr/61 x 86 /merah","rim-pln","635000","599185","1",""
+"BC JANGKAR 150 gr/61 x 86 /merah","lembar","1600","1198","337",""
+"BC PAPERPLUS 150 gr/61 x 86/putih","rim-pln","585000","539026","5",""
+"BC PAPERPLUS 150 gr/61 x 86/putih","lembar","1500","1080","50",""
+"BC PINDO 160 gr/61 x 86/ biru benhur","rim-pln","1000000","950000","3",""
+"BC PINDO 160 gr/61 x 86/ biru benhur","lembar","2250","1900","200",""
+"BC PINDO 160 gr/61 x 86/ biru muda","rim-pln","735000","694087","1",""
+"BC PINDO 160 gr/61 x 86/ biru muda","lembar","1800","1388","105",""
+"BC PINDO 160 gr/61 x 86/ biru tua","rim-pln","0","0","0",""
+"BC PINDO 160 gr/61 x 86/ biru tua","lembar","2250","1900","250",""
+"BC PINDO 160 gr/61 x 86/ coklat muda","rim-pln","0","0","0",""
+"BC PINDO 160 gr/61 x 86/ coklat muda","lembar","2250","1900","250",""
+"BC PINDO 160 gr/61 x 86/ coklat tua","rim-pln","1000000","950000","1",""
+"BC PINDO 160 gr/61 x 86/ coklat tua","lembar","2250","1900","25",""
+"BC PINDO 160 gr/61 x 86/ hijau daun","rim-pln","0","0","0",""
+"BC PINDO 160 gr/61 x 86/ hijau daun","lembar","2250","1900","75",""
+"BC PINDO 160 gr/61 x 86/ hijau muda","rim-pln","735000","683910","2",""
+"BC PINDO 160 gr/61 x 86/ hijau muda","lembar","1800","1388","390",""
+"BC PINDO 160 gr/61 x 86/ hijau tua","rim-pln","1000000","950000","1",""
+"BC PINDO 160 gr/61 x 86/ hijau tua","lembar","0","0","0",""
+"BC PINDO 160 gr/61 x 86/ kuning muda","rim-pln","0","0","0",""
+"BC PINDO 160 gr/61 x 86/ kuning muda","lembar","1800","1388","40",""
+"BC PINDO 160 gr/61 x 86/ kuning tua","rim-pln","0","0","0",""
+"BC PINDO 160 gr/61 x 86/ kuning tua","lembar","2250","1900","305",""
+"BC PINDO 160 gr/61 x 86/ merah muda","rim-pln","0","0","0",""
+"BC PINDO 160 gr/61 x 86/ merah muda","lembar","1800","1388","444",""
+"BC PINDO 160 gr/61 x 86/ merah tua","rim-pln","1000000","950000","1",""
+"BC PINDO 160 gr/61 x 86/ merah tua","lembar","2250","1900","250",""
+"BC PINDO 160 gr/61 x 86/ orange","rim-pln","1000000","950000","2",""
+"BC PINDO 160 gr/61 x 86/ orange","lembar","0","0","0",""
+"BC PINDO 160 gr/61 x 86/ putih","rim-pln","715000","667626","2",""
+"BC PINDO 160 gr/61 x 86/ putih","lembar","1700","1335","238",""
+"BC PINDO 160 gr/65 x 100/ putih","rim-pln","0","0","0",""
+"BC TIK 200 gr/79 x 109/ biru muda","rim-pln","1550000","1417500","0",""
+"BC TIK 200 gr/79 x 109/ biru muda","lembar","3500","2835","0",""
+"BC TIK 200 gr/79 x 109/ hijau muda","rim-pln","1550000","1403500","0",""
+"BC TIK 200 gr/79 x 109/ hijau muda","lembar","3500","2807","0",""
+"BC TIK 200 gr/79 x 109/ kuning muda","rim-pln","1550000","1403500","0",""
+"BC TIK 200 gr/79 x 109/ kuning muda","lembar","3500","2807","0",""
+"BC TIK 200 gr/79 x 109/ merah muda","rim-pln","1550000","1417500","0",""
+"BC TIK 200 gr/79 x 109/ merah muda","lembar","3500","2835","0",""
+"BC TIK 200 gr/79 x 109/ putih","rim-pln","1475000","1369837","4",""
+"BC TIK 200 gr/79 x 109/ putih","lembar","3300","2739","290",""
+"BLUSH WHITE 250 gr / 79 x 109","rim-pln","1825000","1712500","4",""
+"BLUSH WHITE 250 gr / 79 x 109","lembar","3850","3425","135",""
+"BONTAX MIRROR COAT CAMEL 108x70","rim","0","0","0",""
+"BONTAX MIRROR COAT EAGLE 108x70","rim","0","0","0",""
+"BONTAX MIRROR COAT LINTAX 54X70","rim","0","0","0",""
+"Book paper 55 gr / 21x29.7","rim A4","0","0","0",""
+"Book paper 55 gr / 61x86","rim-pln","0","0","0",""
+"Book paper 55 gr / 65x100","rim-pln","315000","268125","20",""
+"Book paper 70 gr / 65x100","rim-pln","550000","514150","4",""
+"Buffalo dof","pak","22500","20250","87",""
+"Buffalo PINDO 210-79x109 abu-abu","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 abu-abu","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 biru benhur","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 biru benhur","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 biru muda","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 biru muda","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 biru tua","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 biru tua","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 cokelat tua","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 cokelat tua","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 coklat muda","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 coklat muda","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 hijau muda","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 hijau muda","lembar","4800","4200","56",""
+"Buffalo PINDO 210-79x109 kuning muda","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 kuning muda","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 kuning tua","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 kuning tua","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 merah muda","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 merah muda","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 merah tua","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 merah tua","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 orange","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 orange","lembar","0","0","0",""
+"Buffalo PINDO 210-79x109 putih","rim-pln","0","0","0",""
+"Buffalo PINDO 210-79x109 putih","lembar","0","0","0",""
+"Buffalo PINDO 230-79x109 biru benhur","lembar","0","0","0",""
+"Buffalo PINDO 230-79x109 hijau daun","lembar","0","0","0",""
+"Buffalo PINDO 230-79x109 hijau tua","lembar","0","0","0",""
+"Buffalo PINDO 230-79x109 putih","lembar","0","0","0",""
+"Casing 65x100","rim-pln","225000","195000","1",""
+"Casing 65x100","lembar","600","390","458",""
+"CD Bulgy 21.5x33","folio","26000","22705","3",""
+"CD TA 21.5x29.3","A4","19000","14754","11",""
+"CD TA 21.5x33","folio","20000","16250","3",""
+"CD TA 61/86","rim-pln","0","0","0",""
+"CD TA 65/100","rim-pln","175000","146250","20",""
+"Concorde tebal 79x109 abu-abu","rim-pln","0","0","0",""
+"Concorde tebal 79x109 abu-abu","lembar","0","0","0",""
+"Concorde tebal 79x109 biru muda","rim-pln","0","0","0",""
+"Concorde tebal 79x109 biru muda","lembar","0","0","0",""
+"Concorde tebal 79x109 cream","rim-pln","0","0","0",""
+"Concorde tebal 79x109 cream","lembar","0","0","0",""
+"Concorde tebal 79x109 hijau muda","rim-pln","0","0","0",""
+"Concorde tebal 79x109 hijau muda","lembar","4900","4470","344",""
+"Concorde tebal 79x109 light yellow","rim-pln","0","0","0",""
+"Concorde tebal 79x109 light yellow","lembar","0","0","0",""
+"Concorde tebal 79x109 merah muda","rim-pln","0","0","0",""
+"Concorde tebal 79x109 merah muda","lembar","4900","4470","310",""
+"Concorde tebal 79x109 putih","rim-pln","2350000","2235000","1",""
+"Concorde tebal 79x109 putih","lembar","4900","4470","35",""
+"Concorde tebal abu-abu","lembar","0","0","0",""
+"Concorde tebal biru muda 16.5x22.5","Pak","0","0","0",""
+"Concorde tebal cream (A4)","Pak","0","0","0",""
+"Concorde tebal cream 16.5x22.5","Pak","0","0","0",""
+"Concorde tebal putih (A4)","Pak","0","0","0",""
+"Concorde tipis 79x109 abu-abu","rim-pln","0","0","0",""
+"Concorde tipis 79x109 abu-abu","lembar","0","0","0",""
+"Concorde tipis 79x109 biru muda","rim-pln","0","0","0",""
+"Concorde tipis 79x109 biru muda","lembar","0","0","0",""
+"Concorde tipis 79x109 cream","rim-pln","0","0","0",""
+"Concorde tipis 79x109 cream","lembar","0","0","0",""
+"Concorde tipis 79x109 hijau muda","rim-pln","0","0","0",""
+"Concorde tipis 79x109 hijau muda","lembar","0","0","0",""
+"Concorde tipis 79x109 light yellow","rim-pln","0","0","0",""
+"Concorde tipis 79x109 light yellow","lembar","0","0","0",""
+"Concorde tipis 79x109 merah muda","rim-pln","0","0","0",""
+"Concorde tipis 79x109 merah muda","lembar","2650","2120","300",""
+"Concorde tipis 79x109 putih","rim-pln","0","0","0",""
+"Concorde tipis 79x109 putih","lembar","2650","2120","310",""
+"Concorde tipis abu-abu","lembar","0","0","0",""
+"Concorde tipis biru muda (A4)","Pak","0","0","0",""
+"Concorde tipis biru muda (A4+)","Pak","0","0","0",""
+"Concorde tipis cream (A4)","Pak","0","0","0",""
+"Concorde tipis merah muda (A4)","Pak","0","0","0",""
+"Concorde tipis putih (A4)","Pak","0","0","0",""
+"Copenhagen tebal ivory","rim-pln","0","0","0",""
+"Copenhagen tebal ivory","lembar","0","0","0",""
+"Copenhagen tebal putih","rim-pln","2050000","1900000","2",""
+"Copenhagen tebal putih","lembar","4500","3800","246",""
+"DF NCR/IMP/bottom blue","rim","0","0","0",""
+"DF NCR/IMP/bottom green","rim","95500","91568","2",""
+"DF NCR/IMP/bottom pink","rim","0","0","0",""
+"DF NCR/IMP/bottom white","rim","0","0","0",""
+"DF NCR/IMP/bottom yellow","rim","0","0","0",""
+"DF NCR/IMP/Middle blue","rim","100000","96224","2",""
+"DF NCR/IMP/Middle green","rim","0","0","0",""
+"DF NCR/IMP/Middle pink","rim","100000","96224","1",""
+"DF NCR/IMP/Middle white","rim","0","0","0",""
+"DF NCR/IMP/Middle yellow","rim","0","0","0",""
+"DF NCR/IMP/top white","rim","0","0","0",""
+"DF NCR/RB/bottom blue","rim","0","0","0",""
+"DF NCR/RB/bottom green","rim","0","0","0",""
+"DF NCR/RB/bottom pink","rim","0","0","0",""
+"DF NCR/RB/bottom white","rim","0","0","0",""
+"DF NCR/RB/bottom yellow","rim","0","0","0",""
+"DF NCR/RB/Middle blue","rim","0","0","0",""
+"DF NCR/RB/Middle green","rim","97000","91276","5",""
+"DF NCR/RB/Middle pink","rim","0","0","0",""
+"DF NCR/RB/Middle white","rim","0","0","0",""
+"DF NCR/RB/Middle yellow","rim","0","0","0",""
+"DF NCR/RB/top white","rim","95000","90210","2",""
+"Doorslag Java 88x69 putih","rim folio","0","0","0",""
+"Doorslag RB 44x69 merah","rim-pln","0","0","0",""
+"Doorslag RB 44x69 merah","rim folio","0","0","0",""
+"Doorslag RB 44x69 putih","rim folio","0","0","0",""
+"Doorslag RB 88x69 putih","rim-pln","215000","195000","40",""
+"Duplex 250 gr / 65x100 PAKERIN","rim-pln","0","0","0",""
+"Duplex 250 gr / 65x100 PAKERIN","lembar","0","0","0",""
+"Duplex 250 gr / 70x100 PAKERIN","rim-pln","0","0","0",""
+"Duplex 250 gr / 70x100 PAKERIN","lembar","0","0","0",""
+"Duplex 250 gr / 79x100 PAKERIN","lembar","0","0","0",""
+"Duplex 250 gr / 79x109 PAKERIN","rim-pln","1315000","1252300","2",""
+"Duplex 250 gr / 79x109 PAKERIN","lembar","2750","2504","255",""
+"Duplex 250 gr / 89x120 PAKERIN","rim-pln","0","0","0",""
+"Duplex 250 gr / 89x120 PAKERIN","lembar","0","0","0",""
+"Duplex 250 gr / IKA / 70x100","lembar","0","0","0",""
+"Duplex 250 gr / IKA / 79x109","rim-pln","0","1265000","0",""
+"Duplex 250 gr / IKA / 79x109","lembar","2850","2530","95",""
+"Duplex 250 gr / IKA / 89x120","rim-pln","0","0","0",""
+"Duplex 250 gr / IKA / 89x120","lembar","0","0","0",""
+"Duplex 270 gr / 79x109 PAKERIN","lembar","0","0","0",""
+"Duplex 310 gr / 70x100 PAKERIN","rim-pln","0","0","0",""
+"Duplex 310 gr / 70x100 PAKERIN","lembar","0","0","0",""
+"Duplex 310 gr / 79x100 PAKERIN","rim-pln","0","0","0",""
+"Duplex 310 gr / 79x100 PAKERIN","lembar","3100","2841","305",""
+"Duplex 310 gr / 79x109 PAKERIN","rim-pln","1495000","1420650","2",""
+"Duplex 310 gr / 79x109 PAKERIN","lembar","0","0","0",""
+"Duplex 310 gr / 89x120 PAKERIN","rim-pln","0","0","0",""
+"Duplex 310 gr / 89x120 PAKERIN","lembar","0","0","0",""
+"Duplex 310 gr / IKA / 79x109","rim-pln","1525000","1449350","2",""
+"Duplex 310 gr / IKA / 79x109","lembar","3200","2898","280",""
+"Duplex 310 gr / IKA / 89x120","lembar","0","0","0",""
+"Duplex 350 gr / 70x100 PAKERIN","rim-pln","0","0","0",""
+"Duplex 350 gr / 70x100 PAKERIN","lembar","0","0","0",""
+"Duplex 350 gr / 79x109 PAKERIN","rim-pln","1635000","1555000","3",""
+"Duplex 350 gr / 79x109 PAKERIN","lembar","3400","3110","200",""
+"Duplex 350 gr / 89x120 PAKERIN","rim-pln","2025000","1928810","2",""
+"Duplex 350 gr / 89x120 PAKERIN","rim-pln","0","0","0",""
+"Duplex 350 gr / 89x120 PAKERIN","lembar","4200","3860","300",""
+"Duplex 350 gr / IKA / 70x100","lembar","0","0","0",""
+"Duplex 350 gr / IKA / 79x109","rim-pln","1650000","1570550","2",""
+"Duplex 350 gr / IKA / 79x109","lembar","3450","3141","100",""
+"Duplex 350 gr / IKA / 89x120","rim-pln","0","0","0",""
+"Duplex 350 gr / IKA / 89x120","lembar","0","0","0",""
+"Duplex 400 gr / 70x100 PAKERIN","rim-pln","0","0","0",""
+"Duplex 400 gr / 70x100 PAKERIN","lembar","0","0","0",""
+"Duplex 400 gr / 79x109 PAKERIN","rim-pln","1835000","1750000","2",""
+"Duplex 400 gr / 79x109 PAKERIN","lembar","3900","3500","215",""
+"Duplex 400 gr / 89x120 PAKERIN","rim-pln","0","0","0",""
+"Duplex 400 gr / 89x120 PAKERIN","lembar","0","0","0",""
+"Duplex 400 gr / IKA / 79x109","lembar","3900","3535","200",""
+"Duplex 400 gr / IKA / 79x109","rim-pln","1855000","1767500","3",""
+"Duplex 400 gr / IKA / 89x120","lembar","0","0","0",""
+"Duplex 450 gr / 70x100 PAKERIN","rim-pln","0","0","0",""
+"Duplex 450 gr / 79x109 PAKERIN","rim-pln","0","0","0",""
+"Duplex 450 gr / 79x109 PAKERIN","lembar","0","0","0",""
+"Duplex 450 gr / 89x120 PAKERIN","rim-pln","0","0","0",""
+"Duplex 450 gr / 89x120 PAKERIN","lembar","0","0","0",""
+"Duplex 500 gr / 79x109 PAKERIN","rim-pln","0","0","0",""
+"Duplex 500 gr / 79x109 PAKERIN","lembar","0","0","0",""
+"Florida tebal ivory","rim-pln","2700000","2600000","1",""
+"Florida tebal ivory","lembar","5800","5200","137",""
+"Florida tebal putih","rim-pln","2050000","1900000","1",""
+"Florida tebal putih","lembar","4500","3800","100",""
+"Foopak natural white 40 gr / 75x100","rim-pln","0","0","1",""
+"Glory 230 gr/ 76.2x101.6","lembar","0","0","0",""
+"Glory 230 gr/ 79x109","lembar","4900","4515","15",""
+"Glory 230 gr/ 79x109","rim-pln","2370000","2257500","3",""
+"Glory 250 gr/ 79x109","lembar","0","0","0",""
+"Glory 250 gr/ 79x109","rim-pln","0","0","0",""
+"Hummer tebal putih","rim-pln","2050000","1900000","8",""
+"Hummer tebal putih","lembar","4500","3800","328",""
+"HVS 100 gr / APRIL / 21.5x33","rim folio","0","0","0",""
+"HVS 100 gr / EXP / 43x33","rim-DF","0","0","0",""
+"HVS 100 gr / EXP/TJIWI / 21.5x33","rim folio","57000","50089","12",""
+"HVS 100 gr / EXP/TJIWI K/A / 61x86","rim-pln","0","0","0",""
+"HVS 100 gr / EXP/TJIWI K/A / 65x100","rim-pln","0","0","0",""
+"HVS 100 gr / EXP/TJIWI K/A / 79x109","rim-pln","0","0","0",""
+"HVS 100 gr / EXTRAPRINT / 65x100","lembar","0","0","0",""
+"HVS 100 gr / PAPERPLUS / 21.5x33","rim folio","0","0","0",""
+"HVS 100 gr / PAPERPLUS / 43x33","rim-DF","0","0","0",""
+"HVS 100 gr / PAPERPLUS / 61x86","rim-pln","0","0","0",""
+"HVS 100 gr / PAPERPLUS / 65x100","rim-pln","0","0","0",""
+"HVS 100 gr / PAPERPLUS / 65x100","lembar","0","0","0",""
+"HVS 100 gr / PAPERPLUS / 79x109","rim-pln","615000","578443","9",""
+"HVS 100 gr / PAPERPLUS / 79x109","lembar","0","0","85",""
+"HVS 58 gr / INDIGO / 21.5 x 33","rim folio","0","0","0",""
+"HVS 58 gr / INDIGO / 43 x 33","rim-DF","0","0","0",""
+"HVS 58 gr / INDIGO / 61x86","rim-pln","0","0","0",""
+"HVS 58 gr / INDIGO / 65X100","rim-pln","0","0","0",""
+"HVS 58 gr / INDIGO / A3","rim A3","0","0","0",""
+"HVS 58 gr / ISTANA / 21.5x33","rim folio","0","0","0",""
+"HVS 58 gr / RB/ 43x33","rim-DF","65000","58853","1",""
+"HVS 60 gr / EXTRAPRINT ","rim folio","0","0","0",""
+"HVS 60 gr / PAPERPLUS / 21.5X33","rim folio","34000","30369","21",""
+"HVS 60 gr / PAPERPLUS / 43X33","rim-DF","68000","60738","1",""
+"HVS 60 gr / PAPERPLUS / 65X100","rim-pln","295000","273322","2",""
+"HVS 60 gr / PAPERPLUS / 79X109","rim-pln","0","0","0",""
+"HVS 70 gr / APRIL / 21.5x29.7","rim A4","0","0","0",""
+"HVS 70 gr / APRIL / 21.5x33","rim folio","0","0","0",""
+"HVS 70 gr / APRIL / 43x33","rim-DF","0","0","0",""
+"HVS 70 gr / APRIL / 61x86","lembar","0","0","0",""
+"HVS 70 gr / APRIL / NB/65x100","rim-pln","0","0","0",""
+"HVS 70 gr / INDIGO / 21.5 x 33","rim folio","0","0","0",""
+"HVS 70 gr / INDIGO / 61X86","rim-pln","0","0","0",""
+"HVS 70 gr / INDIGO / 65X100","rim-pln","0","0","0",""
+"HVS 70 gr / INDIGO / 65X100","lembar","0","0","0",""
+"HVS 70 gr / INDIGO / 79X109","rim-pln","0","0","0",""
+"HVS 70 gr / INDIGO / A3","rim A3","0","0","0",""
+"HVS 70 gr / INDIGO / A4","rim A4","0","0","0",""
+"HVS 70 gr / INDIGO / df","rim-DF","0","0","0",""
+"HVS 70 gr / INDIGO / NBB/21.5 x 33","rim folio","0","0","0",""
+"HVS 70 gr / INDIGO / NBB/65x100","rim-pln","0","0","0",""
+"HVS 70 gr / PAPERPLUS / 21.5 x 29.7","rim A4","33500","30030","12",""
+"HVS 70 gr / PAPERPLUS / 21.5 x 33","rim folio","37000","33366","6",""
+"HVS 70 gr / PAPERPLUS / 43.5 x 100","rim-pln","215000","200970","12",""
+"HVS 70 gr / PAPERPLUS / 43x33","rim-DF","74000","66733","1",""
+"HVS 70 gr / PAPERPLUS / 61X86","rim-pln","260000","242365","23",""
+"HVS 70 gr / PAPERPLUS / 65X100","rim-pln","320000","300300","40",""
+"HVS 70 gr / PAPERPLUS / 65X100","lembar","800","600","160",""
+"HVS 70 gr / PAPERPLUS / 65X90","rim-pln","290000","270270","9",""
+"HVS 70 gr / PAPERPLUS / 65X90","lembar","0","0","0",""
+"HVS 70 gr / PAPERPLUS / 79X109","rim-pln","435000","404910","7",""
+"HVS 70 gr / PAPERPLUS / A3","rim A3","0","0","0",""
+"HVS 70 gr / SIDU","rim folio","0","0","0",""
+"HVS 70 gr /BMO/ folio","rim folio","0","0","0",""
+"HVS 80 gr / APRIL / 21.5x33","rim folio","0","0","0",""
+"HVS 80 gr / APRIL / 65x100","rim-pln","0","0","0",""
+"HVS 80 gr / APRIL / 65x100","lembar","0","0","0",""
+"HVS 80 gr / EXTRAPRINT / 21.5x33","rim folio","0","0","0",""
+"HVS 80 gr / PAPERPLUS / 21.5 x 29.7","rim A4","38000","34931","13",""
+"HVS 80 gr / PAPERPLUS / 21.5 x 33","rim folio","42500","38183","23",""
+"HVS 80 gr / PAPERPLUS / 43X33","rim-DF","85000","76266","2",""
+"HVS 80 gr / PAPERPLUS / 61X86","rim-pln","300000","281920","9",""
+"HVS 80 gr / PAPERPLUS / 61X86","lembar","0","0","0",""
+"HVS 80 gr / PAPERPLUS / 65X100","rim-pln","365000","343200","17",""
+"HVS 80 gr / PAPERPLUS / 65X100","lembar","900","686","209",""
+"HVS 80 gr / PAPERPLUS / 65X90","rim-pln","330000","308880","14",""
+"HVS 80 gr / PAPERPLUS / 65X90","lembar","0","0","0",""
+"HVS 80 gr / PAPERPLUS / 79X109","rim-pln","495000","462755","4",""
+"HVS 80 gr / PAPERPLUS / A3","rim-A3","76000","68640","3",""
+"HVS warna 55 gr/ IK / biru","rim-pln","355000","337239","2",""
+"HVS warna 55 gr/ IK / hijau","rim-pln","355000","337239","6",""
+"HVS warna 55 gr/ IK / kuning","rim-pln","0","0","0",""
+"HVS warna 55 gr/ IK / merah","rim-pln","355000","337239","2",""
+"HVS warna 60 gr/ IK / biru","rim folio","40000","37471","1",""
+"HVS warna 60 gr/ IK / biru","rim-DF","0","0","0",""
+"HVS warna 60 gr/ IK / hijau","rim folio","40000","37471","3",""
+"HVS warna 60 gr/ IK / hijau","rim-DF","0","0","0",""
+"HVS warna 60 gr/ IK / kuning","rim folio","40000","37471","4",""
+"HVS warna 60 gr/ IK / kuning","rim-DF","0","0","0",""
+"HVS warna 60 gr/ IK / merah","rim folio","40000","37471","7",""
+"HVS warna 60 gr/ IK / merah","rim-DF","0","0","0",""
+"HVS warna 70 gr/PD/65x100/biru","rim-pln","395000","364000","2",""
+"HVS warna 70 gr/PD/65x100/biru","rim folio","45000","40444","8",""
+"HVS warna 70 gr/PD/65x100/biru","rim-DF","0","0","0",""
+"HVS warna 70 gr/PD/65x100/biru","rim A3","0","0","0",""
+"HVS warna 70 gr/PD/65x100/hijau","rim-pln","430000","409352","1",""
+"HVS warna 70 gr/PD/65x100/hijau","rim folio","45000","40697","15",""
+"HVS warna 70 gr/PD/65x100/hijau","rim-DF","96000","90967","3",""
+"HVS warna 70 gr/PD/65x100/hijau","rim A3","0","0","0",""
+"HVS warna 70 gr/PD/65x100/kuning","rim-pln","0","0","0",""
+"HVS warna 70 gr/PD/65x100/kuning","rim folio","45000","40697","10",""
+"HVS warna 70 gr/PD/65x100/kuning","rim-DF","90000","80888","4",""
+"HVS warna 70 gr/PD/65x100/kuning","rim A3","0","0","0",""
+"HVS warna 70 gr/PD/65x100/merah","rim-pln","395000","366275","1",""
+"HVS warna 70 gr/PD/65x100/merah","rim folio","45000","40697","27",""
+"HVS warna 70 gr/PD/65x100/merah","rim-DF","90000","80888","3",""
+"HVS warna 70 gr/PD/65x100/merah","rim A3","0","0","0",""
+"Iceland tebal diamond white","rim-pln","0","0","0",""
+"Iceland tebal diamond white","lembar","0","0","0",""
+"IVORY 210 gr - 79 x109","rim-pln","0","0","0",""
+"IVORY 210 gr - 79 x109","lembar","3250","2947","200",""
+"IVORY 230 gr - 79 x109","rim-pln","1675000","1594326","13",""
+"IVORY 230 gr - 79 x109","lembar","3500","3190","367",""
+"IVORY 250 gr - 79 x109","rim-pln","1850000","1765255","0",""
+"IVORY 250 gr - 79 x109","lembar","3850","3530","265",""
+"IVORY 300 gr - 79 x109","rim-pln","2210000","2105389","10",""
+"IVORY 300 gr - 79 x109","lembar","4500","4210","460",""
+"IVORY 350 gr - 79 x109","rim-pln","2575000","2456287","6",""
+"IVORY 350 gr - 79 x109","lembar","5500","4912","400",""
+"IVORY 400 gr - 79 x109","rim-pln","0","0","0",""
+"IVORY 400 gr - 79 x109","lembar","0","0","0",""
+"JASMINE MILLENIUM 79 x 109 putih","lembar","0","0","0",""
+"JASMINE tebal 79 x 109 biru muda","rim-pln","1950000","1750000","1",""
+"JASMINE tebal 79 x 109 biru muda","lembar","4000","3500","63",""
+"JASMINE tebal 79 x 109 cream","rim-pln","1950000","1750000","2",""
+"JASMINE tebal 79 x 109 cream","lembar","4000","3500","131",""
+"JASMINE tebal 79 x 109 Hijau","rim-pln","1950000","1750000","1",""
+"JASMINE tebal 79 x 109 Hijau","lembar","4000","3500","193",""
+"JASMINE tebal 79 x 109 merah muda","rim-pln","0","0","0",""
+"JASMINE tebal 79 x 109 merah muda","lembar","4000","3500","310",""
+"JASMINE tebal 79 x 109 putih","rim-pln","0","0","0",""
+"JASMINE tebal 79 x 109 putih","lembar","4000","3500","460",""
+"Java tebal putih","rim-pln","2050000","1900000","1",""
+"Java tebal putih","lembar","4500","3800","300",""
+"KAIN LINEN BIRU","roll","0","0","0",""
+"KAIN LINEN HITAM","roll","0","0","0",""
+"KAIN LINEN MERAH","roll","0","0","0",""
+"Kalkir 100 gr  DIAMOND -65x100","lembar","7300","6700","184",""
+"Kalkir 80/85 gr  DIAMOND -65x100","lembar","5600","5250","718",""
+"Kalkir 80x85 gr /150 mtr (A0)","roll","0","0","0",""
+"Kalkir 80x85 gr /150 mtr (A1)","roll","0","0","0",""
+"Kalkir 90/95 gr  ","roll","0","0","0",""
+"Karton 30 A","pak","275000","245000","8",""
+"Karton 30 A","lembar","10000","8166","2",""
+"Karton 30 gembos","pak","0","0","0",""
+"Karton 30 gembos","lembar","0","0","0",""
+"Karton 30 JKT(lapis) 64x75","pak","0","0","0",""
+"Karton 30 JKT(lapis) 64x75","lembar","0","0","0",""
+"Karton 30* - 64x75","pak","195000","172500","18",""
+"Karton 30* - 64x75","lembar","8000","5750","16",""
+"Karton 30** - 64x75","pak","175000","152500","26",""
+"Karton 30** - 64x75","lembar","7000","5083","21",""
+"Karton 40 A","pak","0","0","0",""
+"Karton 40 A","lembar","0","0","0",""
+"Karton 40 A- 64x75","pak","0","0","0",""
+"Karton 40 A- 64x75","lembar","8500","6125","37",""
+"Karton 40*","pak","0","0","0",""
+"Karton 40*","lembar","0","0","0",""
+"Karton tipis(u/nota) - 66x78","pak","0","0","1",""
+"Karton tipis(u/nota) - 66x78","lembar","0","0","0",""
+"Kotak kartu nama kosongan","buah","850","650","2627",""
+"KRAFT SAMSON PURA 80 gr - 90x120","rim-pln","530000","495000","2",""
+"KRAFT SAMSON PURA 80 gr - 90x120","lembar","1500","990","244",""
+"LINEN HITAM TEBAL 79x109","lembar","2495000","2375000","867",""
+"LINEN HOLLAND TEBAL PUTIH 200gr/79X109 ","lembar","2050000","1900000","603",""
+"LINEN PINDO 230 gr - putih","rim-pln","2350000","2250000","1",""
+"LINEN PINDO 230 gr - putih","lembar","4850","4500","452",""
+"MATT PAPER 120 gr /NEVIA/ 65x100","rim-pln","0","0","0",""
+"MATT PAPER 120 gr /NEVIA/ 65x100","lembar","0","0","0",""
+"MATT PAPER 150 gr /NEVIA/ 65x100","rim-pln","765000","716625","12",""
+"MATT PAPER 150 gr /NEVIA/ 65x100","lembar","1650","1433","95",""
+"MC PAPIRUS 150 gr/61x86 - biru","rim-pln","335000","279000","21",""
+"MC PAPIRUS 150 gr/61x86 - biru","lembar","0","0","0",""
+"MC PAPIRUS 150 gr/61x86 - hijau","rim-pln","350000","305000","10",""
+"MC PAPIRUS 150 gr/61x86 - hijau","lembar","0","0","0",""
+"MC PAPIRUS 150 gr/61x86 - kuning","rim-pln","350000","305000","38",""
+"MC PAPIRUS 150 gr/61x86 - kuning","lembar","0","0","0",""
+"MC PAPIRUS 150 gr/61x86 - merah","rim-pln","350000","305000","5",""
+"MC PAPIRUS 150 gr/61x86 - merah","lembar","0","0","0",""
+"Mika putih polos","pak","22000","19750","46",""
+"NCR / IMP /  bottom green","rim folio","46000","43359","18",""
+"NCR / IMP /  bottom yellow","rim folio","46000","43359","8",""
+"NCR / IMP /  middle green","rim folio","50000","48112","15",""
+"NCR / IMP /  middle yellow","rim folio","50000","48112","16",""
+"NCR / IMP / 65x100 - bottom blue","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - bottom green","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - bottom pink","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - bottom white","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - bottom yellow","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - middle blue","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - middle green","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - middle pink","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - middle white","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - middle yellow","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - top blue","rim-pln","0","0","0",""
+"NCR / IMP / 65x100 - top white","rim-pln","0","0","0",""
+"NCR / IMP / bottom blue","rim folio","46000","43359","11",""
+"NCR / IMP / bottom pink","rim folio","46000","43359","12",""
+"NCR / IMP / bottom white","rim folio","46000","43359","0",""
+"NCR / IMP / middle blue","rim folio","50000","48112","20",""
+"NCR / IMP / middle pink","rim folio","50000","48112","17",""
+"NCR / IMP / middle white","rim folio","50000","48112","10",""
+"NCR / IMP / top blue","rim folio","52000","49809","2",""
+"NCR / IMP / top white","rim folio","49000","47093","20",""
+"NCR/RB/65x100 - bottom blue","rim-pln","0","0","0",""
+"NCR/RB/65x100 - bottom green","rim-pln","0","0","0",""
+"NCR/RB/65x100 - bottom pink","rim-pln","0","0","0",""
+"NCR/RB/65x100 - bottom white","rim-pln","0","0","0",""
+"NCR/RB/65x100 - bottom yellow","rim-pln","0","0","0",""
+"NCR/RB/65x100 - Middle blue","rim-pln","0","0","0",""
+"NCR/RB/65x100 - Middle green","rim-pln","0","0","0",""
+"NCR/RB/65x100 - Middle pink","rim-pln","0","0","0",""
+"NCR/RB/65x100 - Middle white","rim-pln","0","0","0",""
+"NCR/RB/65x100 - Middle yellow","rim-pln","0","0","0",""
+"NCR/RB/65x100 - top white","rim-pln","0","0","0",""
+"NCR/RB/bottom blue","rim folio","43500","41273","19",""
+"NCR/RB/bottom green","rim folio","43500","41273","15",""
+"NCR/RB/bottom pink","rim folio","43500","41273","22",""
+"NCR/RB/bottom white","rim folio","43500","41273","13",""
+"NCR/RB/bottom yellow","rim folio","43500","41273","22",""
+"NCR/RB/Middle blue","rim folio","48500","45638","28",""
+"NCR/RB/Middle green","rim folio","48500","45638","16",""
+"NCR/RB/Middle pink","rim folio","48500","45638","19",""
+"NCR/RB/Middle white","rim folio","48500","45638","12",""
+"NCR/RB/Middle yellow","rim folio","48500","45638","20",""
+"NCR/RB/top white","rim folio","47500","45105","38",""
+"Roti putih 35 gr","rim-pln","0","0","0",""
+"Roti putih 40 gr - 75x100","rim-pln","0","0","0",""
+"SAMSON IMPORT 120 GR","rim-pln","0","0","0",""
+"SAMSON IMPORT 120 GR","lembar","0","0","0",""
+"SAMSON IMPORT 130 GR","rim-pln","0","0","0",""
+"SAMSON IMPORT 130 GR","lembar","0","0","0",""
+"SAMSON IMPORT 140 GR","rim-pln","0","0","0",""
+"SAMSON IMPORT 140 GR","lembar","0","0","0",""
+"Stiker/CC/CAMEL/ 54x70","rim-pln","1250000","1175000","27",""
+"Stiker/CC/CAMEL/ 54x70","lembar","2700","2350","182",""
+"Stiker/CC/STAR/ 54x70","rim-pln","1070000","995000","2",""
+"Stiker/CC/STAR/ 54x70","lembar","2400","1990","474",""
+"Stiker/HVS/CAMEL/ 54x70","rim-pln","1070000","995000","3",""
+"Stiker/HVS/CAMEL/ 54x70","lembar","2400","1990","94",""
+"Swiss tebal ivory","rim-pln","2700000","2600000","9",""
+"Swiss tebal ivory","lembar","5800","5200","402",""
+"Swiss tebal putih","rim-pln","2050000","1900000","1",""
+"Swiss tebal putih","lembar","4500","3800","304",""
+"VINIL SUSU 53x86","lembar","6300","2875000","380",""
+"VINIL TRANSPARAN 49x79","lembar","5000","2160000","462",""

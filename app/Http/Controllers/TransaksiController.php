@@ -38,7 +38,14 @@ class TransaksiController extends Controller
             $penjualan = new Penjualan;
             $penjualan->pelanggan_id = $req->input('id_pelanggan');
             $penjualan->users_id = Auth::user()->id;
-            $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
+            if(is_null($req->input('tanggal_transaksi')))
+            {
+                $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
+            }
+            else
+            {
+                $penjualan->tanggal_transaksi = Carbon::parse($req->input('tanggal_transaksi'));
+            }
             if(!empty($req->input('kredit')))
             {
                 $penjualan->tanggal_jatuh_tempo = Carbon::parse($req->input('jatuh_tempo'));
@@ -203,6 +210,7 @@ class TransaksiController extends Controller
         $data['admin'] = Auth::user()->name;
         $data['penjualan'] = $penjualan;
         $data['detail'] = $detail;
+        // dd($data);
         $pdf = DOMPDF::loadView('amik.print-faktur',['data'=>$data]);
         return $pdf->stream('print.pdf');
         //dd($penjualan,$detail);

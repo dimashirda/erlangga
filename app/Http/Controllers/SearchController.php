@@ -32,8 +32,9 @@ class SearchController extends Controller
                 $jumlah_barang += $detail->jumlah;
             }
             array_push($stok,$jumlah_barang);
+            $satuan = $item->satuan;
             // dd($jumlah_barang,$nama[$key]);
-            $nama[$key]['nama'] .= ' - '.$jumlah_barang;
+            $nama[$key]['nama'] .= ' - '.$jumlah_barang.' - '.$satuan;
         }
         // dd($nama);
     	return json_encode(['result'=>$result, 'nama'=>$nama, 'stok'=>$stok]);

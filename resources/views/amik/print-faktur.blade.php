@@ -46,28 +46,27 @@
 		font-weight: bold;
 	}
 	@page{
-		size : 242mm 138mm;
+		size : 210mm 145mm;
 		font-weight: bold;
-		margin-top: 0mm;
 	}
 </style>
 </head>
 <body>
 	<table>
 		<tr>
-			<td width="30%">
+			<td width="40%">
 				<table>
 					<tr>
 						<td colspan="2">UD ERLANGGA SURABAYA</td>
 					</tr>
 					<tr>
-						<td>Telp.</td>
-						<td>031-5991755, 5929736</td>
-					</tr>
-					<!-- <tr>
+						<td>Telp. 031-5991755,5929736</td>
 						<td></td>
-						<td>0812</td>
-					</tr> -->
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;081230399955</td>
+						<td></td>
+					</tr>
 				</table>
 				<br>
 				<table>
@@ -85,10 +84,10 @@
 					</tr>
 				</table>
 			</td>
-			<td width="40%" class="title"> 
+			<td width="20%" class="title"> 
 				FAKTUR
 			</td>
-			<td width="30%">
+			<td width="40%">
 				<table>
 					<tr>
 						<td>No.Surat Jalan</td>
@@ -124,11 +123,11 @@
 			<tr>
 				<th class="double" width="5%">No</th>
 				<th class="double" width="25%">NAMA BARANG</th>
-				<th class="double" width="10%">SATUAN</th>
-				<th class="double" width="15%">JUMLAH</th>
-				<th class="double" width="15%">HARGA</th>
+				<th class="double" width="5%">SATUAN</th>
+				<th class="double" width="5%">JUMLAH</th>
+				<th class="double" width="20%">HARGA</th>
 				<th class="double" width="15%">DISC</th>
-				<th class="double" width="15%">TOTAL</th>
+				<th class="double" width="25%">TOTAL</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -140,10 +139,10 @@
 				<td>{{$item->barang->nama}}</td>
 				<td>{{$item->barang->satuan}}</td>
 				<td>{{$item->jumlah}}</td>
-				<td>Rp {{number_format($item->barang->harga_jual,2,",",".")}}</td>
+				<td>Rp {{number_format($item->harga_satuan,2,",",".")}}</td>
 				<td>@if(!empty($data['penjualan']->diskon)) Rp {{number_format($data['penjualan']->diskon,2,",",".")}} @else Rp 0 @endif</td>
-				<td>Rp {{number_format($item->barang->harga_jual * $item->jumlah,2,",",".")}}</td>
-				@php $total += $item->barang->harga_jual * $item->jumlah; @endphp
+				<td>Rp {{number_format($item->harga_satuan * $item->jumlah,2,",",".")}}</td>
+				@php $total += $item->harga_satuan * $item->jumlah; @endphp
 			</tr>
 			@php $i++; @endphp
 			@endforeach
@@ -152,10 +151,18 @@
 				<td colspan="7" class="dummy">.</td>
 			</tr>
 			<tr>
-				<td class="double righted bold" colspan="6"> TOTAL SELURUH : Rp.</td>
-				<td class="double righted bold">{{number_format($total,2,",",".")}}</td>
+				<td class="double righted bold" colspan="6"> TOTAL SELURUH : </td>
+				<td class="double bold">Rp {{number_format($total,2,",",".")}}</td>
 			</tr>
 		</tbody>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td width="33%" class="centered">Penerima</td>
+			<td width="33%" class="centered"></td>
+			<td width="33%" class="centered">Hormat Kami</td>
+		</tr>
 	</table>
 
 	<!-- SURAT JALAN -->
@@ -168,13 +175,13 @@
 						<td colspan="2">UD ERLANGGA SURABAYA</td>
 					</tr>
 					<tr>
-						<td>Telp.</td>
-						<td>031-5991755, 5929736</td>
-					</tr>
-					<!-- <tr>
+						<td>Telp. 031-5991755,5929736</td>
 						<td></td>
-						<td>0812</td>
-					</tr> -->
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;081230399955</td>
+						<td></td>
+					</tr>
 				</table>
 				<br>
 				<table>
@@ -231,11 +238,11 @@
 			<tr>
 				<th class="double" width="5%">No</th>
 				<th class="double" width="25%">NAMA BARANG</th>
-				<th class="double" width="10%">SATUAN</th>
-				<th class="double" width="15%">JUMLAH</th>
-				<th class="double" width="15%">HARGA</th>
+				<th class="double" width="5%">SATUAN</th>
+				<th class="double" width="5%">JUMLAH</th>
+				<th class="double" width="20%">HARGA</th>
 				<th class="double" width="15%">DISC</th>
-				<th class="double" width="15%">TOTAL</th>
+				<th class="double" width="25%">TOTAL</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -247,10 +254,10 @@
 				<td>{{$item->barang->nama}}</td>
 				<td>{{$item->barang->satuan}}</td>
 				<td>{{$item->jumlah}}</td>
-				<td>Rp {{number_format($item->barang->harga_jual,2,",",".")}}</td>
+				<td>Rp {{number_format($item->harga_satuan,2,",",".")}}</td>
 				<td>@if(!empty($data['penjualan']->diskon)) Rp {{number_format($data['penjualan']->diskon,2,",",".")}} @else Rp 0 @endif</td>
-				<td>Rp {{number_format($item->barang->harga_jual * $item->jumlah,2,",",".")}}</td>
-				@php $total += $item->barang->harga_jual * $item->jumlah; @endphp
+				<td>Rp {{number_format($item->harga_satuan * $item->jumlah,2,",",".")}}</td>
+				@php $total += $item->harga_satuan * $item->jumlah; @endphp
 			</tr>
 			@php $i++; @endphp
 			@endforeach
@@ -259,10 +266,18 @@
 				<td colspan="7" class="dummy">.</td>
 			</tr>
 			<tr>
-				<td class="double righted bold" colspan="6"> TOTAL SELURUH : Rp.</td>
-				<td class="double righted bold">{{number_format($total,2,",",".")}}</td>
+				<td class="double righted bold" colspan="6"> TOTAL SELURUH : </td>
+				<td class="double bold">Rp {{number_format($total,2,",",".")}}</td>
 			</tr>
 		</tbody>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td width="33%" class="centered">Penerima</td>
+			<td width="33%" class="centered"></td>
+			<td width="33%" class="centered">Hormat Kami</td>
+		</tr>
 	</table>
 </body>
 </html>

@@ -124,6 +124,12 @@ body {
                                 </tr>
                             </div>
                             <div class="form-group">
+                              <label for="JatuhTempo" class="col-sm-2 control-label">Tanggal Transaksi</label>
+                              <div class="col-sm-10">
+                                <input id="tanggal_transaksi" type="text" name="tanggal_transaksi" class="form-control datepicker">
+                              </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="TotalHarga" class="col-sm-2 control-label">Total Harga</label>
 
                                 <div class="col-sm-10">
