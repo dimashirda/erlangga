@@ -206,7 +206,7 @@ class TransaksiController extends Controller
         $data['jam'] = Carbon::now()->format('H:i:s');
         if(!empty($penjualan->tanggal_jatuh_tempo))
             $data['tanggal_jatuh_tempo'] = Carbon::parse($penjualan->tanggal_jatuh_tempo)->format('d-M-Y');
-        $data['tanggal'] = Carbon::now()->format('d-M-Y');
+        $data['tanggal'] = Carbon::parse($penjualan->tanggal_transaksi)->format('d-M-Y');
         $data['admin'] = Auth::user()->name;
         $data['penjualan'] = $penjualan;
         $data['detail'] = $detail;

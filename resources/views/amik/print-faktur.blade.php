@@ -4,7 +4,7 @@
 	<title>Print Nota</title>
 	<style type="text/css">
 	body{
-		font-family: sans-serif;
+		font-family: calibri;
 		font-size: 14px;
 	}
 	table{
@@ -237,12 +237,12 @@
 		<thead>
 			<tr>
 				<th class="double" width="5%">No</th>
-				<th class="double" width="25%">NAMA BARANG</th>
-				<th class="double" width="5%">SATUAN</th>
-				<th class="double" width="5%">JUMLAH</th>
-				<th class="double" width="20%">HARGA</th>
+				<th class="double" width="45%">NAMA BARANG</th>
+				<th class="double" width="25%">SATUAN</th>
+				<th class="double" width="25%">JUMLAH</th>
+<!-- 				<th class="double" width="20%">HARGA</th>
 				<th class="double" width="15%">DISC</th>
-				<th class="double" width="25%">TOTAL</th>
+				<th class="double" width="25%">TOTAL</th> -->
 			</tr>
 		</thead>
 		<tbody>
@@ -254,10 +254,10 @@
 				<td>{{$item->barang->nama}}</td>
 				<td>{{$item->barang->satuan}}</td>
 				<td>{{$item->jumlah}}</td>
-				<td>Rp {{number_format($item->harga_satuan,2,",",".")}}</td>
+				<!-- <td>Rp {{number_format($item->harga_satuan,2,",",".")}}</td>
 				<td>@if(!empty($data['penjualan']->diskon)) Rp {{number_format($data['penjualan']->diskon,2,",",".")}} @else Rp 0 @endif</td>
 				<td>Rp {{number_format($item->harga_satuan * $item->jumlah,2,",",".")}}</td>
-				@php $total += $item->harga_satuan * $item->jumlah; @endphp
+				@php $total += $item->harga_satuan * $item->jumlah; @endphp -->
 			</tr>
 			@php $i++; @endphp
 			@endforeach
@@ -265,10 +265,10 @@
 			<tr>
 				<td colspan="7" class="dummy">.</td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td class="double righted bold" colspan="6"> TOTAL SELURUH : </td>
 				<td class="double bold">Rp {{number_format($total,2,",",".")}}</td>
-			</tr>
+			</tr> -->
 		</tbody>
 	</table>
 	<br>
