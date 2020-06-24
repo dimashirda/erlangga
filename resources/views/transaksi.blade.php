@@ -75,6 +75,7 @@
                         <table class="table table-new table-striped table-hover" id="example">
                             <thead>
                             <tr>
+                                <th>Nomor</th>
                                 <th>Kasir</th>
                                 <th>Pelanggan</th>
                                 <th>Tanggal Transaksi</th>
@@ -108,6 +109,7 @@
             ajax: "{{ url('transaksi/all') }}",
 
             columns: [
+                    { data: 'nomor', name: 'nomor' },
                     { data: 'kasir', name: 'kasir' },
                     { data: 'pembeli', name: 'pembeli' },
                     { data: 'tanggal_transaksi', name: 'tanggal_transaksi' },
@@ -115,7 +117,8 @@
                     { data: 'jenis', name: 'jenis'},
                     { data: 'total', name: 'total'},
                     { data: 'detail', name: 'detail'}
-                    ]
+                    ],
+            order: [[ 3, "desc" ]]
         }); 
     });
     </script>

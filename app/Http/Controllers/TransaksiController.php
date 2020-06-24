@@ -301,8 +301,13 @@ class TransaksiController extends Controller
     }
     public function all()
     {
-        $penjualan = Penjualan::with('kasir','pelanggan')->get();
+        $penjualan = Penjualan::with('kasir','pelanggan')->orderBy('tanggal_transaksi','desc')->get();
+        // dd($penjualan);
         return DataTables::of($penjualan)
+            ->addColumn('nomor',function($penjualan){
+                $nomor = $penjualan->id + 20000;
+              return 'TA '.$nomor;
+            })
             ->addColumn('kasir',function($penjualan){
                 return $penjualan->kasir->name;
             })

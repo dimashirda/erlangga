@@ -4,7 +4,7 @@
 	<title>Print Nota</title>
 	<style type="text/css">
 	body{
-		font-family: calibri;
+		font-family: courier;
 		font-size: 14px;
 	}
 	table{
@@ -121,16 +121,19 @@
 	<table>
 		<thead>
 			<tr>
-				<th class="double" width="5%">No</th>
-				<th class="double" width="25%">NAMA BARANG</th>
-				<th class="double" width="5%">SATUAN</th>
-				<th class="double" width="5%">JUMLAH</th>
-				<th class="double" width="20%">HARGA</th>
-				<th class="double" width="15%">DISC</th>
-				<th class="double" width="25%">TOTAL</th>
+				<td class="double centered" width="5%">No</td>
+				<td class="double centered" width="35%">NAMA BARANG</td>
+				<td class="double" width="12%">SATUAN</td>
+				<td class="double" width="7%">JML</td>
+				<td class="double centered" width="19%">HARGA</td>
+				<td class="double" width="1%"></td>
+				<td class="double centered" width="20%">TOTAL</td>
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td colspan="7">&nbsp;</td>
+			</tr>
 			@if(!empty($data))
 			@php $i = 1; $total = 0;@endphp
 			@foreach($data['detail'] as $item)
@@ -139,9 +142,10 @@
 				<td>{{$item->barang->nama}}</td>
 				<td>{{$item->barang->satuan}}</td>
 				<td>{{$item->jumlah}}</td>
-				<td>Rp {{number_format($item->harga_satuan,2,",",".")}}</td>
-				<td>@if(!empty($data['penjualan']->diskon)) Rp {{number_format($data['penjualan']->diskon,2,",",".")}} @else Rp 0 @endif</td>
-				<td>Rp {{number_format($item->harga_satuan * $item->jumlah,2,",",".")}}</td>
+				<td><a style="text-align: left !important;">Rp</a> <a style="float: right;">{{number_format($item->harga_satuan,0,",",".")}}</a></td>
+				<!-- <td>@if(!empty($data['penjualan']->diskon)) <a style="text-align: left !important;"> Rp </a> <a style="float: right;">{{number_format($data['penjualan']->diskon,0,",",".")}} @else Rp 0 @endif </a></td> -->
+				<td>&nbsp;</td>
+				<td><a style="text-align: left !important;">Rp</a> <a style="float: right;">{{number_format($item->harga_satuan * $item->jumlah,0,",",".")}}</a></td>
 				@php $total += $item->harga_satuan * $item->jumlah; @endphp
 			</tr>
 			@php $i++; @endphp
@@ -152,7 +156,7 @@
 			</tr>
 			<tr>
 				<td class="double righted bold" colspan="6"> TOTAL SELURUH : </td>
-				<td class="double bold">Rp {{number_format($total,2,",",".")}}</td>
+				<td class="double bold"><a style="text-align: left !important;">Rp </a> <a style="float: right;">{{number_format($total,0,",",".")}}</a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -169,7 +173,7 @@
 	<div class="pagebreak"></div>
 	<table>
 		<tr>
-			<td width="30%">
+			<td width="40%">
 				<table>
 					<tr>
 						<td colspan="2">UD ERLANGGA SURABAYA</td>
@@ -199,10 +203,10 @@
 					</tr>
 				</table>
 			</td>
-			<td width="40%" class="title"> 
+			<td width="20%" class="title"> 
 				Surat Jalan
 			</td>
-			<td width="30%">
+			<td width="40%">
 				<table>
 					<tr>
 						<td>No.Surat Jalan</td>
@@ -246,14 +250,17 @@
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td colspan="7">&nbsp;</td>
+			</tr>
 			@if(!empty($data))
 			@php $i = 1; $total = 0;@endphp
 			@foreach($data['detail'] as $item)
 			<tr>
 				<td class="centered">{{$i}}</td>
 				<td>{{$item->barang->nama}}</td>
-				<td>{{$item->barang->satuan}}</td>
-				<td>{{$item->jumlah}}</td>
+				<td class="centered">{{$item->barang->satuan}}</td>
+				<td class="centered">{{$item->jumlah}}</td>
 				<!-- <td>Rp {{number_format($item->harga_satuan,2,",",".")}}</td>
 				<td>@if(!empty($data['penjualan']->diskon)) Rp {{number_format($data['penjualan']->diskon,2,",",".")}} @else Rp 0 @endif</td>
 				<td>Rp {{number_format($item->harga_satuan * $item->jumlah,2,",",".")}}</td>

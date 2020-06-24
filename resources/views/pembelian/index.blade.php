@@ -95,7 +95,6 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{$acc->links()}}
                     </div>
                 </div>
                 @else
