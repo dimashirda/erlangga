@@ -16,7 +16,14 @@ class CreateController extends Controller
         $pembelian = new Pembelian;
         $pembelian->supplier_id = $data['id_supplier'];
         $pembelian->users_id = Auth::user()->id;
-        $pembelian->tanggal_transaksi = Carbon::now("Asia/Bangkok");
+        if(is_null($data['tanggal_transaksi']))
+        {
+            $pembelian->tanggal_transaksi = Carbon::now("Asia/Bangkok");
+        }
+        else
+        {
+            $pembelian->tanggal_transaksi = Carbon::parse($data['tanggal_transaksi']);
+        }
         // dd($data);
         if(!empty($data['kredit']))
         {
