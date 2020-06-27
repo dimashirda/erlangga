@@ -66,6 +66,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/pembelian/tambah','Pembelian\ViewController@tambah');
 	Route::get('/pembelian/detail/{id}','Pembelian\ViewController@detail');
 	Route::post('/pembelian/simpan','Pembelian\PostController@beli');
+	Route::get('/pembelian/delete','Pembelian\PostController@delete');
 
 	Route::get('/pemotongan-stok','Pemotongan\ViewController@potongStok');
 	Route::post('/pemotongan-stok/tambah','Pemotongan\PostController@tambahStok');

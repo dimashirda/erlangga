@@ -47,11 +47,14 @@ class LogController extends Controller
         if($tipe == 2)
         {
             $log = LogTransaksi::where('penjualan_id',$detail->penjualan_id)->get();
+            // dd($log);
             foreach ($log as $item) 
-            {
-                $barang_detail = BarangDetail::where('id',$item->barang_detail_id)->get();
-                $barang_detail->jumlah += $item->jumlah;
+            {   
+                $barang_detail = BarangDetail::where('id',$item->barang_detail_id)->first();
+                // dd($barang_detail->jumlah);
+                $barang_detail->jumlah = $barang_detail->jumlah + $item->jumlah;
                 $barang_detail->save();
+                // dd($barang_detail);
             }
         }
         else
@@ -59,7 +62,7 @@ class LogController extends Controller
             $log = LogTransaksi::where('penjualan_id',$detail->penjualan_id)->get();
             foreach ($log as $item) 
             {
-                $barang_detail = BarangDetail::where('id',$item->barang_detail_id)->get();
+                $barang_detail = BarangDetail::where('id',$item->barang_detail_id)->first();
                 $barang_detail->jumlah -= $item->jumlah;
                 $barang_detail->save();
             }

@@ -4,20 +4,28 @@ namespace App\Http\Controllers\Pembelian;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Barang;
-
+use App\Pembelian;
+use App\Pembelian_detail;
 class DeleteController extends Controller
 {
-    public function delete(Request $data, $id_barang)
+    public function delete($data)
+    {   
+        // dd($data);
+        $Pembelian = Pembelian::where('id',$data['id'])->first();
+        $this->deletedetail($Pembelian->id);
+        $Pembelian->delete();
+        return;
+    }
+
+    public function deletedetail($id)
     {
-        $del = Barang::where('id',$id_barang);
-        if($del->delete()){        
-            $data->session()->flash('alert-success', 'Data barang berhasil dihapus.');
-            return redirect ('/barang');
+        $detail = Pembelian_detail::where('pembelian_id',$id)->get();
+        // dd($detail);
+        foreach ($detail as $item) 
+        {   
+            app('App\Http\Controllers\LogController')->rollBack($item,1);
+            $item->delete();
         }
-        else{
-            $data->session()->flash('alert-danger', 'Data barang gagal dihapus.');
-            return redirect ('/barang');
-        }
+        return;
     }
 }
