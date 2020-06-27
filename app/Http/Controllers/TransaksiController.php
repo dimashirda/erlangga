@@ -88,8 +88,9 @@ class TransaksiController extends Controller
         }
     }
     public function inputdetail($barang,$jumlah,$subtotal,$penjualan,$harga_satuan)
-    {
+    {  
         foreach ($barang as $key => $value) {
+            // dd($value);
             if(empty($value))
                 continue;
             $detail = new Penjualan_detail;
@@ -122,11 +123,7 @@ class TransaksiController extends Controller
     {   
         //dd($id);
         $penjualan = Penjualan::where('id',$request->id)->first();
-        $detail = Penjualan_detail::where('penjualan_id',$request->id)->get();
-        foreach ($detail as $item) 
-        {
-            $item->delete();
-        }
+        $this->deletedetail($penjualan->id);
         if($penjualan->delete())
         {
             $request->session()->flash('alert-success', 'Data transaksi berhasil dihapus.');
@@ -190,8 +187,10 @@ class TransaksiController extends Controller
     public function deletedetail($id)
     {
         $detail = Penjualan_detail::where('penjualan_id',$id)->get();
+        // dd($detail);
         foreach ($detail as $item) 
-        {
+        {   
+            app('App\Http\Controllers\LogController')->rollBack($item,2);
             $item->delete();
         }
         return;
@@ -222,18 +221,22 @@ class TransaksiController extends Controller
         $query = BarangDetail::where('barang_id',$data->barang_id)
                             ->orderBy('harga_beli','asc')
                             ->get();
-        //dd($query);
+        // dd($query);
         $temp_jumlah_beli = $data->jumlah;
         foreach ($query as $item) 
         {   
-            if($item->jumlah >= $temp_jumlah_beli)
+            if($item->jumlah == 0)
+            {
+                continue;
+            }
+            else if($item->jumlah >= $temp_jumlah_beli)
             {
                 $item->jumlah -= $temp_jumlah_beli;
                 $item->save();
                 app('App\Http\Controllers\LogController')->create($data,$flag,$item->id,$temp_jumlah_beli);
                 break;    
             }
-            elseif($item->jumlah < $temp_jumlah_beli)
+            else if($item->jumlah < $temp_jumlah_beli)
             {
                 $temp_jumlah_beli -= $item->jumlah;
                 app('App\Http\Controllers\LogController')->create($data,$flag,$item->id,$item->jumlah);
