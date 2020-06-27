@@ -245,7 +245,7 @@ $(document).ready(function(){
   $.ajax({
     type:"GET",
     dataType:"json",
-    url:"/erlangga/public/search/barang",
+    url:"/erlangga/public/search/barang/beli",
     success: function(data){
       //console.log(data);
       data.nama.forEach(function(response){

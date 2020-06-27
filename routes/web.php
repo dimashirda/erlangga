@@ -59,6 +59,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/transaksi/{penjualan_id}/konfirmasi/transfer/{transfer_id}','TransaksiController@konfirmasiTransfer');
 
 	Route::get('/search/barang','SearchController@barang');
+	Route::get('/search/barang/beli','SearchController@barangBeli');
 	Route::get('/search/pelanggan','SearchController@pelanggan');
 	Route::get('/search/supplier','SearchController@supplier');
 

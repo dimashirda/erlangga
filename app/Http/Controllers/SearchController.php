@@ -22,7 +22,34 @@ class SearchController extends Controller
     public function barang()
     {
     	$nama = Barang::select('nama')->get()->toArray();
-    	$result = Barang::select('id','satuan','harga_jual')->get();
+    	$result = Barang::select('id','satuan','harga_jual')->get()
+                ->filter(function($result){
+                    return $result->stok > 0;
+                });
+        $barang = Barang::all();
+        $stok = [];
+        $jumlah_barang = 0;
+        foreach ($barang as $key => $item) {
+            $jumlah_barang = 0;
+            foreach ($item->barang_detail as $detail) {
+                $jumlah_barang += $detail->jumlah;
+            }
+            if($jumlah_barang > 0)
+            {
+                array_push($stok,$jumlah_barang);
+                $satuan = $item->satuan;
+                // dd($jumlah_barang,$nama[$key]);
+                $nama[$key]['nama'] .= ' - '.$jumlah_barang.' - '.$satuan;
+            } 
+        }
+        // dd($nama);
+    	return json_encode(['result'=>$result, 'nama'=>$nama, 'stok'=>$stok]);
+    }
+
+    public function barangBeli()
+    {
+        $nama = Barang::select('nama')->get()->toArray();
+        $result = Barang::select('id','satuan','harga_jual')->get();
         $barang = Barang::all();
         $stok = [];
         $jumlah_barang = 0;
@@ -37,7 +64,7 @@ class SearchController extends Controller
             $nama[$key]['nama'] .= ' - '.$jumlah_barang.' - '.$satuan;
         }
         // dd($nama);
-    	return json_encode(['result'=>$result, 'nama'=>$nama, 'stok'=>$stok]);
+        return json_encode(['result'=>$result, 'nama'=>$nama, 'stok'=>$stok]);
     }
 
     public function supplier()

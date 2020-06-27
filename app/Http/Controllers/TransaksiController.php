@@ -78,7 +78,8 @@ class TransaksiController extends Controller
                 app('App\Http\Controllers\Giro\CreateController')->create($penjualan->id,$req->no_seri_giro,$req->tanggal_pencairan,$req->nominal_giro); //buat record giro
             if(!empty($req->transfer))
                 app('App\Http\Controllers\Transfer\CreateController')->create($penjualan->id); //buat record transfer
-            $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id,$req->input('harga_barang'));
+            $cek = $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id,$req->input('harga_barang'));
+            
             DB::commit();
             return redirect('/transaksi/detail/'.$penjualan->id.'');
         } 
