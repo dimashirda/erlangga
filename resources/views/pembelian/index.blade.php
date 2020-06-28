@@ -60,20 +60,22 @@
                     <br>
                     @if($acc->count())
                     <div style="overflow-x:auto;">
-                        <table class="table table-new table-striped table-hover">
+                        <table class="table table-new table-striped table-hover" id="example2">
                             <thead>
                             <tr>
                                 <th>Nomor</th>
-                                <th>Kasir</th>
-                                <th>Pelanggan</th>
+                                <th>Users</th>
+                                <th>Suplier</th>
                                 <th>Tanggal Transaksi</th>
                                 <th>Tanggal Jatuh Tempo</th>
                                 <th>Jenis Belanja</th>
                                 <th>Total Belanja</th>
-                                <th style="text-align: center" colspan="2">Action</th>
+                                @if(Auth::User()->role == '1')
+                                <th>Action</th>
+                                @endif
                             </tr>
                             </thead>
-                            <tbody>
+                            <!-- <tbody>
                             @php $i = 1; @endphp
                             @foreach($acc as $a)
                             <tr>
@@ -93,7 +95,7 @@
                             </tr>
                             @php $i++; @endphp
                             @endforeach
-                            </tbody>
+                            </tbody> -->
                         </table>
                     </div>
                 </div>
@@ -109,5 +111,24 @@
     j( function() {
         j( "#datepicker" ).datepicker();
     } );
+     $(document).ready(function(){
+        $('#example2').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ url('pembelian/all') }}",
+
+            columns: [
+                    { data: 'nomor', name: 'nomor' },
+                    { data: 'users', name: 'users' },
+                    { data: 'suplier', name: 'suplier' },
+                    { data: 'tanggal_transaksi', name: 'tanggal_transaksi' },
+                    { data: 'tanggal_jatuh_tempo', name: 'tanggal_jatuh_tempo' },
+                    { data: 'jenis', name: 'jenis'},
+                    { data: 'total', name: 'total'},
+                    { data: 'detail', name: 'detail'}
+                    ],
+            order: [[ 3, "desc" ]]
+        }); 
+    });
     </script>
 @stop
