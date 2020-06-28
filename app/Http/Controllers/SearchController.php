@@ -70,7 +70,7 @@ class SearchController extends Controller
     public function supplier()
     {
         $nama = Supplier::select('nama')->get();
-        $result = Pelanggan::select('id','telepon','alamat')->get();
+        $result = Supplier::select('id','telepon','alamat')->get();
         return json_encode(['result'=>$result,'nama'=>$nama]);
     }
 }
