@@ -11,10 +11,24 @@ use App\LogTransaksi;
 
 class ViewController extends Controller
 {
-    public function index()
-    {
-    	$start = Carbon::now("Asia/Bangkok")->startOfDay();
-        $end = Carbon::now("Asia/Bangkok")->endOfDay();
+    public function index(Request $request)
+    {   
+        if(empty($request->tanggal1))
+        {
+            $start = Carbon::now("Asia/Bangkok")->startOfDay();
+        }
+    	else
+        {
+            $start = Carbon::createFromFormat('m/d/Y', $request->tanggal1)->startOfDay();
+        }
+        if(empty($request->tanggal2))
+        {
+            $end = Carbon::now("Asia/Bangkok")->endOfDay();
+        }
+        else
+        {
+            $end = Carbon::createFromFormat('m/d/Y', $request->tanggal2)->endOfDay();
+        }
         $data['penjualan'] = Penjualan::whereBetween("tanggal_transaksi",[$start,$end])->get();
         $data['pembelian'] = Pembelian::whereBetween("tanggal_transaksi",[$start,$end])->get();
         $log_jual = LogTransaksi::where('tipe',2)
@@ -26,6 +40,8 @@ class ViewController extends Controller
             $data['untung'] += ($jual->harga_satuan - $harga_beli) * $jual->jumlah;
         }
         $data['penjualan'] = Penjualan::whereBetween('tanggal_transaksi',[$start, $end])->get()->sum('total_akhir');
+        $data['start'] = $start->format('d M Y');
+        $data['end'] = $end->format('d M Y');
         return view('laporan.home',$data);
     }
 }
