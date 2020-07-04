@@ -261,7 +261,7 @@ $(document).ready(function(){
   $.ajax({
     type:"GET",
     dataType:"json",
-    url:"/erlangga/public/search/barang",
+    url:"/erlangga/public/search/barang/beli",
     success: function(data){
       //console.log(data);
       data.nama.forEach(function(response){
@@ -270,11 +270,16 @@ $(document).ready(function(){
       data.result.forEach(function(response){
         result.push(response);
       });
+      data.stok.forEach(function(response){
+        result.push(response.stok);
+      });
+      var j = 1;
       for(k=0;k<{{count($detail)}};k++)
       { 
         autocomplete(document.getElementById('barang_'+k+''), nama, result, 'barang',k, document.getElementById('jumlahbarang_'+k+''), document.getElementById('hargabarang_'+k+''));
         console.log(detail[k].total_satuan); 
         subtotal[k] = detail[k].total_satuan;
+        j++;
       }
     }
   });
@@ -409,7 +414,7 @@ function getSum(total, num){
 function autocomplete(inp, arr, result, flag, counter, quantity, price) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
-  console.log(quantity);
+  // console.log(quantity);
   //console.log(inp);
   var currentFocus, harga_jual_now, banyak;
   //console.log(inp);

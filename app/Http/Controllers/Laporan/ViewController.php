@@ -34,11 +34,13 @@ class ViewController extends Controller
         $log_jual = LogTransaksi::where('tipe',2)
                                 ->whereBetween('created_at',[$start,$end])->get();
         $data['untung'] = 0;
+        // dd($log_jual);
         foreach ($log_jual as $jual) 
         {   
             $harga_beli = $jual->barangDetail->harga_beli;
             $data['untung'] += ($jual->harga_satuan - $harga_beli) * $jual->jumlah;
         }
+        // dd($data['untung']);
         $data['penjualan'] = Penjualan::whereBetween('tanggal_transaksi',[$start, $end])->get()->sum('total_akhir');
         $data['start'] = $start->format('d M Y');
         $data['end'] = $end->format('d M Y');

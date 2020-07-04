@@ -240,14 +240,14 @@ $(document).on('click', '.btn_remove', function(){
   $('#row_'+button_id+'').remove();
 
 });
-$(document).ready(function(){
+$(document).ready(function (){
 
   $.ajax({
     type:"GET",
     dataType:"json",
     url:"/erlangga/public/search/barang/beli",
     success: function(data){
-      //console.log(data);
+      console.log(data.result);
       data.nama.forEach(function(response){
         nama.push(response.nama);
       });

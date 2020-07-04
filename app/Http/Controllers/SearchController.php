@@ -26,7 +26,12 @@ class SearchController extends Controller
                 ->filter(function($result){
                     return $result->stok > 0;
                 });
-        $barang = Barang::all();
+        // $result2 = Barang::select('id','satuan','harga_jual')->get();
+        // return json_encode(['result'=>$result[0], 'result2'=>$result2[0]]);
+        $barang = Barang::all()->filter(function($result){
+                    return $result->stok > 0;
+                });
+        dd($result,$barang);
         $stok = [];
         $jumlah_barang = 0;
         foreach ($barang as $key => $item) {

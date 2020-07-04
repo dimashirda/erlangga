@@ -79,7 +79,12 @@ class TransaksiController extends Controller
             if(!empty($req->transfer))
                 app('App\Http\Controllers\Transfer\CreateController')->create($penjualan->id); //buat record transfer
             $cek = $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id,$req->input('harga_barang'));
-            
+            if($cek == -1)
+            {   
+                DB::rollBack();
+                $req->session()->flash('alert-danger', 'Terdapat Barang yang stoknya 0! silahkan tambah stok dahulu!');
+                return back();
+            }
             DB::commit();
             return redirect('/transaksi/detail/'.$penjualan->id.'');
         } 
@@ -89,7 +94,7 @@ class TransaksiController extends Controller
         }
     }
     public function inputdetail($barang,$jumlah,$subtotal,$penjualan,$harga_satuan)
-    {  
+    {   
         foreach ($barang as $key => $value) {
             // dd($value);
             if(empty($value))
@@ -101,7 +106,11 @@ class TransaksiController extends Controller
             $detail->total_satuan = $subtotal[$key];
             $detail->harga_satuan = $harga_satuan[$key];
             $detail->save();
-            $this->logKeuntungan($detail,2);
+            $flag = $this->logKeuntungan($detail,2);
+            if($flag == -1)
+            {
+                return -1;
+            }
         }
         return;
     }
@@ -143,43 +152,67 @@ class TransaksiController extends Controller
         $bar = Barang::all();
         return view('edittransaksi',['pel'=>$pel, 'bar'=>$bar, 'penjualan'=>$penjualan, 'detail'=>$detail])->with('nav','transaksi');
     }
-    public function editsimpan(Request $request)
+    public function editsimpan(Request $req)
     {   
         DB::beginTransaction();
         try {
-            $penjualan = Penjualan::find($request->penjualan_id);
-            $penjualan->pelanggan_id = $request->input('id_pelanggan');
+            $penjualan = Penjualan::find($req->penjualan_id);
+            $penjualan->pelanggan_id = $req->input('id_pelanggan');
             $penjualan->users_id = Auth::user()->id;
-            $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
-            if(!empty($request->input('kredit')))
+            if(is_null($req->input('tanggal_transaksi')))
             {
-                $penjualan->tanggal_jatuh_tempo = Carbon::parse($request->input('jatuh_tempo'));
+                $penjualan->tanggal_transaksi = Carbon::now("Asia/Bangkok");
+            }
+            else
+            {
+                $penjualan->tanggal_transaksi = Carbon::parse($req->input('tanggal_transaksi'));
+            }
+            if(!empty($req->input('kredit')))
+            {
+                $penjualan->tanggal_jatuh_tempo = Carbon::parse($req->input('jatuh_tempo'));
                 $penjualan->jenis_penjualan = 1;
-                $this->kredit($request->input('id_pelanggan'),$request->input('harga_akhir'));
+                $this->kredit($req->input('id_pelanggan'),$req->input('harga_akhir'));
+            }
+            else if(!empty($req->transfer))
+            {
+                $penjualan->tanggal_jatuh_tempo = null;
+                $penjualan->jenis_penjualan = 4;
+            }
+            else if(!empty($req->giro))
+            {
+                $penjualan->tanggal_jatuh_tempo = null;
+                $penjualan->jenis_penjualan = 3;
             }
             else
             {
                 $penjualan->tanggal_jatuh_tempo = null;
                 $penjualan->jenis_penjualan = 2;
             }
-            $penjualan->total = $request->input('total_harga');
-            $penjualan->diskon = $request->input('diskon_transaksi');
-            $penjualan->potongan = $request->input('potongan_harga');
-            $penjualan->total_akhir = $request->input('harga_akhir');
-            $penjualan->kembalian = $request->input('uang_kembalian');
-            $penjualan->uang_dibayar = $request->input('uang_tunai');
-            $this->deletedetail($request->penjualan_id);
-            $this->inputdetail($request->input('id_barang'),$request->input('jumlah_barang'),$request->input('subtotal'),$penjualan->id,$request->input('harga_barang'));
-            DB::commit();
-            if($penjualan->save())
-            {
-                $request->session()->flash('alert-success', 'Data transaksi berhasil diubah.');
-                return redirect ('/transaksi/detail/'.$penjualan->id.'');
+            $penjualan->total = $req->input('total_harga');
+            $penjualan->diskon = $req->input('diskon_transaksi');
+            $penjualan->potongan = $req->input('potongan_harga');
+            $penjualan->total_akhir = $req->input('harga_akhir');
+            $penjualan->kembalian = $req->input('uang_kembalian');
+            $penjualan->uang_dibayar = $req->input('uang_tunai');
+            $penjualan->save();
+            $this->deletedetail($req->penjualan_id);
+            if(!empty($req->giro))
+                app('App\Http\Controllers\Giro\CreateController')->create($penjualan->id,$req->no_seri_giro,$req->tanggal_pencairan,$req->nominal_giro); //buat record giro
+            if(!empty($req->transfer))
+                app('App\Http\Controllers\Transfer\CreateController')->create($penjualan->id); //buat record transfer
+            $cek = $this->inputdetail($req->input('id_barang'),$req->input('jumlah_barang'),$req->input('subtotal'),$penjualan->id,$req->input('harga_barang'));
+            if($cek == -1)
+            {   
+                DB::rollBack();
+                $req->session()->flash('alert-danger', 'Terdapat Barang yang stoknya 0! silahkan tambah stok dahulu!');
+                return back();
             }
+            DB::commit();
+            return redirect('/transaksi/detail/'.$penjualan->id.'');
         } 
         catch (Exception $e) {
             DB::rollBack();
-            $request->session()->flash('alert-danger', 'Data transaksi gagal diubah.');
+            $req->session()->flash('alert-danger', 'Data transaksi gagal diubah.');
                 return redirect ('/transaksi');
         }
         
@@ -219,6 +252,11 @@ class TransaksiController extends Controller
     public function logKeuntungan($data,$flag)
     {
         // dd($data);
+        $barang = Barang::where('id',$data->barang_id)->first();
+        if($barang->stok <= 0)
+        {
+            return -1;
+        }
         $query = BarangDetail::where('barang_id',$data->barang_id)
                             ->orderBy('harga_beli','asc')
                             ->get();

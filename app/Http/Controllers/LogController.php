@@ -55,17 +55,21 @@ class LogController extends Controller
                 $barang_detail->jumlah = $barang_detail->jumlah + $item->jumlah;
                 $barang_detail->save();
                 // dd($barang_detail);
+                $item->delete();
             }
+            // $log->delete();
         }
         else
         {
-            $log = LogTransaksi::where('penjualan_id',$detail->penjualan_id)->get();
+            $log = LogTransaksi::where('pembelian_id',$detail->pembelian_id)->get();
             foreach ($log as $item) 
             {
                 $barang_detail = BarangDetail::where('id',$item->barang_detail_id)->first();
                 $barang_detail->jumlah -= $item->jumlah;
                 $barang_detail->save();
+                $item->delete();
             }
+            // $log->delete();
         }
         return;
     }
