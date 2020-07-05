@@ -370,6 +370,9 @@ class TransaksiController extends Controller
                             </a>
                         </td>';
             })
+            ->addColumn('total', function($penjualan){
+                return 'Rp'.$number = number_format($penjualan->total,0,",",".");
+            })
             ->escapeColumns([])
             ->make(true);
     }
