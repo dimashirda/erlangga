@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\LogTransaksi;
 
 class Penjualan extends Model
 {
@@ -34,5 +34,17 @@ class Penjualan extends Model
     public function detail()
     {
         return $this->hasMany('App\Penjualan_detail','penjualan_id','id');
+    }
+
+    public function getUntungAttribute()
+    {
+        $log_jual = LogTransaksi::where('penjualan_id',$this->id)->get();
+        $untung = 0;
+        foreach ($log_jual as $jual) 
+        {   
+            $harga_beli = $jual->barangDetail->harga_beli;
+            $untung += ($jual->harga_satuan - $harga_beli) * $jual->jumlah;
+        }
+        return $untung;
     }
 }

@@ -78,6 +78,7 @@
                                 <th>Tanggal Jatuh Tempo</th>
                                 <th>Jenis Belanja</th>
                                 <th>Total Belanja</th>
+                                <th>Keuntungan</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -89,7 +90,10 @@
                                     <td>{{ $a->tanggal_transaksi }}</td>
                                     <td>{{ $a->tanggal_jatuh_tempo }}</td>
                                     <td>@if($a->jenis_penjualan == 1) Kredit @else Tunai @endif</td>
-                                    <td>{{ $a->total }}</td>
+                                    @php $number = number_format("$a->total",0,",","."); @endphp
+                                    <td>Rp{{$number}}</td>
+                                    @php $number = number_format("$a->untung",0,",","."); @endphp
+                                    <td>Rp{{$number}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

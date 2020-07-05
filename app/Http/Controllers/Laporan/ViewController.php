@@ -40,7 +40,7 @@ class ViewController extends Controller
             $harga_beli = $jual->barangDetail->harga_beli;
             $data['untung'] += ($jual->harga_satuan - $harga_beli) * $jual->jumlah;
         }
-        $data['acc'] = Penjualan::whereBetween('tanggal_transaksi',[$start,$end])->paginate(10);
+        $data['acc'] = Penjualan::whereBetween('tanggal_transaksi',[$start,$end])->with('pelanggan','kasir')->paginate(10);
         // dd($data['untung']);
         $data['penjualan'] = Penjualan::whereBetween('tanggal_transaksi',[$start, $end])->get()->sum('total_akhir');
         $data['start'] = $start->format('d M Y');
