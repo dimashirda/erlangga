@@ -20,10 +20,27 @@ use DataTables;
 use DOMPDF;
 class TransaksiController extends Controller
 {
-    public function index()
-    {
-    	$acc = Penjualan::orderBy('tanggal_transaksi','desc')->paginate(10);
-    	return view('transaksi',['acc'=>$acc])->with('nav','transaksi');
+    public function index(Request $request)
+    {   
+        if(empty($request->tanggal1))
+        {
+            $start = Carbon::now("Asia/Bangkok")->startOfDay();
+        }
+        else
+        {
+            $start = Carbon::createFromFormat('m/d/Y', $request->tanggal1)->startOfDay();
+        }
+        if(empty($request->tanggal2))
+        {
+            $end = Carbon::now("Asia/Bangkok")->endOfDay();
+        }
+        else
+        {
+            $end = Carbon::createFromFormat('m/d/Y', $request->tanggal2)->endOfDay();
+        }
+        // dd($start,$end);
+    	$acc = Penjualan::whereBetween('tanggal_transaksi',[$start,$end])->orderBy('tanggal_transaksi','desc')->paginate(10);
+    	return view('transaksi',['acc'=>$acc,'start'=>$request->tanggal1,'end'=>$request->tanggal2])->with('nav','transaksi');
     }
     public function tambah()
     {	
@@ -341,9 +358,27 @@ class TransaksiController extends Controller
             return back();
         }
     }
-    public function all()
-    {
-        $penjualan = Penjualan::with('kasir','pelanggan')->orderBy('tanggal_transaksi','desc')->get();
+    public function all(Request $request)
+    {   
+        // dd($request->tanggal1,$request->tanggal2);
+        if(empty($request->tanggal1))
+        {
+            $start = Carbon::now("Asia/Bangkok")->startOfDay();
+        }
+        else
+        {   
+            // dd('abc');
+            $start = Carbon::createFromFormat('m/d/Y', $request->tanggal1)->startOfDay();
+        }
+        if(empty($request->tanggal2))
+        {
+            $end = Carbon::now("Asia/Bangkok")->endOfDay();
+        }
+        else
+        {
+            $end = Carbon::createFromFormat('m/d/Y', $request->tanggal2)->endOfDay();
+        }
+        $penjualan = Penjualan::whereBetween('tanggal_transaksi',[$start,$end])->with('kasir','pelanggan')->orderBy('tanggal_transaksi','desc')->get();
         // dd($penjualan);
         return DataTables::of($penjualan)
             ->addColumn('nomor',function($penjualan){

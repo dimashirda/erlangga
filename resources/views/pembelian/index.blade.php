@@ -47,6 +47,7 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <a href="{{url('/pembelian/tambah')}}" class='btn btn-primary'><i class="fa fa-plus-circle"></i> Tambah baru</a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_penjualan" data-title="Laporan Kunjungan Harian">Pilih Tanggal</button>
                         </div>
                         <form action="{{url('/pembelian/search')}}" method="get">
                         <div class="col-xs-3">
@@ -105,17 +106,47 @@
             </div>
         </div>
     </div>
+    <div id="modal_penjualan" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
+        <!-- Modal content-->
+            <form method="get" action="{{url('transaksi')}}">
+                {{ csrf_field() }}
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Pilih Tanggal</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-3 col-md-4 col-xl-1">
+                            <span>Tanggal Mulai</span>
+                            <input type="text" name="tanggal1" class="form-control datepicker" autocomplete="off">
+                        </div>
+                        <div class="col-3 col-md-4 col-xl-1">
+                            <span>Tanggal Akhir</span>
+                            <input type="text" name="tanggal2" class="form-control datepicker" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </form>    
+        </div>
+    </div>
     <script>
     var j = jQuery.noConflict();
     j( function() {
-        j( "#datepicker" ).datepicker();
+        j( ".datepicker" ).datepicker();
     } );
+    var tanggal1 = "{{$start}}"
+    var tanggal2 = "{{$end}}"
      $(document).ready(function(){
         $('#example2').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ url('pembelian/all') }}",
+            ajax: "{{ url('pembelian/all?') }}"+"tanggal1="+tanggal1+"&tanggal2="+tanggal2,
 
             columns: [
                     { data: 'nomor', name: 'nomor' },

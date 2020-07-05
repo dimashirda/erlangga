@@ -6,12 +6,28 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pembelian;
 use DataTables;
-
+use Carbon\Carbon;
 class ReadController extends Controller
 {
     public function all()
-    {
-    	$pembelian = Pembelian::with('users','suplier')->orderBy('tanggal_transaksi','desc')->get();
+    {   
+        if(empty($request->tanggal1))
+        {
+            $start = Carbon::now("Asia/Bangkok")->startOfDay();
+        }
+        else
+        {
+            $start = Carbon::createFromFormat('m/d/Y', $request->tanggal1)->startOfDay();
+        }
+        if(empty($request->tanggal2))
+        {
+            $end = Carbon::now("Asia/Bangkok")->endOfDay();
+        }
+        else
+        {
+            $end = Carbon::createFromFormat('m/d/Y', $request->tanggal2)->endOfDay();
+        }
+    	$pembelian = Pembelian::with('users','suplier')->whereBetween('tanggal_transaksi',[$start,$end])->orderBy('tanggal_transaksi','desc')->get();
         // dd($pembelian);
         return DataTables::of($pembelian)
             ->addColumn('nomor',function($pembelian){
