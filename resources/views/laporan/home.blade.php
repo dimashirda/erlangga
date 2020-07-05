@@ -3,6 +3,21 @@
 @section('title', 'CV ERLANGGA')
 
 @section('content')
+<style>
+    .example-modal .modal {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        right: auto;
+        left: auto;
+        display: block;
+        z-index: 1;
+    }
+
+    .example-modal .modal {
+        background: transparent !important;
+    }
+</style>
     <section class="content">
         <div class="row">
             <div class="col-lg-3 col-xs-6">
@@ -37,6 +52,57 @@
             </div>
         </div>
     </section>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h3 class="box-title">List Transaksi Penjualan
+                    @if(!empty($flag))
+                        @if($flag == 1) (Semua) @elseif ($flag == 2) (Belum Lunas) @else (Sudah Lunas) 
+                        @endif
+                    @endif</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    <br>
+                    @if($acc->count())
+                    <div style="overflow-x:auto;">
+                        <table class="table table-new table-striped table-hover" id="example">
+                            <thead>
+                            <tr>
+                                <th>Nomor</th>
+                                <th>Kasir</th>
+                                <th>Pelanggan</th>
+                                <th>Tanggal Transaksi</th>
+                                <th>Tanggal Jatuh Tempo</th>
+                                <th>Jenis Belanja</th>
+                                <th>Total Belanja</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($acc as $a)
+                                <tr>
+                                    <td>TA{{$a->id + 2000}}</td>
+                                    <td>{{ $a->kasir->name }}</td>
+                                    <td>{{ $a->pelanggan->nama }}</td>
+                                    <td>{{ $a->tanggal_transaksi }}</td>
+                                    <td>{{ $a->tanggal_jatuh_tempo }}</td>
+                                    <td>@if($a->jenis_penjualan == 1) Kredit @else Tunai @endif</td>
+                                    <td>{{ $a->total }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        {{$acc->appends(request()->except('page'))->links()}}
+                    </div>
+                </div>
+                @else
+                    <p>Data tidak ditemukan</p>
+                @endif
+            </div>
+        </div>
+    </div>
 <div id="modal_penjualan" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -71,5 +137,24 @@
         j( function() {
             j( ".datepicker" ).datepicker();
         } );
+    // $(document).ready(function(){
+    //     $('#example').DataTable({
+    //         processing: true,
+    //         serverSide: true,
+    //         ajax: "{{ url('transaksi/all') }}",
+
+    //         columns: [
+    //                 { data: 'nomor', name: 'nomor' },
+    //                 { data: 'kasir', name: 'kasir' },
+    //                 { data: 'pembeli', name: 'pembeli' },
+    //                 { data: 'tanggal_transaksi', name: 'tanggal_transaksi' },
+    //                 { data: 'tanggal_jatuh_tempo', name: 'tanggal_jatuh_tempo' },
+    //                 { data: 'jenis', name: 'jenis'},
+    //                 { data: 'total', name: 'total'},
+    //                 { data: 'detail', name: 'detail'}
+    //                 ],
+    //         order: [[ 3, "desc" ]]
+    //     }); 
+    // });
 </script>
 @stop

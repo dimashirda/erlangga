@@ -3,7 +3,7 @@
 @section('title','CV Erlangga')
 
 @section('content')
-	 <style>
+	<style>
         .example-modal .modal {
             position: relative;
             top: auto;
