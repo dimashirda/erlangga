@@ -32,7 +32,9 @@ class ViewController extends Controller
         $data['penjualan'] = Penjualan::whereBetween("tanggal_transaksi",[$start,$end])->get();
         $data['pembelian'] = Pembelian::whereBetween("tanggal_transaksi",[$start,$end])->get();
         $log_jual = LogTransaksi::where('tipe',2)
-                                ->whereBetween('created_at',[$start,$end])->get();
+                                ->whereHas('penjualan',function($q) use ($start,$end) {
+                                    $q->whereBetween('tanggal_transaksi',[$start,$end]);
+                                })->get();
         $data['untung'] = 0;
         // dd($log_jual);
         foreach ($log_jual as $jual) 

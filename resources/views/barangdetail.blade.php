@@ -76,7 +76,7 @@
                                 @if(Auth::User()->role == 1)
                                 <td align="center" width="30px">
                                     <button type="button" class="btn btn-default edit-button" data-toggle="modal" 
-                                    data-target="#modal-default" data-id="{{$a->id}}" data-hargajual="{{$a->harga_jual}}" 
+                                    data-target="#modal-default" data-id="{{$a->id}}" data-hargabeli="{{$a->harga_beli}}" 
                                     data-stok="{{$a->jumlah}}" data-nama="{{$a->barang->nama}}">
                                         Edit
                                     </button>
@@ -116,10 +116,17 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="HargaBeli" class="col-sm-2 control-label">Harga Jual</label>
+                                            <label for="HargaBeli" class="col-sm-2 control-label">Harga Beli</label>
 
                                             <div class="col-sm-10">
-                                                <input type="number" autocomplete="off" class="form-control" id="hargajual" name="harga_jual">
+                                                <input type="number" autocomplete="off" class="form-control" id="hargabeli" name="harga_beli">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="HargaBeli" class="col-sm-2 control-label">Stok</label>
+
+                                            <div class="col-sm-10">
+                                                <input type="number" autocomplete="off" class="form-control" id="stok" name="stok">
                                             </div>
                                         </div>
                                     </div>
@@ -164,15 +171,15 @@
         $(document).on("click", ".edit-button", function(){
             var nama_barang = $(this).data('nama');
             var id = $(this).data('id');
-            var harga_jual = $(this).data('hargajual');
+            var harga_beli = $(this).data('hargabeli');
             var stok = $(this).data('stok');
             //console.log(id);
             //console.log(val(nama_barang));
             $("#id").val(id);
            
             $("#namabarang").val(nama_barang);
-            $("#hargajual").val(harga_jual);   
-            $("#stokbarang").val(stok);
+            $("#hargabeli").val(harga_beli);   
+            $("#stok").val(stok);
             
             $("#form-edit").attr('action','{{url('/barangdetail/edit')}}' + '/' + id);
         });

@@ -31,6 +31,7 @@ class ViewController extends Controller
     {
     	$data['detail'] = BarangDetail::where('barang_id',$id)->get();
         $data['id'] = $id;
+        // dd($data);
     	return view('barangdetail',$data)->with('nav','barang');
     }
 

@@ -87,17 +87,19 @@ class CreateController extends Controller
     }
 
     public function editDetail(request $data, $id)
-    {
+    {   
+        // dd($data,$id);
         $edit = BarangDetail::where('id',$id)->first();
-        $edit->harga_jual = $data['harga_jual'];
-        $edit->stok = $data['stok_barang'];
+        $edit->harga_beli = $data['harga_beli'];
+        $edit->jumlah = $data['stok'];
+        // dd($edit,$data);
         if($edit->save()){
             $data->session()->flash('alert-success', 'Data barang berhasil diperbarui.');
-            return redirect('/barang/detail/'.$id.'');
+            return back();
         }
         else{
             $data->session()->flash('alert-danger', 'Data barang gagal diperbarui.');
-            return redirect('/barang/detail/'.$id.'');
+            return back();
         }
     }
 

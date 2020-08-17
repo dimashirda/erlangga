@@ -84,14 +84,14 @@
                                    {{ csrf_field() }}
                                    <input type="hidden" name="id" id="id">
                                     <div class="box-body">
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label for="IdBarang" class="col-sm-2 control-label">Kode Barang</label>
 
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="kodebarang" name="kode_barang"
                                                 autocomplete="off">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label for="NamaBarang" class="col-sm-2 control-label">Nama Barang</label>
 
@@ -100,13 +100,13 @@
                                                 autocomplete="off" id="namabarang" name="nama_barang">
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                       <!--  <div class="form-group">
                                             <label for="HargaBeli" class="col-sm-2 control-label">Harga Beli</label>
 
                                             <div class="col-sm-10">
                                                 <input type="number" autocomplete="off" class="form-control" id="hargabeli" name="harga_beli">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label for="HargaJual" class="col-sm-2 control-label">Harga Jual</label>
 
@@ -115,14 +115,14 @@
                                                 autocomplete="off" id="hargajual" name="harga_jual">
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label for="StokBarang" class="col-sm-2 control-label">Stok Barang</label>
 
                                             <div class="col-sm-10">
                                                 <input type="number"
                                                  autocomplete="off" class="form-control" id="stokbarang" name="stok_barang">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label for="SatuanBarang" class="col-sm-2 control-label">Satuan</label>
 
@@ -195,7 +195,7 @@
         //console.log(id);
         //console.log(val(nama_barang));
         $("#id").val(id);
-        $("#kodebarang").val(kode)
+        // $("#kodebarang").val(kode)
         $("#namabarang").val(nama_barang);
         // $("#hargabeli").val(harga_beli);
         $("#hargajual").val(harga_jual);
