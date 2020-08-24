@@ -27,6 +27,7 @@ class ReadController extends Controller
         {
             $end = Carbon::createFromFormat('m/d/Y', $request->tanggal2)->endOfDay();
         }
+        // dd($start,$end);
     	$pembelian = Pembelian::with('users','suplier')->whereBetween('tanggal_transaksi',[$start,$end])->orderBy('tanggal_transaksi','desc')->get();
         // dd($pembelian);
         return DataTables::of($pembelian)

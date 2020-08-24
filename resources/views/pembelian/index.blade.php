@@ -110,7 +110,7 @@
         <div class="modal-dialog">
 
         <!-- Modal content-->
-            <form method="get" action="{{url('transaksi')}}">
+            <form method="get" action="{{url('pembelian')}}">
                 {{ csrf_field() }}
                 <div class="modal-content">
                     <div class="modal-header">
