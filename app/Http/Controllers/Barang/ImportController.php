@@ -8,6 +8,7 @@ use App\Barang;
 use App\BarangDetail;
 use App\Pelanggan;
 use App\Supplier;
+use App\Jenis;
 use DB;
 class ImportController extends Controller
 {
@@ -19,7 +20,7 @@ class ImportController extends Controller
         while(!feof($file))
         {
         	$data = fgetcsv($file);
-            // dd($data[0]);
+            dd($data);
         	$barang = new Barang;
         	$barang->nama = $data[0];
         	$barang->satuan = $data[1];
@@ -66,6 +67,38 @@ class ImportController extends Controller
         }
     }
 
+    public function importJenis()
+    {
+        DB::beginTransaction();
+        try {
+            $file = fopen("barang_jenis.csv","r");
+            //$data = fgetcsv($file);
+            $nama_kosong = [];
+            while(!feof($file))
+            {
+                $data = fgetcsv($file);
+                // dd($data);
+                $barang = Barang::where('nama',$data[0])->first();
+                // dd($barang);
+                if (empty($barang)) {
+                    array_push($nama_kosong,$data[0]);
+                }
+                else
+                {   
+                    $jenis = Jenis::where('nama',$data[2])->first();
+                    // dd($jenis);
+                    $barang->jenis = $jenis->id;
+                    $barang->save();
+                }
+            }
+            DB::commit();
+            dd($nama_kosong);
+        } catch (Exception $e) {
+            DB::rollBack();
+            dd($e);
+        }
+    }
+
     public function importPelanggan()
     {
         DB::beginTransaction();
@@ -81,6 +114,7 @@ class ImportController extends Controller
                     continue;
                 }
                 $data = fgetcsv($file);
+                dd($data);
                 $pelanggan = new Pelanggan;          
                 $pelanggan->nama = $data[0];
                 $pelanggan->alamat = $data[1];

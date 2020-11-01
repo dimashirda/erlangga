@@ -59,6 +59,7 @@
                             <thead>
                             <tr>
                                 <th>Nama Barang</th>
+                                <th>Jenis</th>
                                 <th>Harga Jual</th>
                                 <th>Satuan</th>
                                 <th>Stok</th>
@@ -176,6 +177,7 @@
             ajax: "{{ url('barang/all') }}",
             columns: [
                     { data: 'nama', name: 'nama' },
+                    { data: 'jenis', name: 'jenis' },
                     { data: 'harga_jual', name: 'harga_jual' },
                     { data: 'satuan', name: 'satuan' },
                     { data: 'stok', name: 'stok' },

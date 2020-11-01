@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\BarangDetail;
+use App\Jenis;
 
 class Barang extends Model
 {
@@ -30,5 +31,9 @@ class Barang extends Model
     {   
         // dd($this->hasMany('App\BarangDetail','barang_id','id')->where('jumlah','>','0')->orderBy('harga_beli','ASC')->first());
         return $this->hasMany('App\BarangDetail','barang_id','id')->where('jumlah','>','0')->orderBy('harga_beli','ASC')->first();
+    }
+    public function jenis_barang()
+    {
+        return $this->hasOne('App\Jenis','id','jenis');
     }
 }

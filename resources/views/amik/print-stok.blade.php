@@ -52,10 +52,11 @@
 			<tr>
 				<!-- <th class="double" width="15%">KODE BARANG</th> -->
 				<th class="double" width="25%">NAMA BARANG</th>
-				<th class="double" width="15%">KMS</th>
+				<th class="double" width="10%">JENIS</th>
+				<th class="double" width="10%">KMS</th>
 				<th class="double" width="10%">ONHAND</th>
 				<th class="double righted" width="15%">HARGA JUAL</th>
-				<th class="double righted" width="20%">HARGA BELI</th>
+				<th class="double righted" width="15%">HARGA BELI</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -64,6 +65,12 @@
 			<tr>
 				<!-- <td>{{$item->kode}}</td> -->
 				<td>{{$item->nama}}</td>
+				<td>@if(!empty($item->jenis_barang))
+					{{$item->jenis_barang->nama}}
+					@else
+					-
+					@endif
+				</td>
 				<td>{{$item->satuan}}</td>
 				<td>{{$item->stok}}</td>
 				<td class="righted"><p>Rp {{number_format($item->harga_jual,2,",",".")}}</p></td>

@@ -28,7 +28,8 @@ class ViewController extends Controller
     }
 
     public function detail($id)
-    {
+    {   
+        $barang = Barang::where('id',$id)->first();
     	$data['detail'] = BarangDetail::where('barang_id',$id)->get();
         $data['id'] = $id;
         // dd($data);

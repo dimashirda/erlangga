@@ -12,8 +12,14 @@ class ReadController extends Controller
 {
     public function all()
     {
-    	$barang = Barang::with('barang_detail')->get();
+    	$barang = Barang::with('barang_detail','jenis_barang')->get();
         return DataTables::of($barang)
+            ->addColumn('jenis', function($barang){
+                if(!empty($barang->jenis_barang))
+                    return '<td>'.$barang->jenis_barang->nama.'</td>';
+                else
+                    return '<td>'.'-'.'<td>';      
+            })
         	->addColumn('stok', function($barang){
         		$total_stok = 0;
         		foreach($barang->barang_detail as $item)
