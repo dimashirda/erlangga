@@ -11,7 +11,7 @@ class LogTransaksi extends Model
     use SoftDeletes;
     public function barangDetail()
     {
-        return $this->hasOne('App\BarangDetail','id','barang_detail_id');
+        return $this->hasOne('App\BarangDetail','id','barang_detail_id')->withTrashed();
     }
 
     public function penjualan()
