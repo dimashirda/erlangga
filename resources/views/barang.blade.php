@@ -132,6 +132,17 @@
                                                 autocomplete="off" class="form-control" id="satuan" name="satuan_barang">
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Jenis</label>
+                                            <div class="col-sm-10">
+                                                <select class="select-2" id="jenisBarang" data-width="50%" name="jenis_barang" required>
+                                                    <option disabled selected>Pilih Satuan</option>
+                                                    @foreach($jenis_barang as $item)
+                                                    <option value="{{$item->id}}">{{$item->nama}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                             </div>
                             <div class="modal-footer">
@@ -194,6 +205,7 @@
         // var stok = $(this).data('stok');
         var satuan = $(this).data('satuan');
         var kode = $(this).data('kode');
+        var JB = $(this).data('jenis');
         //console.log(id);
         //console.log(val(nama_barang));
         $("#id").val(id);
@@ -203,7 +215,13 @@
         $("#hargajual").val(harga_jual);
         // $("#stokbarang").val(stok);
         $("#satuan").val(satuan);
-
+        var options = document.getElementById("jenisBarang").options;
+        for (var i = 0; i < options.length; i++) {
+          if (options[i].value == JB) {
+            options[i].selected = true;
+            break;
+          }
+        }
         $("#form-edit").attr('action','{{url('/barang/edit')}}' + '/' + id);
     });
 

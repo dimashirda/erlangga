@@ -48,6 +48,17 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Satuan</label>
+                                <div class="col-sm-10">
+                                    <select class="select-2 jenis" data-width="50%" name="jenis_barang" required>
+                                        <option disabled selected>Pilih Satuan</option>
+                                        @foreach($jenis as $item)
+                                        <option value="{{$item->id}}">{{$item->nama}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
@@ -67,5 +78,6 @@
 @section('js')
     <script type="text/javascript">
         $('.satuan').select2();
+        $('.jenis').select2();
     </script>
 @stop

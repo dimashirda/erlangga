@@ -18,6 +18,7 @@
         background: transparent !important;
     }
 </style>
+    @if(Auth::User()->name == 'junita')
     <section class="content">
         <div class="row">
             <div class="col-lg-3 col-xs-6">
@@ -52,6 +53,7 @@
             </div>
         </div>
     </section>
+    @endif
     <div class="row">
         <div class="col-xs-12">
             <div class="box box-danger">

@@ -26,6 +26,7 @@ class CreateController extends Controller
             $a->nama = $req->input('nama_barang');
             $a->harga_jual = $req->input('harga_jual');
             $a->satuan = $req->input('satuan_barang');
+            $a->jenis = $req->input('jenis_barang');
 
             if($a->save())
             {
@@ -76,6 +77,7 @@ class CreateController extends Controller
         $edit->nama = $data['nama_barang'];
         $edit->harga_jual = $data['harga_jual'];
         $edit->satuan = $data['satuan_barang'];
+        $edit->jenis = $data['jenis_barang'];
         if($edit->save()){
             $data->session()->flash('alert-success', 'Data barang berhasil diperbarui.');
             return redirect('/barang');

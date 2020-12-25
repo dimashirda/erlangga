@@ -35,7 +35,7 @@ class ReadController extends Controller
 	                            <button type="button" class="btn btn-default edit-button" data-toggle="modal" 
 	                            data-target="#modal-default" data-id="'.$barang->id.'" data-kode="'.$barang->kode.'" 
 	                            data-name="'.$barang->nama.'" 
-	                            data-hargajual="'.$barang->harga_jual.'" data-satuan="'.$barang->satuan.'">
+	                            data-hargajual="'.$barang->harga_jual.'" data-satuan="'.$barang->satuan.'" data-jenis="'.$barang->jenis.'">
 	                                Edit
 	                            </button>
 	                        </td>
