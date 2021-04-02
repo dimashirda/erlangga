@@ -42,7 +42,11 @@ class Penjualan extends Model
         $untung = 0;
         foreach ($log_jual as $jual) 
         {   
-            $harga_beli = $jual->barangDetail->harga_beli;
+            $barang_id = $jual->barangDetail->barang_id;
+            $detail = BarangDetail::where('barang_id',$barang_id)->orderBy('created_at','DESC')->first();
+            // dd($detail);
+            $harga_beli = $detail->harga_beli;
+            // $harga_beli = $jual->barangDetail->harga_beli;
             $untung += ($jual->harga_satuan - $harga_beli) * $jual->jumlah;
         }
         return $untung;
