@@ -8,6 +8,8 @@ use App\Penjualan;
 use App\Pembelian;
 use Carbon\Carbon;
 use App\LogTransaksi;
+use App\Barang;
+use App\BarangDetail;
 
 class ViewController extends Controller
 {
@@ -39,8 +41,16 @@ class ViewController extends Controller
         // dd($log_jual);
         foreach ($log_jual as $jual) 
         {   
-            $harga_beli = $jual->barangDetail->harga_beli;
+            $barang_id = $jual->barangDetail->barang_id;
+            $detail = BarangDetail::where('barang_id',$barang_id)->orderBy('created_at','DESC')->first();
+            // dd($detail);
+            $harga_beli = $detail->harga_beli;
+            // $harga_beli = $jual->barangDetail->harga_beli;
             $data['untung'] += ($jual->harga_satuan - $harga_beli) * $jual->jumlah;
+            // if($jual->harga_satuan - $harga_beli < 0)
+            // {
+            //     dd($data['untung'],$harga_beli,$jual,$barang_id);
+            // }
         }
         $data['acc'] = Penjualan::whereBetween('tanggal_transaksi',[$start,$end])->with('pelanggan','kasir')->paginate(10);
         // dd($data['untung']);
