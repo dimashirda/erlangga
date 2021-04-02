@@ -61,7 +61,7 @@
                     <br>
                     @if($acc->count())
                     <div style="overflow-x:auto;">
-                        <table class="table table-new table-striped table-hover" id="example2">
+                        <table class="table table-new table-striped table-hover" id="example">
                             <thead>
                             <tr>
                                 <th>Nomor</th>
@@ -76,27 +76,6 @@
                                 @endif
                             </tr>
                             </thead>
-                            <!-- <tbody>
-                            @php $i = 1; @endphp
-                            @foreach($acc as $a)
-                            <tr>
-                                <td>{{$i}}</td>
-                                <td>{{ $a->users->name }}</td>
-                                <td>{{ $a->suplier->nama or '-' }}</td>
-                                <td>{{ $a->tanggal_transaksi }}</td>
-                                <td>{{ $a->tanggal_jatuh_tempo }}</td>
-                                <td>@if($a->jenis_penjualan == 1) Kredit @else Tunai @endif</td>
-                                <td>{{ $a->total }}</td>
-                                <td align="center" width="30px">
-                                    <a class="btn btn-default edit-button" 
-                                    href="{{url('pembelian/detail/')}}/{{$a->id}}">
-                                        Detail
-                                    </a>
-                                </td>
-                            </tr>
-                            @php $i++; @endphp
-                            @endforeach
-                            </tbody> -->
                         </table>
                     </div>
                 </div>
@@ -143,7 +122,7 @@
     var tanggal1 = "{{$start}}"
     var tanggal2 = "{{$end}}"
      $(document).ready(function(){
-        $('#example2').DataTable({
+        $('#example').DataTable({
             processing: true,
             serverSide: true,
             ajax: "{{ url('pembelian/all?') }}"+"tanggal1="+tanggal1+"&tanggal2="+tanggal2,

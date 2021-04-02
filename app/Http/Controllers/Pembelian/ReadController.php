@@ -9,7 +9,7 @@ use DataTables;
 use Carbon\Carbon;
 class ReadController extends Controller
 {
-    public function all()
+    public function all(Request $request)
     {   
         if(empty($request->tanggal1))
         {
