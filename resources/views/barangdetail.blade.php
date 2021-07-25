@@ -56,6 +56,7 @@
                             <thead>
                             <tr>
                                 <th>Nama Barang</th>
+                                <th>Supplier</th>
                                 <th>Satuan</th>
                                 <th>Harga Jual</th>
                                 <th>Harga Beli</th>
@@ -69,6 +70,11 @@
                             @foreach($detail as $a)
                             <tr>
                                 <td>{{ $a->barang->nama }}</td>
+                                @if(!empty($a->log->detail_beli->supplier->nama))
+                                <td>{{$a->log->detail_beli->supplier->nama}}</td>
+                                @else
+                                <td>-</td>
+                                @endif
                                 <td>{{ $a->barang->satuan}}</td>
                                 <td>{{ $a->barang->harga_jual}}</td>
                                 <td>{{ $a->harga_beli }}</td>

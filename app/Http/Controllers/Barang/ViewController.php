@@ -39,10 +39,15 @@ class ViewController extends Controller
     	return view('barangdetail',$data)->with('nav','barang');
     }
 
-    public function printStok()
+    public function printStok(Request $request)
     {   
+        if(!empty($request->flag)) 
+        {
+            $data['flag'] = $request->flag;
+        }
         $data['barang'] = Barang::all();
         $data['tanggal'] = Carbon::now()->format('d-M-Y');
+        // dd($data);
         $pdf = DOMPDF::loadView('amik.print-stok',['data'=>$data]);
         return $pdf->stream('print.pdf'); 
     }

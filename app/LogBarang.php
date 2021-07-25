@@ -9,4 +9,9 @@ class LogBarang extends Model
 {
     protected $table = 'log_barang';
     use SoftDeletes;
+
+    public function detail_beli()
+    {
+    	return $this->hasOne('App\Pembelian_detail','id','pembelian_detail_id');
+    }
 }

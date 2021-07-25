@@ -59,6 +59,35 @@
 				<th class="double righted" width="15%">HARGA BELI</th>
 			</tr>
 		</thead>
+		@if(!empty($data['flag']))
+		<tbody>
+			@if(!empty($data))
+			@foreach($data['barang'] as $item)
+					@if($item->stok > 1)
+					<tr>
+						<!-- <td>{{$item->kode}}</td> -->
+						<td>{{$item->nama}}</td>
+						<td>@if(!empty($item->jenis_barang))
+							{{$item->jenis_barang->nama}}
+							@else
+							-
+							@endif
+						</td>
+						<td>{{$item->satuan}}</td>
+						<td>{{$item->stok}}</td>
+						<td class="righted"><p>Rp {{number_format($item->harga_jual,2,",",".")}}</p></td>
+						<td class="righted"><p>Rp @if(!empty($item->harga_beli)) 
+							{{number_format($item->harga_beli->harga_beli,2,",",".")}}
+							@else 0
+							@endif </p></td>
+					</tr>
+					@else
+						@continue
+					@endif
+			@endforeach
+			@endif
+		</tbody>
+		@else
 		<tbody>
 			@if(!empty($data))
 			@foreach($data['barang'] as $item)
@@ -82,6 +111,7 @@
 			@endforeach
 			@endif
 		</tbody>
+		@endif
 	</table>
 </body>
 </html>

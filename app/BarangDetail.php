@@ -14,4 +14,8 @@ class BarangDetail extends Model
     {
         return $this->hasOne('App\Barang','id','barang_id');
     }
+    public function log()
+    {
+    	return $this->hasOne('App\LogBarang','barang_detail_id','id');
+    }
 }

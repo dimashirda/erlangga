@@ -12,4 +12,9 @@ class Pembelian_detail extends Model
     {
     	return $this->hasOne('App\Barang','id','barang_id');
     }
+
+    public function supplier()
+    {
+    	return $this->hasOne('App\Supplier','id','supplier_id');
+    }
 }
