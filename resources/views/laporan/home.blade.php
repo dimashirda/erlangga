@@ -86,7 +86,7 @@
                             <tbody>
                                 @foreach($acc as $a)
                                 <tr>
-                                    <td>TA{{$a->id + 2000}}</td>
+                                    <td>TA{{$a->id + 20000}}</td>
                                     <td>{{ $a->kasir->name }}</td>
                                     <td>{{ $a->pelanggan->nama }}</td>
                                     <td>{{ $a->tanggal_transaksi }}</td>
