@@ -45,7 +45,7 @@
 			<td width="30%">
 				<table>
 					<tr>
-						<td colspan="2">UD ERLANGGA SURABAYA</td>
+						<td colspan="2">ERLANGGA BERKAH SURABAYA</td>
 					</tr>
 					<tr>
 						<td>Telp.</td>
