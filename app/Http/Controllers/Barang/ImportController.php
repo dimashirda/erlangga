@@ -160,4 +160,50 @@ class ImportController extends Controller
             dd($e);
         }
     }
+
+    public function stokOpname()
+    {
+        DB::beginTransaction();
+        try {
+            $file = fopen('stok2021.csv','r');
+            $data = fgetcsv($file);
+            while (!feof($file)) 
+            {   
+                $data = fgetcsv($file);
+                if(empty($data))
+                {
+                    break;
+                }
+                $barang = Barang::where('id',$data[0])->first();
+                if(!empty($barang))
+                {
+                    $detail = BarangDetail::where('barang_id',$barang->id)->get();
+                    if(!empty($detail))
+                    {
+                        foreach ($detail as $d) {
+                            $d->jumlah = 0;
+                            $d->save();
+                        }
+                        $detail = BarangDetail::where('barang_id',$barang->id)->orderBy('harga_beli','DESC')->first();
+                        $detail->jumlah = $data[5];
+                        $detail->save();    
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+                          
+            }
+            DB::commit();
+            echo "done";    
+        } catch (Exception $e) {
+            DB::rollBack();
+            dd($e);
+        }
+    }
 }

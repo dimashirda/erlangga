@@ -89,6 +89,7 @@ Route::get('update-import','Barang\ImportController@updateImport');
 Route::get('/import-pelanggan','Barang\ImportController@importPelanggan');
 Route::get('/import-suplier','Barang\ImportController@importSuplier');
 Route::get('/import-jenis-barang','Barang\ImportController@importJenis');
+Route::get('/stokopname','Barang\ImportController@stokOpname');
 
 Route::get('/print-surjal', 'Amik\ViewController@printSuratJalan');
 Route::get('/print-faktur', 'Amik\ViewController@printFaktur');
