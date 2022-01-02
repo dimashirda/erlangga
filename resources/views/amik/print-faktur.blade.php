@@ -57,7 +57,7 @@
 			<td width="40%">
 				<table>
 					<tr>
-						<td colspan="2">ERLANGGA BERKAH SURABAYA</td>
+						<td colspan="2">ERLANGGA</td>
 					</tr>
 					<tr>
 						<td>Telp. 031-5991755,5929736</td>
