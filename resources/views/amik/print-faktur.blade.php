@@ -57,21 +57,21 @@
 			<td width="40%">
 				<table>
 					<tr>
-						<td colspan="2">ERLANGGA</td>
+						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td>Telp. 031-5991755,5929736</td>
+						<td></td>
 						<td></td>
 					</tr>
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;081230399955</td>
+						<td></td>
 						<td></td>
 					</tr>
 				</table>
 				<br>
 				<table>
 					<tr>
-						<td>Kepada Yth :</td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>@if(!empty($data)) {{$data['penjualan']->pelanggan->nama}} @endif</td>
@@ -85,33 +85,33 @@
 				</table>
 			</td>
 			<td width="20%" class="title"> 
-				FAKTUR
+				
 			</td>
-			<td width="40%">
+			<td width="50%">
 				<table>
 					<tr>
 						<td>No.Surat Jalan</td>
-						<td>: TA @if(!empty($data)) {{$data['nomor_surat']}} @endif</td>
+						<td>: @if(!empty($data)) {{$data['nomor_surat']}} @endif</td>
 					</tr>
 					<tr>
 						<td>Tanggal</td>
 						<td>: @if(!empty($data)) {{$data['tanggal']}} @endif</td>
 					</tr>
 					<tr>
-						<td>Syarat Pbyr</td>
-						<td>: 0 hari</td>
+						<td></td>
+						<td></td>
 					</tr>
 					<tr>
-						<td>Jatuh Tempo</td>
-						<td>: @if(!empty($data)) @if(!empty($data['tanggal_jatuh_tempo'])) {{$data['tanggal_jatuh_tempo']}} @else - @endif @endif</td>
+						<td></td>
+						<td></td>
 					</tr>
 					<tr>
-						<td>ADMIN</td>
-						<td>: @if(!empty($data)) {{$data['admin']}} @endif</td>
+						<td></td>
+						<td></td>
 					</tr>
 					<tr>
-						<td>Time Printed</td>
-					<td>: @if(!empty($data)) {{$data['jam']}} @endif</td>
+						<td></td>
+					<td></td>
 					</tr>
 				</table>
 			</td>
@@ -173,24 +173,24 @@
 	<div class="pagebreak"></div>
 	<table>
 		<tr>
-			<td width="40%">
+			<td width="0%">
 				<table>
 					<tr>
-						<td colspan="2">UD ERLANGGA SURABAYA</td>
+						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td>Telp. 031-5991755,5929736</td>
+						<td></td>
 						<td></td>
 					</tr>
 					<tr>
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;081230399955</td>
+						<td></td>
 						<td></td>
 					</tr>
 				</table>
 				<br>
 				<table>
 					<tr>
-						<td>Kepada Yth :</td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>@if(!empty($data)) {{$data['penjualan']->pelanggan->nama}} @endif</td>
@@ -204,33 +204,33 @@
 				</table>
 			</td>
 			<td width="20%" class="title"> 
-				Surat Jalan
+				
 			</td>
-			<td width="40%">
+			<td width="50%">
 				<table>
 					<tr>
 						<td>No.Surat Jalan</td>
-						<td>: TA @if(!empty($data)) {{$data['nomor_surat']}} @endif</td>
+						<td>:  @if(!empty($data)) {{$data['nomor_surat']}} @endif</td>
 					</tr>
 					<tr>
 						<td>Tanggal</td>
 						<td>: @if(!empty($data)) {{$data['tanggal']}} @endif</td>
 					</tr>
 					<tr>
-						<td>Syarat Pbyr</td>
-						<td>: 0 hari</td>
+						<td></td>
+						<td></td>
 					</tr>
 					<tr>
-						<td>Jatuh Tempo</td>
-						<td>: @if(!empty($data['tanggal_jatuh_tempo'])) @if(!empty($data)) {{$data['tanggal_jatuh_tempo']}} @endif @else - @endif</td>
+						<td></td>
+						<td></td>
 					</tr>
 					<tr>
-						<td>ADMIN</td>
-						<td>: @if(!empty($data)) {{$data['admin']}} @endif</td>
+						<td></td>
+						<td></td>
 					</tr>
 					<tr>
-						<td>Time Printed</td>
-					<td>: @if(!empty($data)) {{$data['jam']}} @endif</td>
+						<td></td>
+					<td></td>
 					</tr>
 				</table>
 			</td>
