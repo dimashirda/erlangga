@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\LogTransaksi;
 use App\Barang;
 use App\BarangDetail;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ViewController extends Controller
 {

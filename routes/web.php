@@ -76,6 +76,7 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::get('/laporan','Laporan\ViewController@index');
 	Route::get('/laporan/penjualan','Laporan\ReadController@laporanPenjualan');
+	Route::get('/laporan/downlaod','Laporan\ReadController@downlaod');
 
 	Route::get('/pelanggan/detail/{id}','PelangganController@historiBelanja');
 	Route::get('/pelanggan/detail/{id}/{flag}','PelangganController@historiBelanja');

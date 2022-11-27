@@ -52,6 +52,16 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <p>Download</p>
+                        <div class="btn btn-box-tool text-xs-center">
+                            <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal_download" data-title="Laporan Kunjungan Harian">Download Excel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <div class="row">
@@ -66,7 +76,6 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-
                     <br>
                     @if($acc->count())
                     <div style="overflow-x:auto;">
@@ -128,6 +137,35 @@
                     <div class="col-3 col-md-4 col-xl-1">
                         <span>Tanggal Akhir</span>
                         <input type="text" name="tanggal2" class="form-control datepicker" autocomplete="off">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </form>    
+    </div>
+</div>
+<div id="modal_download" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+    <!-- Modal content-->
+        <form method="get" action="{{url('laporan/penjualan')}}">
+            {{ csrf_field() }}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Pilih Tanggal</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-3 col-md-4 col-xl-1">
+                        <span>Tanggal Mulai</span>
+                        <input type="text" name="tanggaldownload1" class="form-control datepicker" autocomplete="off">
+                    </div>
+                    <div class="col-3 col-md-4 col-xl-1">
+                        <span>Tanggal Akhir</span>
+                        <input type="text" name="tanggaldownload2" class="form-control datepicker" autocomplete="off">
                     </div>
                 </div>
                 <div class="modal-footer">
